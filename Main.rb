@@ -4,6 +4,12 @@ puts 'Hello World!'
 
 #adição de uso do Rake
 
-require "rake"
+require 'rubygems'
+
+require 'rails'
+
+require 'rspec'
+
+require 'rake'
 
 Rake.application.run
