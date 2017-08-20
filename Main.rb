@@ -12,4 +12,8 @@ require 'rspec'
 
 require 'rake'
 
+require 'cucumber'
+
+require 'watir'
+
 Rake.application.run
