@@ -1,6 +1,34 @@
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+# teste de uso do rake
+#casos de teste:
 
-require File.expand_path('../config/application', __FILE__)
+task :default => :mac_and_cheese
 
-Rails.application.load_tasks
+desc "Make Mac & Cheese"
+task :mac_and_cheese => [:boil_water, :buy_pasta, :buy_cheese] do
+	puts "Making Mac & Cheese"
+end
+
+task :go_to_store do
+	puts "Going to the Store"
+end
+
+namespace :apple do
+	task :go_to_store do
+		puts "Going to the Apple Store"
+	end
+end
+
+desc "Buy some delicious cheese"
+task :buy_cheese do
+	puts "Buying Cheese"
+end
+
+desc "Buy some quality pasta"
+task :buy_pasta do
+	puts "Buying Pasta"
+end
+
+desc "Boil the water"
+task :boil_water => [:buy_pasta, :buy_cheese] do
+	puts "Boiling Water"
+end
