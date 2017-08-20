@@ -7,4 +7,5 @@ O speedrun apresenta uma nova forma de competição nos games, onde a velocidade
 ## Integrantes
 Hugo Benjamim Fernandes Cavalcanti 9277106 <br>
 Mariana Soares Viana 9277110 <br>
-Henrique Silva Bortoletti 9424083
+Henrique Silva Bortoletti 9424083 <br>
+Matheus Alberto de Oliveira Ribeiro 9277562
