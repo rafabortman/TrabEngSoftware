@@ -6,8 +6,9 @@ O speedrun apresenta uma nova forma de competição nos games, onde a velocidade
 
 link do site no heroku: http://speedfy.herokuapp.com/
 ## Integrantes
-Hugo Benjamim Fernandes Cavalcanti 9277106 <br>
-Mariana Soares Viana 9277110 <br>
 Henrique Silva Bortoletti 9424083 <br>
+Hugo Benjamim Fernandes Cavalcanti 9277106 <br>
+Iago Matheus Lima de Godoy 8641876 <br>
+Mariana Soares Viana 9277110 <br>
 Matheus Alberto de Oliveira Ribeiro 9277562 <br>
 Rafael Bortman 8921263 <br>
