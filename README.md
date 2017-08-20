@@ -9,4 +9,5 @@ link do site no heroku: http://speedfy.herokuapp.com/
 Hugo Benjamim Fernandes Cavalcanti 9277106 <br>
 Mariana Soares Viana 9277110 <br>
 Henrique Silva Bortoletti 9424083 <br>
-Matheus Alberto de Oliveira Ribeiro 9277562
+Matheus Alberto de Oliveira Ribeiro 9277562 <br>
+Rafael Bortman 8921263 <br>
