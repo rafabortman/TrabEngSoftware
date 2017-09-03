@@ -1,0 +1,37 @@
+<%= form_for(@jogada) do |f| %>
+  <% if @jogada.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@jogada.errors.count, "error") %> prohibited this jogada from being saved:</h2>
+
+      <ul>
+      <% @jogada.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :plataforma %><br>
+    <%= f.text_field :plataforma %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.date_select :data %>
+  </div>
+  <div class="field">
+    <%= f.label :jogador %><br>
+    <%= f.text_field :jogador %>
+  </div>
+  <div class="field">
+    <%= f.label :jogo %><br>
+    <%= f.text_field :jogo %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Enviar" %>
+  </div>
+<% end %>
