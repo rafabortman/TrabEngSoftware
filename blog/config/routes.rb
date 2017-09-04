@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   resources :jogadas
   get 'welcome/index'
 
-  get 'welcome/index'
-  root to: "jogadas#index"
+  get 'jogadas/index', to: 'jogadas#index'    
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
