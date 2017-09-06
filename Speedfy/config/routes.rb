@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :usuarios
   resources :jogos
   resources :amigos
   root 'application#hello'
