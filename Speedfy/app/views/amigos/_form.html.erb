@@ -1,0 +1,27 @@
+<%= form_with(model: amigo, local: true) do |form| %>
+  <% if amigo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(amigo.errors.count, "error") %> prohibited this amigo from being saved:</h2>
+
+      <ul>
+      <% amigo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :usuarioId %>
+    <%= form.text_field :usuarioId, id: :amigo_usuarioId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amigoId %>
+    <%= form.text_field :amigoId, id: :amigo_amigoId %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
