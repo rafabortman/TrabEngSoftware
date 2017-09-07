@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Jogadas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plataforma</th>
+      <th>Data</th>
+      
+      <th>Jogador</th>
+      <th>Jogo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jogadas.each do |jogada| %>
+      <tr>
+        <td><%= jogada.plataforma %></td>
+        <td><%= jogada.data %></td>
+        
+        <td><%= jogada.jogador %></td>
+        <td><%= jogada.jogo %></td>
+        <td><%= link_to 'Mostrar', jogada %></td>
+        <td><%= link_to 'Editar', edit_jogada_path(jogada) %></td>
+        <td><%= link_to 'Apagar', jogada, method: :delete, data: { confirm: 'Deseja apagar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Jogada', new_jogada_path %>

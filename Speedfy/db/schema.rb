@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906220140) do
+ActiveRecord::Schema.define(version: 20170907194623) do
 
   create_table "amigos", force: :cascade do |t|
     t.string "usuarioId"
     t.string "amigoId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jogadas", force: :cascade do |t|
+    t.string "plataforma"
+    t.date "data"
+    t.string "link"
+    t.string "jogador"
+    t.string "jogo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

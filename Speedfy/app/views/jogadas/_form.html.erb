@@ -1,0 +1,42 @@
+<%= form_with(model: jogada, local: true) do |form| %>
+  <% if jogada.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jogada.errors.count, "error") %> Jogada não pode ser inserida:</h2>
+
+      <ul>
+      <% jogada.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :plataforma %>
+    <%= form.text_field :plataforma, id: :jogada_plataforma %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.date_select :data, id: :jogada_data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'embed Youtube link' %>
+    <%= form.text_field :link, id: :jogada_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :jogador %>
+    <%= form.text_field :jogador, id: :jogada_jogador %>
+  </div>
+
+  <div class="field">
+    <%= form.label :jogo %>
+    <%= form.text_field :jogo, id: :jogada_jogo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Enviar"%>
+  </div>
+<% end %>
