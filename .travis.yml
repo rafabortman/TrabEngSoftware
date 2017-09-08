@@ -1,5 +1,0 @@
-language: ruby
-script: cd Speedfy && bundle install && rake
-sudo: false
-dist: trusty
-
