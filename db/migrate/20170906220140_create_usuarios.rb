@@ -3,7 +3,6 @@ class CreateUsuarios < ActiveRecord::Migration[5.1]
     create_table :usuarios do |t|
       t.string :nome
       t.string :email
-      t.string :nacionalidade
       t.string :username
       t.string :senha
 
