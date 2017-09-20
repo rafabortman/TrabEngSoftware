@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907194623) do
+ActiveRecord::Schema.define(version: 20170920025630) do
 
   create_table "amigos", force: :cascade do |t|
     t.string "usuarioId"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170907194623) do
     t.string "senha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nacionalidade"
   end
 
 end
