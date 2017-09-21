@@ -1,5 +1,4 @@
 <a href="https://codeclimate.com/github/trabEngSoftware/TrabEngSoftware"><img src="https://codeclimate.com/github/trabEngSoftware/TrabEngSoftware/badges/gpa.svg" /></a><br>
-<a href="https://codeclimate.com/github/trabEngSoftware/TrabEngSoftware/coverage"><img src="https://codeclimate.com/github/trabEngSoftware/TrabEngSoftware/badges/coverage.svg" /></a><br>
 Travis CI : <a href="https://travis-ci.org/trabEngSoftware/TrabEngSoftware"><img src="https://travis-ci.org/trabEngSoftware/TrabEngSoftware.svg?branch=master" /></a><br>
 
 # Speedfy - Plataforma para divulgação de speedruns
