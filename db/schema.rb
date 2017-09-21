@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920025630) do
+ActiveRecord::Schema.define(version: 20170921041245) do
 
   create_table "amigos", force: :cascade do |t|
     t.string "usuarioId"

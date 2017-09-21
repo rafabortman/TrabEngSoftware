@@ -17,7 +17,7 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create jogo" do
     assert_difference('Jogo.count') do
-      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: @jogo.titulo } }
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: "HELLO" } }
     end
 
     assert_redirected_to jogo_url(Jogo.last)
@@ -34,7 +34,7 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update jogo" do
-    patch jogo_url(@jogo), params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: @jogo.titulo } }
+    patch jogo_url(@jogo), params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: "HELLO2" } }
     assert_redirected_to jogo_url(@jogo)
   end
 
@@ -62,5 +62,14 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
     end
 
   end
+
+  test "nao adicionar titulos repetidos" do
+    assert_difference("Jogo.count",2) do
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: "TESTE" } }
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: "TESTE" } }
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: "TESTE2" } }
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: "TESTE2" } }
+     end
+   end
 	
 end
