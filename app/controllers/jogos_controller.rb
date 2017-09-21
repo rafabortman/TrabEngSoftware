@@ -28,7 +28,7 @@ class JogosController < ApplicationController
 
     respond_to do |format|
       if @jogo.save
-        format.html { redirect_to @jogo, notice: 'Jogo was successfully created.' }
+        format.html { redirect_to @jogo, notice: 'Jogo foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @jogo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class JogosController < ApplicationController
   def update
     respond_to do |format|
       if @jogo.update(jogo_params)
-        format.html { redirect_to @jogo, notice: 'Jogo was successfully updated.' }
+        format.html { redirect_to @jogo, notice: 'Jogo foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @jogo }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class JogosController < ApplicationController
   def destroy
     @jogo.destroy
     respond_to do |format|
-      format.html { redirect_to jogos_url, notice: 'Jogo was successfully destroyed.' }
+      format.html { redirect_to jogos_url, notice: 'Jogo foi deletado com sucesso.' }
       format.json { head :no_content }
     end
   end

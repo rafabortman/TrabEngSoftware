@@ -17,7 +17,7 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create jogo" do
     assert_difference('Jogo.count') do
-      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem, titulo: @jogo.titulo } }
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: @jogo.titulo } }
     end
 
     assert_redirected_to jogo_url(Jogo.last)
@@ -34,7 +34,7 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update jogo" do
-    patch jogo_url(@jogo), params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem, titulo: @jogo.titulo } }
+    patch jogo_url(@jogo), params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: @jogo.titulo } }
     assert_redirected_to jogo_url(@jogo)
   end
 
@@ -45,4 +45,22 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to jogos_url
   end
+
+  test "nao adicionar jogos invalidos" do
+    assert_difference('Jogo.count',0) do
+      #titulo vazio
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: "" } }
+      #link nao eh uma imagem
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem, titulo: @jogo.titulo } }
+      #link com formato quase igual ao de uma imagem
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+"png", titulo: "" } }
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".pngg", titulo: @jogo.titulo } }
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".ngg", titulo: @jogo.titulo } }
+      #titulo gigantesco
+      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".png", titulo: "dasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasd" } }
+      
+    end
+
+  end
+	
 end
