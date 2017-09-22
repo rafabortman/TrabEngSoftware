@@ -5,6 +5,6 @@ class Usuario < ApplicationRecord
   validates_presence_of :username, message: "Campo de usuário deve ser preenchido"
   validates_presence_of :senha, message: "Campo de senha deve ser preenchido"
       
-  #validates :email, format: {with: /@/}
+  validates :email, format: {with: /@/}
   
 end
