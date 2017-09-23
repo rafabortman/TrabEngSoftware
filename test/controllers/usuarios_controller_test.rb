@@ -22,6 +22,21 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to usuario_url(Usuario.last)
   end
 
+  test "should not create usuario without @ at email" do
+    assert_no_difference('Usuario.count') do
+      post usuarios_url, params: { usuario: { email: "testegmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello" } }
+    end
+    assert_response :success
+  end
+
+  test "should not create usuario with existing email" do
+    assert_difference('Usuario.count') do
+      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello" } }
+      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "EN-US", nome: "Borgeous", senha: "teste", username: "Banana" } }
+    end
+    assert_response :success
+  end
+
   test "should show usuario" do
     get usuario_url(@usuario)
     assert_response :success
