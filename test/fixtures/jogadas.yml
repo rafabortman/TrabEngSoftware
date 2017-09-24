@@ -10,7 +10,7 @@ one:
   categoria: MyString
   link: MyString
   usuario: one
-  jogo: one
+  jogo: jogoCerto1
 
 two:
   texto_post: MyString
@@ -22,4 +22,4 @@ two:
   categoria: MyString
   link: MyString
   usuario: two
-  jogo: two
+  jogo: jogoCerto2
