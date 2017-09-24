@@ -1,5 +1,6 @@
 require 'test_helper'
 
+
 class JogadasControllerTest < ActionDispatch::IntegrationTest
   setup do
     @jogada = jogadas(:one)

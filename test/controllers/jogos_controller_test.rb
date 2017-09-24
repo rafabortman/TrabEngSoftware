@@ -1,5 +1,6 @@
 require 'test_helper'
 
+
 class JogosControllerTest < ActionDispatch::IntegrationTest
 	#algumas urls de imagens para os testes
 	#http://www.mobygames.com/images/covers/l/6126-super-mario-64-nintendo-64-front-cover.jpg

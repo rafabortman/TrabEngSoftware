@@ -1,5 +1,6 @@
 require 'test_helper'
 
+
 class UsuariosControllerTest < ActionDispatch::IntegrationTest
   setup do
     @usuario = usuarios(:one)
@@ -58,6 +59,11 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to usuarios_url
+  end
+
+  test "should get buscar" do
+    get "/buscar"
+    assert_response :success
   end
  
    

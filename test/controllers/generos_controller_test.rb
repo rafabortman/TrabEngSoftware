@@ -1,5 +1,6 @@
 require 'test_helper'
 
+
 class GenerosControllerTest < ActionDispatch::IntegrationTest
   setup do
     @genero = generos(:one)
