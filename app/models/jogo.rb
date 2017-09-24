@@ -3,6 +3,8 @@ require 'open-uri'
 require 'mini_magick'
 class Jogo < ApplicationRecord
 	has_many :jogadas
+	has_many :jogos_generos
+	has_many :generos, through: :jogos_generos
 	validates :titulo, presence: {message: "não pode estar vazio"}
 	validates :titulo, length: {maximum: 150, message: "não pode ultrapassar 150 caracteres"}
 	validates :titulo, uniqueness: {message: "já está sendo utilizado"}

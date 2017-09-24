@@ -6,13 +6,20 @@
 </p>
 
 <p>
-  <strong>Genero:</strong>
-  <%= @jogo.genero %>
+  <strong>Imagem:</strong>
+  <td><img src="data:image/jpg;base64,<%= @jogo.imagem %>"></td>
 </p>
 
 <p>
-  <strong>Imagem:</strong>
-  <td><img src="data:image/jpg;base64,<%= @jogo.imagem %>"></td>
+  <strong>Descrição:</strong>
+  <%= @jogo.descricao %>
+</p>
+
+<p>
+  <strong>Gêneros:</strong>
+  <% @jogo.generos do |genero| %>
+	<%genero.nome %>, 
+  <% end %>
 </p>
 
 <%= link_to 'Editar', edit_jogo_path(@jogo) %> |

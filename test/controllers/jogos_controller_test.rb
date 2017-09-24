@@ -21,7 +21,7 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create jogo" do
     assert_difference('Jogo.count') do
-      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: "https://images-na.ssl-images-amazon.com/images/I/51kJF0ZKhqL._CR7,0,485,485_UX128.jpg", titulo: "HELLO" } }
+      post jogos_url, params: { jogo: { descricao: "dasd", imagem: "https://images-na.ssl-images-amazon.com/images/I/51kJF0ZKhqL._CR7,0,485,485_UX128.jpg", titulo: "HELLO" } }
     end
 
     assert_redirected_to jogo_url(Jogo.last)
@@ -38,7 +38,7 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update jogo" do
-    patch jogo_url(@jogo), params: { jogo: { genero: @jogo.genero, imagem:"https://images-na.ssl-images-amazon.com/images/I/51kJF0ZKhqL._CR7,0,485,485_UX128.jpg", titulo: "HELLO2" } }
+    patch jogo_url(@jogo), params: { jogo: { descricao: "dasd", imagem:"https://images-na.ssl-images-amazon.com/images/I/51kJF0ZKhqL._CR7,0,485,485_UX128.jpg", titulo: "HELLO2" } }
     assert_redirected_to jogo_url(@jogo)
   end
 
@@ -53,14 +53,14 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
   test "nao adicionar jogos invalidos" do
     assert_difference('Jogo.count',0) do
       #titulo vazio
-      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem:"http://www.mobygames.com/images/covers/l/6126-super-mario-64-nintendo-64-front-cover.jpg", titulo: "" } }
+      post jogos_url, params: { jogo: { descricao: "dasd", imagem:"http://www.mobygames.com/images/covers/l/6126-super-mario-64-nintendo-64-front-cover.jpg", titulo: "" } }
       #link nao eh uma imagem
-      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem, titulo: @jogo.titulo } }
+      post jogos_url, params: { jogo: { descricao: "dasd", imagem: @jogo.imagem, titulo: @jogo.titulo } }
       #link de imagem inexistente
-      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: "QUALQUER COISA PRA INVALIDAR O LINK"+"http://www.mobygames.com/images/covers/l/6126-super-mario-64-nintendo-64-front-cover.jpg", titulo: @jogo.titulo } }
-      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: @jogo.imagem+".ngg", titulo: @jogo.titulo } }
+      post jogos_url, params: { jogo: { descricao: "dasd", imagem: "QUALQUER COISA PRA INVALIDAR O LINK"+"http://www.mobygames.com/images/covers/l/6126-super-mario-64-nintendo-64-front-cover.jpg", titulo: @jogo.titulo } }
+      post jogos_url, params: { jogo: { descricao: "dasd", imagem: @jogo.imagem+".ngg", titulo: @jogo.titulo } }
       #titulo gigantesco
-      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: "https://images-na.ssl-images-amazon.com/images/I/51kJF0ZKhqL._CR7,0,485,485_UX128.jpg", titulo: "dasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasd" } }
+      post jogos_url, params: { jogo: { descricao: "dasd", imagem: "https://images-na.ssl-images-amazon.com/images/I/51kJF0ZKhqL._CR7,0,485,485_UX128.jpg", titulo: "dasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasddasdqwasdasdqwdasdqweadwdadasdqweasd" } }
       
     end
 
@@ -68,8 +68,8 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
 
   test "nao adicionar titulos repetidos" do
     assert_difference("Jogo.count",1) do
-      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: "http://www.mobygames.com/images/covers/l/6126-super-mario-64-nintendo-64-front-cover.jpg", titulo: "TESTE" } }
-      post jogos_url, params: { jogo: { genero: @jogo.genero, imagem: "https://images-na.ssl-images-amazon.com/images/I/51kJF0ZKhqL._CR7,0,485,485_UX128.jpg", titulo: "TESTE" } }
+      post jogos_url, params: { jogo: { descricao: "dasd", imagem: "http://www.mobygames.com/images/covers/l/6126-super-mario-64-nintendo-64-front-cover.jpg", titulo: "TESTE" } }
+      post jogos_url, params: { jogo: { descricao: "dasd", imagem: "https://images-na.ssl-images-amazon.com/images/I/51kJF0ZKhqL._CR7,0,485,485_UX128.jpg", titulo: "TESTE" } }
      end
    end
 	

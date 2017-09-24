@@ -10,19 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923210703) do
-
-  create_table "Jogos", force: :cascade do |t|
-    t.string "titulo"
-    t.string "genero"
-    t.string "imagem"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20170924084445) do
 
   create_table "amigos", force: :cascade do |t|
     t.string "usuarioId"
     t.string "amigoId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "generos", force: :cascade do |t|
+    t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +40,23 @@ ActiveRecord::Schema.define(version: 20170923210703) do
     t.datetime "updated_at", null: false
     t.index ["jogo_id"], name: "index_jogadas_on_jogo_id"
     t.index ["usuario_id"], name: "index_jogadas_on_usuario_id"
+  end
+
+  create_table "jogos", force: :cascade do |t|
+    t.string "titulo"
+    t.string "imagem"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "descricao"
+  end
+
+  create_table "jogos_generos", force: :cascade do |t|
+    t.integer "jogo_id"
+    t.integer "genero_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genero_id"], name: "index_jogos_generos_on_genero_id"
+    t.index ["jogo_id"], name: "index_jogos_generos_on_jogo_id"
   end
 
   create_table "usuarios", force: :cascade do |t|

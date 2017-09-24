@@ -2,10 +2,9 @@
 
 one:
   titulo: MyString
-  genero: MyString
   imagem: MyString
-
+  descricao: MyString
 two:
   titulo: MyString
-  genero: MyString
   imagem: MyString
+  descricao: MyString
