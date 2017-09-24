@@ -10,6 +10,7 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'mini_magick'
 gem 'coveralls', require: false
+gem 'bootstrap', '~> 4.0.0.beta'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
