@@ -9,6 +9,7 @@
       <th>Titulo</th>
       <th>Imagem</th>
       <th>Descricao</th>
+      <th>Gêneros</th> 
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,6 +20,12 @@
         <td><%= jogo.titulo %></td>
         <td><img src="data:image/jpg;base64,<%= jogo.imagem %>"></td>
 	<td><%= jogo.descricao %></td>
+	<td>
+	   <% cont = jogo.generos.length-1 %>
+	   <% jogo.generos.each do |genero| %>
+	   <%=genero.nome %><% if cont > 0 %>,<% cont = cont-1 %><% end %> 
+	   <% end %>
+	</td>
         <td><%= link_to 'Mostrar', jogo %></td>
         <td><%= link_to 'Editar', edit_jogo_path(jogo) %></td>
         <td><%= link_to 'Deletar', jogo, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>

@@ -26,6 +26,20 @@
     <%= form.text_field :descricao, id: :jogo_descricao %>
   </div>
 
+  <div class="field">
+    <%= form.label :generos %>
+    <% cont = 0 %>
+
+    <% @generos.each do |genero| %>
+    	<%= check_box_tag 'genero_ids[]', genero.id, jogo.generos.include?(genero) %>
+    	<%= h genero.nome %>
+	<% if cont % 3  == 2 %>
+	<p>
+	<% end %>
+	<% cont = cont+1 %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
