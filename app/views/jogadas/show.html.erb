@@ -1,28 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Comentários da jogada:</strong>
+  <%= @jogada.texto_post %>
+</p>
+
+<p>
   <strong>Plataforma:</strong>
   <%= @jogada.plataforma %>
 </p>
 
 <p>
-  <strong>Data:</strong>
+  <strong>Data da jogada:</strong>
   <%= @jogada.data %>
 </p>
 
 
+<p>
+  <strong>Tempo da jogada:</strong>
+  <%= @jogada.tempo_horas %> horas <%= @jogada.tempo_minutos %> minutos <%= @jogada.tempo_segundos %> segundos!
+</p>
 
 <p>
-  <strong>Jogador:</strong>
-  <%= @jogada.jogador %>
+  <strong>Categoria:</strong>
+  <%= @jogada.categoria %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @jogada.usuario.nome %>
 </p>
 
 <p>
   <strong>Jogo:</strong>
-  <%= @jogada.jogo %>
+  <%= @jogada.jogo.titulo %>
 </p>
 
 <%= link_to 'Editar', edit_jogada_path(@jogada) %> |
 <%= link_to 'Retornar', jogadas_path %>
-<br>
 <iframe width="560" height="315" src="<%= @jogada.link %>" frameborder="0" allowfullscreen></iframe>

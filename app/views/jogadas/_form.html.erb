@@ -1,7 +1,7 @@
 <%= form_with(model: jogada, local: true) do |form| %>
   <% if jogada.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(jogada.errors.count, "error") %> Jogada não pode ser inserida:</h2>
+      <h2><%= pluralize(jogada.errors.count, "error") %> prohibited this jogada from being saved:</h2>
 
       <ul>
       <% jogada.errors.full_messages.each do |message| %>
@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= form.label :texto_post %>
+    <%= form.text_field :texto_post, id: :jogada_texto_post %>
+  </div>
 
   <div class="field">
     <%= form.label :plataforma %>
@@ -22,21 +27,41 @@
   </div>
 
   <div class="field">
+    <%= form.label :tempo_horas %>
+    <%= form.number_field :tempo_horas, id: :jogada_tempo_horas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tempo_minutos %>
+    <%= form.number_field :tempo_minutos, id: :jogada_tempo_minutos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tempo_segundos %>
+    <%= form.number_field :tempo_segundos, id: :jogada_tempo_segundos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :categoria %>
+    <%= form.text_field :categoria, id: :jogada_categoria %>
+  </div>
+
+  <div class="field">
     <%= form.label :'embed Youtube link' %>
     <%= form.text_field :link, id: :jogada_link %>
   </div>
 
   <div class="field">
-    <%= form.label :jogador %>
-    <%= form.text_field :jogador, id: :jogada_jogador %>
+    <%= form.label :usuario_id %>
+    <%= form.text_field :usuario_id, id: :jogada_usuario_id %>
   </div>
 
   <div class="field">
-    <%= form.label :jogo %>
-    <%= form.text_field :jogo, id: :jogada_jogo %>
+    <%= form.label :jogo_id %>
+    <%= form.text_field :jogo_id, id: :jogada_jogo_id %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Enviar"%>
+    <%= form.submit "Enviar" %>
   </div>
 <% end %>

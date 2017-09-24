@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921044347) do
+ActiveRecord::Schema.define(version: 20170923210703) do
 
   create_table "Jogos", force: :cascade do |t|
     t.string "titulo"
@@ -28,13 +28,20 @@ ActiveRecord::Schema.define(version: 20170921044347) do
   end
 
   create_table "jogadas", force: :cascade do |t|
+    t.string "texto_post"
     t.string "plataforma"
     t.date "data"
+    t.integer "tempo_horas"
+    t.integer "tempo_minutos"
+    t.integer "tempo_segundos"
+    t.string "categoria"
     t.string "link"
-    t.string "jogador"
-    t.string "jogo"
+    t.integer "usuario_id"
+    t.integer "jogo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["jogo_id"], name: "index_jogadas_on_jogo_id"
+    t.index ["usuario_id"], name: "index_jogadas_on_usuario_id"
   end
 
   create_table "usuarios", force: :cascade do |t|

@@ -5,10 +5,12 @@
 <table>
   <thead>
     <tr>
+      <th>Texto post</th>
       <th>Plataforma</th>
       <th>Data</th>
-      
-      <th>Jogador</th>
+      <th>Tempo da jogada</th>
+      <th>Categoria</th>
+      <th>Usuario</th>
       <th>Jogo</th>
       <th colspan="3"></th>
     </tr>
@@ -17,14 +19,16 @@
   <tbody>
     <% @jogadas.each do |jogada| %>
       <tr>
+        <td><%= jogada.texto_post %></td>
         <td><%= jogada.plataforma %></td>
         <td><%= jogada.data %></td>
-        
-        <td><%= jogada.jogador %></td>
-        <td><%= jogada.jogo %></td>
+        <td><%= jogada.tempo_horas %> : <%= jogada.tempo_minutos %> : <%= jogada.tempo_segundos %></td>
+        <td><%= jogada.categoria %></td>
+        <td><%= jogada.usuario.nome %></td>
+        <td><%= jogada.jogo.titulo %></td>
         <td><%= link_to 'Mostrar', jogada %></td>
         <td><%= link_to 'Editar', edit_jogada_path(jogada) %></td>
-        <td><%= link_to 'Apagar', jogada, method: :delete, data: { confirm: 'Deseja apagar?' } %></td>
+        <td><%= link_to 'Excluir', jogada, method: :delete, data: { confirm: 'Confirma exclusão?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +36,4 @@
 
 <br>
 
-<%= link_to 'Nova Jogada', new_jogada_path %>
+<%= link_to 'Inserir Jogada', new_jogada_path %>
