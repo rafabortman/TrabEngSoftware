@@ -61,6 +61,15 @@ class UsuariosController < ApplicationController
     end
   end
 
+  # GET /buscar
+  def buscar
+  end
+
+  # POST /buscar/mostrarResultados
+  def mostrarResultados
+    @usuarios = Usuario.where(["username LIKE ?", "%#{params[:username]}%"])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario
