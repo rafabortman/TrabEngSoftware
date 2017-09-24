@@ -18,10 +18,20 @@ class GenerosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create genero" do
     assert_difference('Genero.count') do
-      post generos_url, params: { genero: { nome: @genero.nome } }
+      post generos_url, params: { genero: { nome: "novo genero" } }
     end
 
     assert_redirected_to genero_url(Genero.last)
+  end
+
+  test "nao repetir genero" do
+    assert_difference('Genero.count',2) do
+      post generos_url, params: { genero: { nome: "novo genero" } }
+      post generos_url, params: { genero: { nome: "novo genero" } }
+      post generos_url, params: { genero: { nome: "mais um novo" } }
+      post generos_url, params: { genero: { nome: "mais um novo" } }
+    end
+
   end
 
   test "should show genero" do
@@ -35,7 +45,7 @@ class GenerosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update genero" do
-    patch genero_url(@genero), params: { genero: { nome: @genero.nome } }
+    patch genero_url(@genero), params: { genero: { nome: "renovando genero" } }
     assert_redirected_to genero_url(@genero)
   end
 

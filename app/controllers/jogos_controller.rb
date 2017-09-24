@@ -15,22 +15,26 @@ class JogosController < ApplicationController
   # GET /jogos/new
   def new
     @jogo = Jogo.new
+    @generos = Genero.all
   end
 
   # GET /jogos/1/edit
   def edit
+    @generos = Genero.all
   end
 
   # POST /jogos
   # POST /jogos.json
   def create
     @jogo = Jogo.new(jogo_params)
+    generos = params[:genero_ids]
     respond_to do |format|
-      if @jogo.save
+      if @jogo.salvar (generos)
         format.html { redirect_to @jogo, notice: 'Jogo foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @jogo }
       else
         format.html { render :new }
+	@generos = Genero.all
         format.json { render json: @jogo.errors, status: :unprocessable_entity }
       end
     end
@@ -39,12 +43,14 @@ class JogosController < ApplicationController
   # PATCH/PUT /jogos/1
   # PATCH/PUT /jogos/1.json
   def update
+    generos = params[:genero_ids]
     respond_to do |format|
-      if @jogo.update(jogo_params)
+      if @jogo.atualizar(jogo_params,generos)
         format.html { redirect_to @jogo, notice: 'Jogo foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @jogo }
       else
         format.html { render :edit }
+	@generos = Genero.all
         format.json { render json: @jogo.errors, status: :unprocessable_entity }
       end
     end
@@ -68,6 +74,6 @@ class JogosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jogo_params
-      params.require(:jogo).permit(:titulo, :genero, :imagem)
+      params.require(:jogo).permit(:titulo, :imagem, :descricao)
     end
 end

@@ -5,5 +5,13 @@
   <%= @genero.nome %>
 </p>
 
-<%= link_to 'Edit', edit_genero_path(@genero) %> |
-<%= link_to 'Back', generos_path %>
+<strong>Jogos:</strong>
+<% @genero.jogos.each do |jogo| %>
+	<td><%= link_to jogo.titulo, jogo %></td>
+       	<td><img src="data:image/jpg;base64,<%= jogo.imagem %>"></td>
+
+<% end %>
+<p>
+
+<%= link_to 'Editar', edit_genero_path(@genero) %> |
+<%= link_to 'Voltar', generos_path %>
