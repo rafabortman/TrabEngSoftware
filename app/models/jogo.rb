@@ -28,7 +28,7 @@ class ValidarImagem
            	@jogo.imagem = Base64.encode64(open(image.path) { |f| f.read })
 	   rescue
 		
-	  	@jogo.errors[:imagem] <<"não foi possível carregar a imagem"
+	  	@jogo.errors[:imagem] <<"-> não foi possível carregar"
 	   	#return
 	   end
 	end
