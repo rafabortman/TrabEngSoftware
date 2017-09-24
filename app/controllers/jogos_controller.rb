@@ -25,7 +25,6 @@ class JogosController < ApplicationController
   # POST /jogos.json
   def create
     @jogo = Jogo.new(jogo_params)
-
     respond_to do |format|
       if @jogo.save
         format.html { redirect_to @jogo, notice: 'Jogo foi criado com sucesso.' }

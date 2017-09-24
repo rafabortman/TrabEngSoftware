@@ -12,7 +12,7 @@
 
 <p>
   <strong>Imagem:</strong>
-  <td><img src="<%= @jogo.imagem %>"></td>
+  <td><img src="data:image/jpg;base64,<%= @jogo.imagem %>"></td>
 </p>
 
 <%= link_to 'Editar', edit_jogo_path(@jogo) %> |

@@ -17,7 +17,7 @@
       <tr>
         <td><%= jogo.titulo %></td>
         <td><%= jogo.genero %></td>
-        <td><img src="<%= jogo.imagem %>"></td>
+        <td><img src="data:image/jpg;base64,<%= jogo.imagem %>"></td>
         <td><%= link_to 'Mostrar', jogo %></td>
         <td><%= link_to 'Editar', edit_jogo_path(jogo) %></td>
         <td><%= link_to 'Deletar', jogo, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
