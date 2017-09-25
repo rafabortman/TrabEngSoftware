@@ -15,4 +15,12 @@ def userLength(user)
   end
 user
 end
+def gameLength(game)
+   if game.mb_chars.length > 40
+   game = game[0..40]
+  end
+game
+end
+
+
 end
