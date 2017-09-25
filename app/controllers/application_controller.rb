@@ -9,6 +9,7 @@ render html: '<h1>Welcome to<a style="color:GoldenRod"> Speedfy</a></h1>
 			<li><a href="/amigos">amigos</a></li>
 			<li><a href="/usuarios">usuarios</a></li>
 			<li><a href="/buscar">Buscar usuarios</a></li>
+			<li><a href="/home">home</a></li>
 </ul>
 
 '.html_safe
