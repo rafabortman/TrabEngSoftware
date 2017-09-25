@@ -5,7 +5,7 @@
         <h4>Runs</h4 >
         </div>
        <div class="home_space col-sm-6 col-md-12">
-<% 5.times do %>       
+<% @jogadas.each do |jogada| %>       
      <div class="home_runs  col-sm-6 col-md-12" >
  <div class="home_run col-sm-6 col-md-12 " >
                     <div class="d-flex flex-row-reverse">
@@ -49,6 +49,49 @@
            </div>                                                            
  </div>
         <% end %>
+<div class="home_runs  col-sm-6 col-md-12" >
+ <div class="home_run col-sm-6 col-md-12 " >
+                    <div class="d-flex flex-row-reverse">
+                    <div class="d-flex flex-column  p-2 w-100  " >
+                    <div class="home_run_title p-2  ">
+                        <h4>Super Mario Galaxy 2</h4>
+                    </div>
+                    <div class="home_run_description p-2 ">
+                    <!-- Talvez dividir os itens em duas linhas -->
+                    <ul class="home_run_description_list  ">
+                    <li class="home_rdl_user home_rdl_item">
+			<span class="fa fa-user"/> <%= userLength("RickLoucoooooo0000000000000000000000oooooooooooooooo")%>
+                    </li>
+                    <li class="home_rdl_position home_rdl_item">
+                        <span class="fa fa-trophy" style="color:gold">
+</span> 1st
+                    </li>
+                    <li class="home_rdl_time home_rdl_item">
+                        <span class="fa fa-bolt" /> 09:09:09
+                    </li>
+                    <li class="home_rdl_categoria home_rdl_item">
+                        <span class="fa fa-cogs" style="color:#9498a1"></span> Any%
+                    </li>
+                    <li class="home_rdl_plataforma home_rdl_item">
+                        <span class="fa fa-gamepad"/> Computer    <!-- Talvez tirar isso para caber todos os itens -->
+                    </li>
+                    <li class="home_rdl_link home_rdl_item">
+                        <a href="https://youtu.be/AzBRiwbZxIs" target="_blank"><span class="fa fa-youtube-play" style="color:red;"/></a>
+                    </li>
+                    </ul>
+                    </div>
+                    <div class="home_run_post p-2 ">
+                        It was a hard run but I did it
+                        </div>
+                        </div>
+                    <div class="home_run_image p-2 d-inline-block  ">
+                    <img class="img-thumbnail "
+ src="https://dannosekai.files.wordpress.com/2010/03/78773978.jpg" />
+             </div>
+            </div>
+           </div>
+ </div>
+
          </div>
         </div>
        </div>

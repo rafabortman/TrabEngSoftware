@@ -92,7 +92,7 @@ height:25%;
 .home_run_post {
 
     width:100%;
-    display: block; /* or inline-block */
+    display: block; 
     text-overflow: ellipsis;
     word-wrap: break-word;
   overflow: hidden;
@@ -109,9 +109,12 @@ font-size:1em;
     }
 
 .home_run_description li{
-    margin-right: 5%;
-    display:inline;   
+    margin-right: 3%;
+    display:inline-block;   
 
 }
-
+.home_rdl_user {
+  min-width: 22%;
+  max-width: 22%;
+}
 

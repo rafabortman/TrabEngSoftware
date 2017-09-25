@@ -8,4 +8,11 @@ def pageTitle(name)
    return name + " | "+ default
 end
 end
+
+def userLength(user)
+   if user.mb_chars.length > 13
+   user = user[0..13]	
+  end
+user
+end
 end
