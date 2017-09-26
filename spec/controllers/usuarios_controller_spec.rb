@@ -54,6 +54,24 @@ RSpec.describe UsuariosController, type: :controller do
     end
   end
 
+  describe "GET #buscar" do
+    it "returns a success response" do
+      get :buscar, params: {}, session: valid_session
+      expect(response).to be_success
+    end
+  end
+
+  describe "POST #mostrarResultados" do
+    it "returns a list of existing users" do
+      post :create, params: {usuario: valid_attributes}, session: valid_session
+      post :create, params: {usuario: {nome:"Jonas",email:"jonasdeveloper@gmail.com",username:"johndev",senha:"fullstack",nacionalidade:"Brasileiro"}, session: valid_session}
+      post :mostrarResultados, params:{username:"john"}
+      result = JSON.parse(response.body)
+      result.size.should eq(2)
+      response.should be_ok
+    end
+  end
+
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Usuario" do
@@ -61,6 +79,7 @@ RSpec.describe UsuariosController, type: :controller do
           post :create, params: {usuario: valid_attributes}, session: valid_session
         }.to change(Usuario, :count).by(1)
       end
+
 
       it "redirects to the created usuario" do
         post :create, params: {usuario: valid_attributes}, session: valid_session
