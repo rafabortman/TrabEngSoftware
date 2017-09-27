@@ -4,7 +4,7 @@ class JogadasController < ApplicationController
   # GET /jogadas
   # GET /jogadas.json
   def index
-    @jogadas = Jogada.all
+    @jogadas = Jogada.order('tempo_horas,tempo_minutos,tempo_segundos')
   end
 
   # GET /jogadas/1
@@ -60,6 +60,13 @@ class JogadasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  #GET /ranking
+  def mostrarRanking
+    @jogadas = Jogada.group(:categoria).order('tempo_horas,tempo_minutos,tempo_segundos')
+  end
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +76,6 @@ class JogadasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jogada_params
-      params.require(:jogada).permit(:plataforma, :data, :link, :jogador, :jogo)
+      params.require(:jogada).permit(:texto_post, :plataforma, :data, :tempo_horas, :tempo_minutos, :tempo_segundos, :categoria, :link, :usuario_id, :jogo_id)
     end
 end

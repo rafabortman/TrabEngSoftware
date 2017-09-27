@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @genero.nome %>
+</p>
+
+<strong>Jogos:</strong>
+<% @genero.jogos.each do |jogo| %>
+	<td><%= link_to jogo.titulo, jogo %></td>
+       	<td><img src="data:image/jpg;base64,<%= jogo.imagem %>"></td>
+
+<% end %>
+<p>
+
+<%= link_to 'Editar', edit_genero_path(@genero) %> |
+<%= link_to 'Voltar', generos_path %>

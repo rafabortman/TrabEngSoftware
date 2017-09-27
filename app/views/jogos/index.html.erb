@@ -1,3 +1,4 @@
+<%= provide(:title, 'jogos') %>
 <p id="notice"><%= notice %></p>
 
 <h1>Jogos</h1>
@@ -6,8 +7,9 @@
   <thead>
     <tr>
       <th>Titulo</th>
-      <th>Genero</th>
       <th>Imagem</th>
+      <th>Descricao</th>
+      <th>Gêneros</th> 
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,11 +18,17 @@
     <% @jogos.each do |jogo| %>
       <tr>
         <td><%= jogo.titulo %></td>
-        <td><%= jogo.genero %></td>
-        <td><img src="<%= jogo.imagem %>"></td>
-        <td><%= link_to 'Show', jogo %></td>
-        <td><%= link_to 'Edit', edit_jogo_path(jogo) %></td>
-        <td><%= link_to 'Destroy', jogo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><img src="data:image/jpg;base64,<%= jogo.imagem %>"></td>
+	<td><%= jogo.descricao %></td>
+	<td>
+	   <% cont = jogo.generos.length-1 %>
+	   <% jogo.generos.each do |genero| %>
+	   <%=genero.nome %><% if cont > 0 %>,<% cont = cont-1 %><% end %> 
+	   <% end %>
+	</td>
+        <td><%= link_to 'Mostrar', jogo %></td>
+        <td><%= link_to 'Editar', edit_jogo_path(jogo) %></td>
+        <td><%= link_to 'Deletar', jogo, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Jogo', new_jogo_path %>
+<%= link_to 'Novo Jogo', new_jogo_path %>

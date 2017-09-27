@@ -6,14 +6,22 @@
 </p>
 
 <p>
-  <strong>Genero:</strong>
-  <%= @jogo.genero %>
+  <strong>Imagem:</strong>
+  <td><img src="data:image/jpg;base64,<%= @jogo.imagem %>"></td>
 </p>
 
 <p>
-  <strong>Imagem:</strong>
-  <%= @jogo.imagem %>
+  <strong>Descrição:</strong>
+  <%= @jogo.descricao %>
 </p>
 
-<%= link_to 'Edit', edit_jogo_path(@jogo) %> |
-<%= link_to 'Back', jogos_path %>
+<p>
+  <strong>Gêneros:</strong>
+  <% cont = @jogo.generos.length-1 %>
+  <% @jogo.generos.each do |genero| %>
+	<%=genero.nome %><% if cont > 0 %>,<% cont = cont-1 %><% end %> 
+  <% end %>
+</p>
+
+<%= link_to 'Editar', edit_jogo_path(@jogo) %> |
+<%= link_to 'Voltar', jogos_path %>

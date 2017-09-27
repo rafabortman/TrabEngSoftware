@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <tr>
+            <th>Tempo da jogada</th>
+            <th>Jogador</th>
+            <th>Jogo</th>
+            <th colspan="1"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @jogadas.each do |jogada| %>
+            <tr>
+                <td><%= jogada.tempo_horas %>:<%jogada.tempo_minutos %>:<%jogada.tempo_segundos%> </td>
+                <td><%= jogada.jogador%></td>
+            </tr>
+        <% end %>
+    </tbody>
+    
+</table>

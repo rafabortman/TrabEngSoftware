@@ -1,5 +1,6 @@
 require 'test_helper'
 
+
 class UsuariosControllerTest < ActionDispatch::IntegrationTest
   setup do
     @usuario = usuarios(:one)
@@ -17,10 +18,24 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create usuario" do
     assert_difference('Usuario.count') do
-      post usuarios_url, params: { usuario: { email: @usuario.email, nome: @usuario.nome, senha: @usuario.senha, username: @usuario.username } }
+      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello" } }
     end
-
     assert_redirected_to usuario_url(Usuario.last)
+  end
+
+  test "should not create usuario without @ at email" do
+    assert_no_difference('Usuario.count') do
+      post usuarios_url, params: { usuario: { email: "testegmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello" } }
+    end
+    assert_response :success
+  end
+
+  test "should not create usuario with existing email" do
+    assert_difference('Usuario.count') do
+      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello" } }
+      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "EN-US", nome: "Borgeous", senha: "teste", username: "Banana" } }
+    end
+    assert_response :success
   end
 
   test "should show usuario" do
@@ -34,7 +49,7 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update usuario" do
-    patch usuario_url(@usuario), params: { usuario: { email: @usuario.email, nome: @usuario.nome, senha: @usuario.senha, username: @usuario.username } }
+    patch usuario_url(@usuario), params: { usuario: { email: "teste@gmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello" } }
     assert_redirected_to usuario_url(@usuario)
   end
 
@@ -45,4 +60,13 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to usuarios_url
   end
+
+  test "should get buscar" do
+    get "/buscar"
+    assert_response :success
+  end
+ 
+   
+  
+
 end

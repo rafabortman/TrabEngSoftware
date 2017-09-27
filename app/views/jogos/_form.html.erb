@@ -1,7 +1,7 @@
 <%= form_with(model: jogo, local: true) do |form| %>
   <% if jogo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(jogo.errors.count, "error") %> prohibited this jogo from being saved:</h2>
+      <h2><%= pluralize(jogo.errors.count, "erro") %> impediram o jogo de ser salvo:</h2>
 
       <ul>
       <% jogo.errors.full_messages.each do |message| %>
@@ -17,13 +17,27 @@
   </div>
 
   <div class="field">
-    <%= form.label :genero %>
-    <%= form.text_field :genero, id: :jogo_genero %>
+    <%= form.label :imagem %>
+    <%= form.text_field :imagem, id: :jogo_imagem %>
   </div>
 
   <div class="field">
-    <%= form.label :imagem %>
-    <%= form.text_field :imagem, id: :jogo_imagem %>
+    <%= form.label :descricao %>
+    <%= form.text_field :descricao, id: :jogo_descricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :generos %>
+    <% cont = 0 %>
+
+    <% @generos.each do |genero| %>
+    	<%= check_box_tag 'genero_ids[]', genero.id, jogo.generos.include?(genero) %>
+    	<%= h genero.nome %>
+	<% if cont % 3  == 2 %>
+	<p>
+	<% end %>
+	<% cont = cont+1 %>
+    <% end %>
   </div>
 
   <div class="actions">

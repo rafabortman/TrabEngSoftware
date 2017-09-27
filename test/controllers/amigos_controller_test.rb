@@ -1,5 +1,7 @@
 require 'test_helper'
 
+
+
 class AmigosControllerTest < ActionDispatch::IntegrationTest
   setup do
     @amigo = amigos(:one)
