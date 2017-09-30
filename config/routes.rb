@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :usuarios
   resources :jogos
   resources :amigos
-  root 'application#hello'
+  root 'index#home'
   get 'buscar' => 'usuarios#buscar'
   post 'buscar/mostrarResultados' => 'usuarios#mostrarResultados'
   get 'home' => 'index#home'
