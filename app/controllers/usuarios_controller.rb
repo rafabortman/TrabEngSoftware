@@ -68,7 +68,10 @@ class UsuariosController < ApplicationController
   # POST /buscar/mostrarResultados
   def mostrarResultados
     @usuarios = Usuario.where(["username LIKE ?", "%#{params[:username]}%"])
-    render json: @usuarios
+    respond_to do |format|
+        format.html
+        format.json {    render json: @usuarios   }
+    end
   end
 
   private

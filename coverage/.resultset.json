@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/controllers/amigos_controller.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/controllers/amigos_controller.rb": [
         1,
         1,
         null,
@@ -77,27 +77,12 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/controllers/application_controller.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/controllers/application_controller.rb": [
         1,
         1,
-        1,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/spec/controllers/generos_controller_spec.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/spec/controllers/generos_controller_spec.rb": [
         1,
         1,
         1,
@@ -215,7 +200,7 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/controllers/generos_controller.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/controllers/generos_controller.rb": [
         1,
         1,
         null,
@@ -291,7 +276,7 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/spec/controllers/jogadas_controller_spec.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/spec/controllers/jogadas_controller_spec.rb": [
         1,
         1,
         1,
@@ -424,7 +409,7 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/controllers/jogadas_controller.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/controllers/jogadas_controller.rb": [
         1,
         1,
         null,
@@ -507,7 +492,7 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/spec/controllers/jogos_controller_spec.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/spec/controllers/jogos_controller_spec.rb": [
         1,
         1,
         1,
@@ -628,7 +613,7 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/controllers/jogos_controller.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/controllers/jogos_controller.rb": [
         1,
         1,
         null,
@@ -709,7 +694,7 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/spec/controllers/usuarios_controller_spec.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/spec/controllers/usuarios_controller_spec.rb": [
         1,
         1,
         1,
@@ -853,7 +838,7 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/controllers/usuarios_controller.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/controllers/usuarios_controller.rb": [
         1,
         1,
         null,
@@ -939,23 +924,23 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/models/amigo.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/models/amigo.rb": [
         1,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/models/application_record.rb": [
-        1,
-        1,
-        null
-      ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/models/genero.rb": [
-        1,
-        1,
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/models/jogada.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/models/genero.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/models/jogada.rb": [
         1,
         1,
         1,
@@ -968,7 +953,7 @@
         1,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/models/usuario.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/models/usuario.rb": [
         1,
         1,
         1,
@@ -982,7 +967,7 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/models/jogo.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/models/jogo.rb": [
         1,
         1,
         1,
@@ -1053,13 +1038,13 @@
         null,
         null
       ],
-      "/home/iagogodoy/Documents/TrabEngSoftware/app/models/jogos_genero.rb": [
+      "/home/iagogodoy/Documents/speedfy/TrabEngSoftware/app/models/jogos_genero.rb": [
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1506392313
+    "timestamp": 1506890552
   }
 }
