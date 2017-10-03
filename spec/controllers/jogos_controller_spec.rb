@@ -7,7 +7,7 @@ RSpec.describe JogosController, type: :controller do
   let(:valid_attributes) {
     {
       titulo:"Mario Bros",
-      imagem:"https://s3.minijuegosgratis.com/media/video-collection-img/video-collection-super-mario-run-thumb.jpg",
+      imagem_url:"https://s3.minijuegosgratis.com/media/video-collection-img/video-collection-super-mario-run-thumb.jpg",
       descricao:"Side scroller classico"      
     }
   }
@@ -21,7 +21,7 @@ RSpec.describe JogosController, type: :controller do
 
   describe "GET #index" do
     it "returns a success response" do
-      jogo = Jogo.create! valid_attributes
+      jogo = Jogo.create valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
