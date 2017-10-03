@@ -5,9 +5,14 @@ one:
   email: MyString
   username: MyString
   senha: MyString
-
 two:
   nome: MyString
   email: MyString
   username: MyString
   senha: MyString
+usuariobase:
+  nome: Usuario Teste Jogadas Rspec
+  email: testeemail@gmail.com
+  username: testeemail
+  senha: testeemail
+  

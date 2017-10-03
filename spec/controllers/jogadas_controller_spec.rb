@@ -4,10 +4,7 @@ Coveralls.wear!
 
 RSpec.describe JogadasController, type: :controller do
 
-  #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Criando objetos que serao usados de referencia nos testes  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-  let(:jogobase) {Jogo.create({ titulo:"Jogo para testes",imagem:"https://www.mathworks.com/content/mathworks/www/en/solutions/verification-validation/jcr:content/svg.adapt.full.high.svg/1504126934803.svg", descricao:"Side scroller classico" })}
-  let(:usuariobase) {Usuario.create({ nome:"TestUser",email:"testeemail@gmail.com", username:"testeemail",senha:"testeemail", nacionalidade:"tester" }) }
-  
+
   let(:valid_attributes) {
     {
       texto_post:"Mario Bros",
@@ -18,8 +15,8 @@ RSpec.describe JogadasController, type: :controller do
       tempo_segundos:37,
       categoria:"Classico",
       link:"<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/fEaTMekrcz0\" frameborder=\"0\" allowfullscreen></iframe>",
-      usuario_id:usuariobase.id,
-      jogo_id:jogobase.id
+      usuario_id: Usuario.find_by(nome: "Usuario Teste Jogadas Rspec").id,
+      jogo_id: Jogo.find_by(titulo: "Jogo Teste Jogadas Rspec").id
     }
   }
 

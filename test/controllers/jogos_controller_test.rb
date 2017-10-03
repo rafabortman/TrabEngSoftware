@@ -13,6 +13,7 @@ class JogosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+    #puts "\n\n\n\n"+Usuario.find_by(nome: "usuarioBase").id.to_s
     get jogos_url
     assert_response :success
   end

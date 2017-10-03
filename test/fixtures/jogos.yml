@@ -12,3 +12,8 @@ jogoTodoErrado:
   titulo:
   imagem: Daniel Quero 10 Nesse EP em (sera que esta vendo isso???se sim, 10zinho pf).jpg 
   descricao:
+jogobase: 
+   titulo: Jogo Teste Jogadas Rspec
+   imagem: https://www.mathworks.com/content/mathworks/www/en/solutions/verification-validation/jcr:content/svg.adapt.full.high.svg/1504126934803.svg
+   descricao: Side scroller classico
+  
