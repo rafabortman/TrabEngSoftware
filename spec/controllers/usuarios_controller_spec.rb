@@ -65,7 +65,7 @@ RSpec.describe UsuariosController, type: :controller do
     it "returns a list of existing users" do
       post :create, params: {usuario: valid_attributes}, session: valid_session
       post :create, params: {usuario: {nome:"Jonas",email:"jonasdeveloper@gmail.com",username:"johndev",senha:"fullstack",nacionalidade:"Brasileiro"}, session: valid_session}
-      post :mostrarResultados, params:{username:"john"}
+      post :mostrarResultados, params:{username:"john"},:format => :json
       result = JSON.parse(response.body)
       result.size.should eq(2)
       response.should be_ok
