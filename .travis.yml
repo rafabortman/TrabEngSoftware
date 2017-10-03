@@ -1,5 +1,5 @@
 language: ruby
-script: bundle install && bundle exec rake spec
+script: bundle install && bundle exec rake test && bundle exec rake spec
 sudo: false
 dist: trusty
 
