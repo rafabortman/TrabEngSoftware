@@ -23,13 +23,22 @@
         <a class="nav-link" href="<%=usuarios_path%>">Usuarios</a>
       </li>
       <li class="nav-item active">
+        <a class="nav-link" href="<%=generos_path%>">Gêneros</a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="/buscar">Buscar Usuarios</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Jogos">
+    <!-- Usem forms do rails e nao desse jeito abaixo (da erro de autenticacao de csrf)
+
+	<form class="form-inline my-2 my-lg-0" action="/buscarJogoNome" method="post">
+      <input class="form-control mr-sm-2" type="text" placeholder="Jogos" name="titulo">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
+    </form>-->
+    <%= form_tag({controller: "jogos", action: "buscar_nome"}, method: "post", class: "form-inline my-2 my-lg-0") do %>
+      <input class="form-control mr-sm-2" type="text" placeholder="Jogos" name="titulo">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+<% end %>
   </div>
 </nav>
 

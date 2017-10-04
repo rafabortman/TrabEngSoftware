@@ -66,6 +66,17 @@ class JogosController < ApplicationController
     end
   end
 
+
+  # POST /buscar_nome
+  def buscar_nome
+	puts "\n\n\n\n\n\n\n\n\n\n\ adhsadhqwuedhaudhashdasu \n\n\n\n\n\n\n\n\n\n\n"
+	@jogos = Jogo.where(["titulo LIKE ?", "%#{params[:titulo]}%"])
+	respond_to do |format|
+        format.html
+        format.json {    render json: @jogos   }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jogo
