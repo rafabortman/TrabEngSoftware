@@ -9,13 +9,21 @@ body{
     color: white;
 }
 
+img.logo{
+  display : block;
+  width:20%;
+  height:auto;
+}
+
 .navbar .navbar-brand{
 font-family: 'Bungee Shade', cursive;
 color:white ;
-font-size:130%;
+font-size:10%;
+
 }
 .navbar .collapse .navbar-nav .nav-item .nav-link{
 color:white;
+font-size:150%;
 }
 .home_container{
    margin-top: 5%;
