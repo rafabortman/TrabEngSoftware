@@ -702,6 +702,45 @@
         null,
         null
       ],
+      "/home/mat/Área de Trabalho/speedfy/TrabEngSoftware/spec/controllers/sessions_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/mat/Área de Trabalho/speedfy/TrabEngSoftware/app/controllers/sessions_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
       "/home/mat/Área de Trabalho/speedfy/TrabEngSoftware/spec/controllers/usuarios_controller_spec.rb": [
         1,
         1,
@@ -935,6 +974,30 @@
         null,
         null
       ],
+      "/home/mat/Área de Trabalho/speedfy/TrabEngSoftware/spec/helpers/sessions_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/mat/Área de Trabalho/speedfy/TrabEngSoftware/spec/views/sessions/new.html.erb_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
       "/home/mat/Área de Trabalho/speedfy/TrabEngSoftware/app/models/amigo.rb": [
         1,
         null
@@ -1056,6 +1119,6 @@
         null
       ]
     },
-    "timestamp": 1507088348
+    "timestamp": 1507088923
   }
 }

@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   get '/cadastro' => 'usuarios#new'
   post 'buscar/mostrarResultados' => 'usuarios#mostrarResultados'
   get 'home' => 'index#home'
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  get    '/login' =>  'sessions#new'
+  post   '/login' => 'sessions#create'
+  delete '/logout' =>  'sessions#destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
