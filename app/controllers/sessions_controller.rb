@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
     @usuarios = Usuario.all
     respond_to do |format|
       usuario = @usuarios.find_by(username: params[:session][:username].downcase)
-      if usuario
-       # Log the usuario in and redirect to the usuario's show page.
+      if usuario && params[:session][:password]==usuario[:senha]
+        log_in usuario
        format.html {  redirect_to login_path, notice: 'Usuario logado com sucesso' }
        format.json { }
      else
@@ -19,5 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out
+    redirect_to root_url
   end
 end

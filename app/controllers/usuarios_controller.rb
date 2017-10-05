@@ -28,6 +28,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
+        log_in @usuario
         format.html { redirect_to @usuario, notice: 'Usuario criado com sucesso' }
         format.json { render :show, status: :created, location: @usuario }
       else

@@ -28,10 +28,15 @@
       <li class="nav-item active">
         <a class="nav-link" href="/buscar">Buscar Usuarios</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
     </ul>
+    <% if logged_in? %>
+      <td><%= link_to 'Logout', logout_path, method: :delete %></td>
+    <% else %>
+      <a href="/login" class="btn btn-primary" role="button">Login</a>
+    <% end %>
+
+    
+
     <!-- Usem forms do rails e nao desse jeito abaixo (da erro de autenticacao de csrf)
 
 	<form class="form-inline my-2 my-lg-0" action="/buscarJogoNome" method="post">
