@@ -8,4 +8,5 @@ class Jogada < ApplicationRecord
   validates :plataforma, presence: {message: "não pode estar vazio"}
   validates :categoria, presence: {message: "não pode estar vazio"}
   validates :jogo, presence: {message: "não pode estar vazio"}
+  has_many :comentarios
 end

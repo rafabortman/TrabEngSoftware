@@ -1,7 +1,11 @@
+
+<%= link_to 'Editar', edit_jogada_path(@jogada) %> |
+<%= link_to 'Retornar', jogadas_path %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Comentários da jogada:</strong>
+  <strong>Detalhes:</strong>
   <%= @jogada.texto_post %>
 </p>
 
@@ -36,6 +40,24 @@
   <%= @jogada.jogo.titulo %>
 </p>
 
-<%= link_to 'Editar', edit_jogada_path(@jogada) %> |
-<%= link_to 'Retornar', jogadas_path %>
-<iframe width="560" height="315" src="<%= @jogada.link %>" frameborder="0" allowfullscreen></iframe>
+<p>
+  <iframe width="560" height="315" src="<%= @jogada.link %>" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<p>
+    <strong>Comentários:</strong><br>
+</p>
+
+
+
+<div id="comments_section">
+  <% @comentarios.each do |p| %>
+    <strong><%= p.comentario %></strong>
+    <br><strong>--------------------------------</strong><br>  
+  <% end %>
+</div>
+
+<p>
+    <textarea placeholder="Adicione um comentário!" id="txt_comment" cols="50" rows="3"></textarea><br>
+    <button id="btn_comment_send">Enviar</button>
+</p>

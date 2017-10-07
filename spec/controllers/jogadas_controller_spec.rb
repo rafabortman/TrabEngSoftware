@@ -3,7 +3,19 @@ require 'coveralls'
 Coveralls.wear!
 
 RSpec.describe JogadasController, type: :controller do
+  Usuario.create({
+    nome:"Usuario Teste Jogadas Rspec",
+    email:"test@gmail.com",
+    username:"tsttst",
+    senha:"tester",
+    nacionalidade:"br"
 
+  });
+  Jogo.create({
+      titulo:"Jogo Teste Jogadas Rspec",
+      imagem_url:"https://s3.minijuegosgratis.com/media/video-collection-img/video-collection-super-mario-run-thumb.jpg",
+      descricao:"Side scroller classico"      
+  })
 
   let(:valid_attributes) {
     {
