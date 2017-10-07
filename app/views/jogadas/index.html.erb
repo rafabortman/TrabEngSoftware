@@ -26,7 +26,8 @@
         <td><%= jogada.tempo_horas %> : <%= jogada.tempo_minutos %> : <%= jogada.tempo_segundos %></td>
         <td><%= jogada.categoria %></td>
         <td><%= jogada.usuario.nome %></td>
-        <td><%= jogada.jogo.titulo %></td>
+        <td><a href = "/jogos/<%= jogada.jogo.id%>"><img src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a></td>
+
         <td><%= link_to 'Mostrar', jogada %></td>
         <td><%= link_to 'Editar', edit_jogada_path(jogada) %></td>
         <td><%= link_to 'Excluir', jogada, method: :delete, data: { confirm: 'Confirma exclusão?' } %></td>

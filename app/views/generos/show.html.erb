@@ -7,8 +7,7 @@
 
 <strong>Jogos:</strong>
 <% @genero.jogos.each do |jogo| %>
-	<td><%= link_to jogo.titulo, jogo %></td>
-       	<td><img src="data:image/jpg;base64,<%= jogo.imagem %>"></td>
+       	<td><a href = "/jogos/<%= jogo.id%>"><img src="data:image/jpg;base64,<%= jogo.imagem %>"></a></td>
 
 <% end %>
 <p>

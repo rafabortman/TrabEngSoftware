@@ -37,7 +37,7 @@
 
 <p>
   <strong>Jogo:</strong>
-  <%= @jogada.jogo.titulo %>
+  <td><a href = "/jogos/<%= @jogada.jogo.id%>"><img src="data:image/jpg;base64,<%= @jogada.jogo.imagem %>"></a></td>
 </p>
 
 <p>
