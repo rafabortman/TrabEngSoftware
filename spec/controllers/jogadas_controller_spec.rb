@@ -26,7 +26,7 @@ RSpec.describe JogadasController, type: :controller do
       tempo_minutos:10,
       tempo_segundos:37,
       categoria:"Classico",
-      link:"<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/fEaTMekrcz0\" frameborder=\"0\" allowfullscreen></iframe>",
+      link:"https://www.youtube.com/embed/fEaTMekrcz0",
       usuario_id: Usuario.find_by(nome: "Usuario Teste Jogadas Rspec").id,
       jogo_id: Jogo.find_by(titulo: "Jogo Teste Jogadas Rspec").id
     }

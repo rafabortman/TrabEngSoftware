@@ -1,3 +1,4 @@
+require 'net/http'
 class Jogada < ApplicationRecord
   belongs_to :usuario
   belongs_to :jogo
@@ -9,4 +10,25 @@ class Jogada < ApplicationRecord
   validates :categoria, presence: {message: "não pode estar vazio"}
   validates :jogo, presence: {message: "não pode estar vazio"}
   has_many :comentarios
+  validate do |jogada|
+	   ValidarLink.new(jogada).validar
+	end
+end
+
+class ValidarLink
+
+def initialize(jogada)
+	   @jogada = jogada
+	end
+
+def validar
+  url = URI.parse(@jogada.link)
+  req = Net::HTTP.new(url.host, url.port)
+  req.use_ssl = (url.scheme == 'https')
+  path = url.path if url.path.present?
+  res = req.request_head(path || '/')
+  res.code != "404"
+rescue 
+  @jogada.errors[:link] <<"-> não foi possível carregar"
+end
 end

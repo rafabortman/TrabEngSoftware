@@ -1243,6 +1243,28 @@
         1,
         1,
         1,
+        1,
+        1,
+        10,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        10,
+        null,
+        null,
+        1,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        null,
+        0,
+        null,
         null
       ],
       "/home/mat/Área de Trabalho/speedfy/TrabEngSoftware/app/models/jogos_genero.rb": [
@@ -1252,6 +1274,6 @@
         null
       ]
     },
-    "timestamp": 1507409944
+    "timestamp": 1507412606
   }
 }
