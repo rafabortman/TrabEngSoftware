@@ -17,7 +17,7 @@
         <td><%= genero.nome %></td>
  	<% cont = genero.jogos.length-1 %>
 	<td><% genero.jogos.each do |jogo| %>
-	    <%=jogo.titulo %><% if cont > 0 %>,<% cont = cont-1 %><% end %> 
+	    <td><a href = "/jogos/<%= jogo.id%>"><img src="data:image/jpg;base64,<%= jogo.imagem %>"></a></td>
 	<% end %></td>
         <td><%= link_to 'Show', genero %></td>
         <td><%= link_to 'Edit', edit_genero_path(genero) %></td>

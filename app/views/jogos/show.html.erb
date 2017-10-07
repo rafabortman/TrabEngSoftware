@@ -19,7 +19,7 @@
   <strong>Gêneros:</strong>
   <% cont = @jogo.generos.length-1 %>
   <% @jogo.generos.each do |genero| %>
-	<%=genero.nome %><% if cont > 0 %>,<% cont = cont-1 %><% end %> 
+	<%= link_to genero.nome,genero%><% if cont > 0 %>,<% cont = cont-1 %><% end %> 
   <% end %>
 </p>
 

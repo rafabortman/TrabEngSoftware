@@ -80,6 +80,7 @@
       "/home/mat/Área de Trabalho/speedfy/TrabEngSoftware/app/controllers/application_controller.rb": [
         1,
         1,
+        1,
         null
       ],
       "/home/mat/Área de Trabalho/speedfy/TrabEngSoftware/spec/controllers/generos_controller_spec.rb": [
@@ -686,7 +687,6 @@
         0,
         0,
         0,
-        0,
         null,
         null,
         null,
@@ -704,13 +704,15 @@
       ],
       "/home/mat/Área de Trabalho/speedfy/TrabEngSoftware/spec/controllers/sessions_controller_spec.rb": [
         1,
+        1,
+        1,
         null,
         1,
         null,
-        null,
-        null,
-        null,
-        null,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null,
@@ -727,7 +729,7 @@
         0,
         0,
         0,
-        null,
+        0,
         0,
         0,
         null,
@@ -738,6 +740,8 @@
         null,
         null,
         1,
+        0,
+        0,
         null,
         null
       ],
@@ -916,6 +920,7 @@
         null,
         5,
         5,
+        4,
         8,
         4,
         null,
@@ -1119,6 +1124,6 @@
         null
       ]
     },
-    "timestamp": 1507088923
+    "timestamp": 1507408184
   }
 }
