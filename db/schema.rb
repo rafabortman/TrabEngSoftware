@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003230836) do
+ActiveRecord::Schema.define(version: 20171007125623) do
 
   create_table "amigos", force: :cascade do |t|
     t.string "usuarioId"
     t.string "amigoId"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comentarios", force: :cascade do |t|
+    t.integer "jogada_id"
+    t.string "comentario"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jogada_id"], name: "index_comentarios_on_jogada_id"
   end
 
   create_table "generos", force: :cascade do |t|
