@@ -103,14 +103,16 @@ RSpec.describe GenerosController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+	  nome:"Novo"
+	}
       }
 
       it "updates the requested genero" do
         genero = Genero.create! valid_attributes
         put :update, params: {id: genero.to_param, genero: new_attributes}, session: valid_session
         genero.reload
-        skip("Add assertions for updated state")
+        expect(response).to redirect_to(genero)
       end
 
       it "redirects to the genero" do
