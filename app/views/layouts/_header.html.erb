@@ -3,7 +3,12 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <%= image_tag("logo.jpg", class: "logo") %>
-  
+  <select name="user[role_id]">
+  <option value="">Please select</option>
+  <option value="1" selected="selected">Administrator</option>
+  <option value="2">User</option>
+  <option value="3">Editor</option>
+</select>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">

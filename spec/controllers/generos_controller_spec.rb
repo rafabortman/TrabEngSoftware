@@ -3,18 +3,49 @@ require 'coveralls'
 Coveralls.wear!
 
 RSpec.describe GenerosController, type: :controller do
-
   let(:valid_attributes) {
     {
       nome:"Sidescroller"
     }
   }
 
+
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")    
+    {
+      nome:""
+    }   
   }
 
   let(:valid_session) { {} }
+
+  describe "criar e deletar generos" do
+  it "criar generos" do
+	expect {
+          Genero.create valid_attributes
+          Genero.create valid_attributes
+	  Genero.create invalid_attributes
+        }.to change(Genero, :count).by(1)
+    end
+  it "deletar generos" do
+     expect {
+          genero = Genero.create valid_attributes
+	  delete :destroy, params: {id: genero.to_param}, session: valid_session
+        }.to change(Genero, :count).by(0)
+    end
+
+  it "deletar generos com jogo associado" do
+    genero = Genero.create valid_attributes
+    jogo = Jogo.create({titulo:"Mario Bros 2", imagem_url:"https://s3.minijuegosgratis.com/media/video-collection-img/video-collection-super-mario-run-thumb.jpg", descricao:"AAAA"})
+    jogo.generos << genero
+    expect(JogosGenero.count).to eq(1) 
+    expect(jogo.generos.count).to eq(1) 
+    delete :destroy, params: {id: genero.to_param}, session: valid_session
+    expect(JogosGenero.count).to eq(0) 
+    expect(jogo.generos.count).to eq(0) 
+
+    end
+
+  end
 
   describe "GET #index" do
     it "returns a success response" do
