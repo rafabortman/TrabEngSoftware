@@ -8,5 +8,12 @@ class Usuario < ApplicationRecord
     validates_length_of :senha, :minimum => 4, message: "deve ter pelo menos 4 caracteres"
     validates :email, format: {with: /@/}
 	
+	validates_presence_of :confirmar_senha, message: "deve ser preenchido"
+    
+    validate :check_senha_and_confirmar
+
+    def check_senha_and_confirmar
+      errors.add(:senha, " precisa ser igual a confirmação de senha") if senha != confirmar_senha
+    end
 	
 end

@@ -18,22 +18,22 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create usuario" do
     assert_difference('Usuario.count') do
-      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello" } }
+      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello", confirmar_senha: "teste" } }
     end
     assert_redirected_to usuario_url(Usuario.last)
   end
 
   test "should not create usuario without @ at email" do
     assert_no_difference('Usuario.count') do
-      post usuarios_url, params: { usuario: { email: "testegmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello" } }
+      post usuarios_url, params: { usuario: { email: "testegmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello", confirmar_senha: "teste" } }
     end
     assert_response :success
   end
 
   test "should not create usuario with existing email" do
     assert_difference('Usuario.count') do
-      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello" } }
-      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "EN-US", nome: "Borgeous", senha: "teste", username: "Banana" } }
+      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello", confirmar_senha: "teste" } }
+      post usuarios_url, params: { usuario: { email: "teste@gmail.com", nacionalidade: "EN-US", nome: "Borgeous", senha: "teste", username: "Banana", confirmar_senha: "teste" } }
     end
     assert_response :success
   end
@@ -49,7 +49,7 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update usuario" do
-    patch usuario_url(@usuario), params: { usuario: { email: "teste@gmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello" } }
+    patch usuario_url(@usuario), params: { usuario: { email: "teste@gmail.com", nacionalidade: "PT-BR", nome: "Hardwell", senha: "teste", username: "Marshmello", confirmar_senha: "teste" } }
     assert_redirected_to usuario_url(@usuario)
   end
 
