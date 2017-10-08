@@ -7,10 +7,10 @@
 
 <strong>Jogos:</strong>
 <% @genero.jogos.each do |jogo| %>
-       	<td><a href = "/jogos/<%= jogo.id%>"><img src="data:image/jpg;base64,<%= jogo.imagem %>"></a></td>
+       	<a href = "/jogos/<%= jogo.id%>"><img src="data:image/jpg;base64,<%= jogo.imagem %>"></a>
 
 <% end %>
 <p>
 
-<%= link_to 'Editar', edit_genero_path(@genero) %> |
-<%= link_to 'Voltar', generos_path %>
+<%= link_to 'Editar', edit_genero_path(@genero) , :class => "btn btn-outline-primary" %>
+<%= link_to 'Voltar', generos_path , :class => "btn btn-outline-primary" %>

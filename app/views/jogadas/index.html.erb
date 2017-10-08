@@ -1,19 +1,19 @@
 <%= provide(:title, 'jogadas') %>
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Jogadas</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Texto post</th>
       <th>Plataforma</th>
       <th>Data</th>
-      <th>Tempo da jogada</th>
+      <th>Tempo</th>
       <th>Categoria</th>
       <th>Usuario</th>
       <th>Jogo</th>
-      <th colspan="3"></th>
+      <th colspan="3">Links</th>
     </tr>
   </thead>
 
@@ -28,9 +28,9 @@
         <td><%= jogada.usuario.nome %></td>
         <td><a href = "/jogos/<%= jogada.jogo.id%>"><img src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a></td>
 
-        <td><%= link_to 'Mostrar', jogada %></td>
-        <td><%= link_to 'Editar', edit_jogada_path(jogada) %></td>
-        <td><%= link_to 'Excluir', jogada, method: :delete, data: { confirm: 'Confirma exclusão?' } %></td>
+        <td><%= link_to 'Mostrar', jogada , :class => "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Editar', edit_jogada_path(jogada) , :class => "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Excluir', jogada, method: :delete, data: { confirm: 'Confirma exclusão?' } , :class => "btn btn-outline-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +38,5 @@
 
 <br>
 
-<%= link_to 'Inserir Jogada', new_jogada_path %>
+<%= link_to 'Inserir Jogada', new_jogada_path , :class => "btn btn-outline-primary" %>
+</div>

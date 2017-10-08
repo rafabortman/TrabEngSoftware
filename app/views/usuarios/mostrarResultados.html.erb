@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Resultado de busca</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Username</th>
       <th>E-mail</th>
-      <th colspan="2"></th>
+      <th>Info</th>
     </tr>
   </thead>
 
@@ -16,6 +16,7 @@
       <tr>
         <td><%= usuario.username %></td> 
         <td><%= usuario.email %></td>
+        <td><%= link_to 'Mostrar', usuario , :class => "btn btn-outline-primary"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +24,5 @@
 
 <br>
 
-<%= link_to 'Back', '/buscar' %>
+<%= link_to 'Voltar', '/buscar'  , :class => "btn btn-outline-primary"%>
+</div>

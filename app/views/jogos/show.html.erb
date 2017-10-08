@@ -19,9 +19,9 @@
   <strong>Gêneros:</strong>
   <% cont = @jogo.generos.length-1 %>
   <% @jogo.generos.each do |genero| %>
-	<%= link_to genero.nome,genero%><% if cont > 0 %>,<% cont = cont-1 %><% end %> 
+	<%= link_to genero.nome,genero, :class => "btn btn-outline-primary"%><% if cont > 0 %>,<% cont = cont-1 %><% end %> 
   <% end %>
 </p>
 
-<%= link_to 'Editar', edit_jogo_path(@jogo) %> |
-<%= link_to 'Voltar', jogos_path %>
+<%= link_to 'Editar', edit_jogo_path(@jogo) , :class => "btn btn-outline-primary"%>
+<%= link_to 'Voltar', jogos_path , :class => "btn btn-outline-primary"%>

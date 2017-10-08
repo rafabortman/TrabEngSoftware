@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Gêneros</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Nome</th>
       <th>Jogos</th>
-      <th colspan="3"></th>
+      <th colspan="3">Links</th>
     </tr>
   </thead>
 
@@ -17,11 +17,11 @@
         <td><%= genero.nome %></td>
  	<% cont = genero.jogos.length-1 %>
 	<td><% genero.jogos.each do |jogo| %>
-	    <td><a href = "/jogos/<%= jogo.id%>"><img src="data:image/jpg;base64,<%= jogo.imagem %>"></a></td>
+	    <a href = "/jogos/<%= jogo.id%>"><img src="data:image/jpg;base64,<%= jogo.imagem %>"></a>
 	<% end %></td>
-        <td><%= link_to 'Show', genero %></td>
-        <td><%= link_to 'Edit', edit_genero_path(genero) %></td>
-        <td><%= link_to 'Destroy', genero, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', genero, :class => "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Edit', edit_genero_path(genero), :class => "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Destroy', genero, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +29,5 @@
 
 <br>
 
-<%= link_to 'Novo Gênero', new_genero_path %>
+<%= link_to 'Novo Gênero', new_genero_path , :class => "btn btn-outline-primary"%>
+</div>
