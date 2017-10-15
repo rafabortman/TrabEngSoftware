@@ -1,10 +1,11 @@
 class JogadasController < ApplicationController
   before_action :set_jogada, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /jogadas
   # GET /jogadas.json
   def index
-    @jogadas = Jogada.order('tempo_horas,tempo_minutos,tempo_segundos')
+    @jogadas = Jogada.order('milissegundos')
   end
 
   # GET /jogadas/1
@@ -29,7 +30,7 @@ class JogadasController < ApplicationController
     @jogada = Jogada.new(jogada_params)
 
     respond_to do |format|
-      if @jogada.save
+      if @jogada.salvar
         format.html { redirect_to @jogada, notice: 'Jogada was successfully created.' }
         format.json { render :show, status: :created, location: @jogada }
       else
@@ -93,7 +94,8 @@ class JogadasController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    # 1 segundo = 1000 millisegundos, 1 minuto = 60.000, 1 hora = 3.600.000 milissegundos
     def jogada_params
-      params.require(:jogada).permit(:texto_post, :plataforma, :data, :tempo_horas, :tempo_minutos, :tempo_segundos, :categoria, :link, :usuario_id, :jogo_id)
+      params.require(:jogada).permit(:texto_post, :plataforma, :data,:tempo_horas, :tempo_minutos, :tempo_segundos ,:milissegundos, :categoria, :link, :usuario_id, :jogo_id)
     end
 end

@@ -17381,3 +17381,1725 @@ Processing by JogadasController#index as HTML
 Completed 200 OK in 56ms (Views: 50.1ms | ActiveRecord: 3.4ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddMilissegundosToJogadas (20171008162405)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "jogadas" ADD "milissegundos" bigint[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "tempo_horas" integer DEFAULT NULL, "tempo_minutos" integer DEFAULT NULL, "tempo_segundos" integer DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_jogo_id" ON "ajogadas" ("jogo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_usuario_id" ON "ajogadas" ("usuario_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "ajogadas" ("id","texto_post","plataforma","data","tempo_horas","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","tempo_horas","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "jogadas"[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE "jogadas"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "jogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "tempo_minutos" integer DEFAULT NULL, "tempo_segundos" integer DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_usuario_id" ON "jogadas" ("usuario_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_jogo_id" ON "jogadas" ("jogo_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "jogadas" ("id","texto_post","plataforma","data","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "ajogadas"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ajogadas"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "tempo_minutos" integer DEFAULT NULL, "tempo_segundos" integer DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_jogo_id" ON "ajogadas" ("jogo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_usuario_id" ON "ajogadas" ("usuario_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ajogadas" ("id","texto_post","plataforma","data","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "jogadas"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "jogadas"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "jogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "tempo_segundos" integer DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_usuario_id" ON "jogadas" ("usuario_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_jogo_id" ON "jogadas" ("jogo_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "jogadas" ("id","texto_post","plataforma","data","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "ajogadas"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ajogadas"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "tempo_segundos" integer DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_jogo_id" ON "ajogadas" ("jogo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_usuario_id" ON "ajogadas" ("usuario_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ajogadas" ("id","texto_post","plataforma","data","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "jogadas"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "jogadas"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "jogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_usuario_id" ON "jogadas" ("usuario_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_jogo_id" ON "jogadas" ("jogo_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "jogadas" ("id","texto_post","plataforma","data","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "ajogadas"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ajogadas"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171008162405"]]
+  [1m[35m (10.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comentarios_on_jogada_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comentarios_on_jogada_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogos_generos_on_genero_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogos_generos_on_genero_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogos_generos_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogos_generos_on_jogo_id' AND type='index'
+[0m
+Started GET "/" for 189.100.45.18 at 2017-10-08 20:46:43 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IndexController#home as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/ubuntu/workspace/TrabEngSoftware/app/models/jogada.rb:64: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/models/jogada.rb:64: syntax error, unexpected end-of-input, expecting keyword_end
+app/controllers/index_controller.rb:3:in `home'
+Started GET "/" for 189.100.45.18 at 2017-10-08 20:49:32 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (3.6ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (100.0ms)
+Completed 500 Internal Server Error in 309ms (ActiveRecord: 7.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `tempo_horas' for #<Jogada:0x000000034131d0>):
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <li class="home_rdl_time home_rdl_item">
+    27:                         <span class="fa fa-bolt" /> <%=jogada.tempo_horas %>:<%=jogada.tempo_minutos %>:<%=jogada.tempo_segundos%>
+    28:                     </li>
+    29:                     <li class="home_rdl_categoria home_rdl_item">
+    30:                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+  
+app/views/index/home.html.erb:27:in `block in _app_views_index_home_html_erb__1244503772345261135_17314740'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_17314740'
+Started GET "/" for 189.100.45.18 at 2017-10-08 20:56:20 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  Rendered index/home.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:28: unknown regexp option - l
+unmatched close parenthesis: /1000).round);@output_buffer.safe_append='
+                    </i
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:29: syntax error, unexpected '<'
+                    <li class="home_rdl_categoria home_rdl_item">
+                     ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:30: syntax error, unexpected '<'
+                        <span class="fa fa-cogs" style...
+                         ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:30: syntax error, unexpected tIDENTIFIER, expecting ')'
+... <span class="fa fa-cogs" style="color:#9498a1"></span> '.fr...
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:30: syntax error, unexpected '<'
+...a-cogs" style="color:#9498a1"></span> '.freeze;@output_buffe...
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:31: unknown regexp option - l
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:32: syntax error, unexpected '<'
+                   <li class="home_rdl_plataforma home_rdl_item">
+                    ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:33: syntax error, unexpected '<'
+                        <span class="fa fa-gamepad"/> ...
+                         ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:33: syntax error, unexpected '>'
+...  <span class="fa fa-gamepad"/> '.freeze;@output_buffer.appe...
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:36: syntax error, unexpected '<'
+...ube-play" style="color:red;"/></a>
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:37: unknown regexp option - l
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:38: syntax error, unexpected '<'
+                    </ul>
+                     ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:39: unknown regexp options - dv
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:40: syntax error, unexpected '<'
+                    <div class="home_run_post p-2 ">
+                     ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:43: unknown regexp options - dv
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:44: syntax error, unexpected '<'
+                    <div class="home_run_image p-2 d-inline-block  ">
+                     ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:45: syntax error, unexpected '<'
+<a href = "/jogos/'.freeze;@ou...
+ ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:45: syntax error, unexpected '<'
+...@output_buffer.safe_append='"><img  class="img-thumbnail " s...
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:45: syntax error, unexpected tIDENTIFIER, expecting ')'
+...img  class="img-thumbnail " src="data:image/jpg;base64,'.fre...
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:45: syntax error, unexpected '<'
+...@output_buffer.safe_append='"></a>
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:46: unknown regexp options - dv
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:47: syntax error, unexpected '<'
+            </div>
+             ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:48: unknown regexp options - dv
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:49: syntax error, unexpected '<'
+ </div>
+  ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:56: unknown regexp option - h
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:56: syntax error, unexpected tINTEGER, expecting ')'
+                        <h4>Super Mario Galaxy 2</h4>
+                                                    ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:63: syntax error, unexpected '<', expecting ')'
+                    </li>
+                     ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:66: unknown regexp options - pa
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:66: syntax error, unexpected tIDENTIFIER, expecting ')'
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:69: Invalid octal digit
+                        <span class="fa fa-bolt" /> 09:09:09
+                                                      ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:69: syntax error, unexpected ':', expecting ')'
+                        <span class="fa fa-bolt" /> 09:09:09
+                                                       ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:69: Invalid octal digit
+                        <span class="fa fa-bolt" /> 09:09:09
+                                                         ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:69: Invalid octal digit
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:72: unknown regexp options - pa
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:73: syntax error, unexpected '<'
+                    </li>
+                     ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:76: syntax error, unexpected '<', expecting ')'
+                    </li>
+                     ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:78: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...="https://youtu.be/AzBRiwbZxIs" target="_blank"><span class=...
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:78: syntax error, unexpected tIDENTIFIER, expecting ')'
+....be/AzBRiwbZxIs" target="_blank"><span class="fa fa-youtube-...
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:78: syntax error, unexpected tIDENTIFIER, expecting ')'
+...target="_blank"><span class="fa fa-youtube-play" style="colo...
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:78: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...span class="fa fa-youtube-play" style="color:red;"/></a>
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:78: syntax error, unexpected tIDENTIFIER, expecting ')'
+...a fa-youtube-play" style="color:red;"/></a>
+...                               ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:82: syntax error, unexpected tIDENTIFIER, expecting ')'
+                    <div class="home_run_post p-2 ">
+                                             ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:82: syntax error, unexpected tSTRING_BEG, expecting ')'
+                    <div class="home_run_post p-2 ">
+                                                   ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:86: syntax error, unexpected tIDENTIFIER, expecting ')'
+                    <div class="home_run_image p-2 d-inline-block  ">
+                                              ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:86: syntax error, unexpected tIDENTIFIER, expecting ')'
+                    <div class="home_run_image p-2 d-inline-block  ">
+                                                    ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:86: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+                    <div class="home_run_image p-2 d-inline-block  ">
+                                                                    ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:87: syntax error, unexpected tIDENTIFIER, expecting ')'
+                    <img class="img-thumbnail "
+                                   ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:87: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:88: syntax error, unexpected tIDENTIFIER, expecting ')'
+ src="https://dannosekai.files.wordpress.com/2010/03/78773978.jpg" />
+           ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:88: unknown regexp options - daka
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:88: syntax error, unexpected tSTRING_BEG, expecting ')'
+ src="https://dannosekai.files.wordpress.com/2010/03/78773978.jpg" />
+                                                                  ^
+/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:88: unterminated string meets end of file):
+  
+app/views/index/home.html.erb:28: unknown regexp option - l
+app/views/index/home.html.erb:29: syntax error, unexpected '<'
+app/views/index/home.html.erb:30: syntax error, unexpected '<'
+app/views/index/home.html.erb:30: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:30: syntax error, unexpected '<'
+app/views/index/home.html.erb:31: unknown regexp option - l
+app/views/index/home.html.erb:32: syntax error, unexpected '<'
+app/views/index/home.html.erb:33: syntax error, unexpected '<'
+app/views/index/home.html.erb:33: syntax error, unexpected '>'
+app/views/index/home.html.erb:36: syntax error, unexpected '<'
+app/views/index/home.html.erb:37: unknown regexp option - l
+app/views/index/home.html.erb:38: syntax error, unexpected '<'
+app/views/index/home.html.erb:39: unknown regexp options - dv
+app/views/index/home.html.erb:40: syntax error, unexpected '<'
+app/views/index/home.html.erb:43: unknown regexp options - dv
+app/views/index/home.html.erb:44: syntax error, unexpected '<'
+app/views/index/home.html.erb:45: syntax error, unexpected '<'
+app/views/index/home.html.erb:45: syntax error, unexpected '<'
+app/views/index/home.html.erb:45: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:45: syntax error, unexpected '<'
+app/views/index/home.html.erb:46: unknown regexp options - dv
+app/views/index/home.html.erb:47: syntax error, unexpected '<'
+app/views/index/home.html.erb:48: unknown regexp options - dv
+app/views/index/home.html.erb:49: syntax error, unexpected '<'
+app/views/index/home.html.erb:56: unknown regexp option - h
+app/views/index/home.html.erb:56: syntax error, unexpected tINTEGER, expecting ')'
+app/views/index/home.html.erb:63: syntax error, unexpected '<', expecting ')'
+app/views/index/home.html.erb:66: unknown regexp options - pa
+app/views/index/home.html.erb:66: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:69: Invalid octal digit
+app/views/index/home.html.erb:69: syntax error, unexpected ':', expecting ')'
+app/views/index/home.html.erb:69: Invalid octal digit
+app/views/index/home.html.erb:69: Invalid octal digit
+app/views/index/home.html.erb:72: unknown regexp options - pa
+app/views/index/home.html.erb:73: syntax error, unexpected '<'
+app/views/index/home.html.erb:76: syntax error, unexpected '<', expecting ')'
+app/views/index/home.html.erb:78: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/index/home.html.erb:78: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:78: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:78: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/index/home.html.erb:78: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:82: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:82: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/index/home.html.erb:86: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:86: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:86: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/index/home.html.erb:87: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:87: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/index/home.html.erb:88: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/index/home.html.erb:88: unknown regexp options - daka
+app/views/index/home.html.erb:88: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/index/home.html.erb:88: unterminated string meets end of file
+Started GET "/" for 189.100.45.18 at 2017-10-08 20:56:55 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `/' for nil:NilClass):
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <li class="home_rdl_time home_rdl_item">
+    27:                         <span class="fa fa-bolt" /> <%= (jogada.milissegundos / 3600000).round  %>:<%=(jogada.milissegundos / 60000 ).round %>:<%= (jogada.milissegundos / 1000).round%>
+    28:                     </li>
+    29:                     <li class="home_rdl_categoria home_rdl_item">
+    30:                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+  
+app/views/index/home.html.erb:27:in `block in _app_views_index_home_html_erb__1244503772345261135_27879560'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_27879560'
+Started GET "/" for 189.100.45.18 at 2017-10-08 20:59:38 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (13.7ms)
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `div' for nil:NilClass):
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <li class="home_rdl_time home_rdl_item">
+    27:                         <span class="fa fa-bolt" /> <%= (jogada.milissegundos.div(3600000) ).round  %>:<%=(jogada.milissegundos.div(60000) ).round %>:<%= (jogada.milissegundos.div(1000)).round%>
+    28:                     </li>
+    29:                     <li class="home_rdl_categoria home_rdl_item">
+    30:                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+  
+app/views/index/home.html.erb:27:in `block in _app_views_index_home_html_erb__1244503772345261135_29595920'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_29595920'
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:03:22 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `/' for nil:NilClass):
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <li class="home_rdl_time home_rdl_item">
+    27:                         <span class="fa fa-bolt" /> <%= (jogada.milissegundos / 3600000 ).round  %>:<%=(jogada.milissegundos / 60000 ) %>:<%= (jogada.milissegundos / 1000).round%>
+    28:                     </li>
+    29:                     <li class="home_rdl_categoria home_rdl_item">
+    30:                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+  
+app/views/index/home.html.erb:27:in `block in _app_views_index_home_html_erb__1244503772345261135_31024440'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_31024440'
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:04:22 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `/' for nil:NilClass):
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <li class="home_rdl_time home_rdl_item">
+    27:                         <span class="fa fa-bolt" /> <%=jogada.milissegundos %> / 3600000:<%=(jogada.milissegundos / 60000 ) %>:<%= (jogada.milissegundos / 1000).round%>
+    28:                     </li>
+    29:                     <li class="home_rdl_categoria home_rdl_item">
+    30:                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+  
+app/views/index/home.html.erb:27:in `block in _app_views_index_home_html_erb__1244503772345261135_32403540'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_32403540'
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:05:07 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.6ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (3.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (19.9ms)
+  Rendered layouts/_head.html.erb (14573.4ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.6ms)
+Completed 200 OK in 14614ms (Views: 14606.9ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:08:49 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `/' for nil:NilClass):
+    23:                         <span class="fa fa-trophy" style="color:gold">
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <% @hora = jogada.milissegundos / 3600000%>
+    27:                     <li class="home_rdl_time home_rdl_item">
+    28:                         <span class="fa fa-bolt" /> <%=@hora %>:<%= jogada.milissegundos   %> / 60000 :<%= jogada.milissegundos %> / 1000
+    29:                     </li>
+  
+app/views/index/home.html.erb:26:in `block in _app_views_index_home_html_erb__1244503772345261135_70015267556960'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_70015267556960'
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:09:22 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `/' for nil:NilClass):
+    23:                         <span class="fa fa-trophy" style="color:gold">
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <% @hora = jogada.milissegundos/3600000%>
+    27:                     <li class="home_rdl_time home_rdl_item">
+    28:                         <span class="fa fa-bolt" /> <%=@hora %>:<%= jogada.milissegundos   %> / 60000 :<%= jogada.milissegundos %> / 1000
+    29:                     </li>
+  
+app/views/index/home.html.erb:26:in `block in _app_views_index_home_html_erb__1244503772345261135_70015281200220'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_70015281200220'
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:11:37 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_head.html.erb (133.2ms)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.1ms)
+Completed 200 OK in 156ms (Views: 152.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:12:04 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  Rendered index/home.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/ubuntu/workspace/TrabEngSoftware/app/views/index/home.html.erb:26: syntax error, unexpected $undefined
+'.freeze;                     @hora = jogada.milissegundos \ 3600000
+                                                            ^):
+  
+app/views/index/home.html.erb:26: syntax error, unexpected $undefined
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:12:53 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    23:                         <span class="fa fa-trophy" style="color:gold">
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <% @hora = jogada.milissegundos + 3600000%>
+    27:                     <li class="home_rdl_time home_rdl_item">
+    28:                         <span class="fa fa-bolt" /> <%=@hora %>:<%= jogada.milissegundos   %> / 60000 :<%= jogada.milissegundos %> / 1000
+    29:                     </li>
+  
+app/views/index/home.html.erb:26:in `block in _app_views_index_home_html_erb__1244503772345261135_70015268823540'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_70015268823540'
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:13:13 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    23:                         <span class="fa fa-trophy" style="color:gold">
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <% @hora = (jogada.milissegundos) + 3600000%>
+    27:                     <li class="home_rdl_time home_rdl_item">
+    28:                         <span class="fa fa-bolt" /> <%=@hora %>:<%= jogada.milissegundos   %> / 60000 :<%= jogada.milissegundos %> / 1000
+    29:                     </li>
+  
+app/views/index/home.html.erb:26:in `block in _app_views_index_home_html_erb__1244503772345261135_70015259263200'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_70015259263200'
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:13:49 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (4.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (18.5ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 5.2ms)
+
+
+  
+ActionView::Template::Error (nil can't be coerced into Fixnum):
+    23:                         <span class="fa fa-trophy" style="color:gold">
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <% @hora =  3600000 + (jogada.milissegundos) %>
+    27:                     <li class="home_rdl_time home_rdl_item">
+    28:                         <span class="fa fa-bolt" /> <%=@hora %>:<%= jogada.milissegundos   %> / 60000 :<%= jogada.milissegundos %> / 1000
+    29:                     </li>
+  
+app/views/index/home.html.erb:26:in `+'
+app/views/index/home.html.erb:26:in `block in _app_views_index_home_html_erb__1244503772345261135_70015267789960'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_70015267789960'
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:21:49 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (8.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (divided by 0):
+    23:                         <span class="fa fa-trophy" style="color:gold">
+    24: </span> 1st    
+    25:                     </li>
+    26:                     <% @hora =  3600000 / (jogada.milissegundos).to_i %>
+    27:                     <li class="home_rdl_time home_rdl_item">
+    28:                         <span class="fa fa-bolt" /> <%=@hora %>:<%= jogada.milissegundos   %> / 60000 :<%= jogada.milissegundos %> / 1000
+    29:                     </li>
+  
+app/views/index/home.html.erb:26:in `/'
+app/views/index/home.html.erb:26:in `block in _app_views_index_home_html_erb__1244503772345261135_70015267606760'
+app/views/index/home.html.erb:8:in `_app_views_index_home_html_erb__1244503772345261135_70015267606760'
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:22:14 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (17.9ms)
+  Rendered layouts/_head.html.erb (178.5ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.8ms)
+Completed 200 OK in 208ms (Views: 205.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:24:05 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_head.html.erb (116.9ms)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.4ms)
+Completed 200 OK in 138ms (Views: 135.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 189.100.45.18 at 2017-10-08 21:31:10 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (15.4ms)
+  Rendered layouts/_head.html.erb (62.8ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.9ms)
+Completed 200 OK in 234ms (Views: 89.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 189.100.45.18 at 2017-10-15 13:55:35 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (3.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (4.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (78.6ms)
+  Rendered layouts/_head.html.erb (460.0ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (7.0ms)
+Completed 200 OK in 637ms (Views: 544.6ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/jogos" for 189.100.45.18 at 2017-10-15 13:55:42 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (0.5ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (1.9ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  Rendered jogos/index.html.erb within layouts/application (49.0ms)
+  Rendered layouts/_head.html.erb (44.7ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 104ms (Views: 97.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 13:55:51 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/home/ubuntu/workspace/TrabEngSoftware/app/controllers/jogadas_controller.rb:5: syntax error, unexpected ')', expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END):
+  
+app/controllers/jogadas_controller.rb:5: syntax error, unexpected ')', expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 13:56:59 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  Rendered jogadas/index.html.erb within layouts/application (28.8ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `tempo_horas' for #<Jogada:0x007f4060129970>):
+    23:         <td><%= jogada.texto_post %></td>
+    24:         <td><%= jogada.plataforma %></td>
+    25:         <td><%= jogada.data %></td>
+    26:         <td><%= jogada.tempo_horas %> : <%= jogada.tempo_minutos %> : <%= jogada.tempo_segundos %></td>
+    27:         <td><%= jogada.categoria %></td>
+    28:         <td><%= jogada.usuario.nome %></td>
+    29:         <td><a href = "/jogos/<%= jogada.jogo.id%>"><img src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a></td>
+  
+app/views/jogadas/index.html.erb:26:in `block in _app_views_jogadas_index_html_erb__1002151791518956338_69957219633840'
+app/views/jogadas/index.html.erb:21:in `_app_views_jogadas_index_html_erb__1002151791518956338_69957219633840'
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 13:59:20 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (36.7ms)
+  Rendered layouts/_head.html.erb (48.5ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 94ms (Views: 90.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/jogadas/new" for 189.100.45.18 at 2017-10-15 14:05:57 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#new as HTML
+  Rendering jogadas/new.html.erb within layouts/application
+  Rendered jogadas/_form.html.erb (24.1ms)
+  Rendered jogadas/new.html.erb within layouts/application (29.6ms)
+  Rendered layouts/_head.html.erb (42.6ms)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.2ms)
+Completed 200 OK in 85ms (Views: 82.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/jogadas" for 189.100.45.18 at 2017-10-15 14:12:52 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pmTvt+T1yLFAB8DC+SAaZuVqw5X6R6kqhBRmrvuSakM25JzM+PXickfucURb5siX1wd5fHJHM3+XpbhOqY4nhA==", "jogada"=>{"texto_post"=>"muito bom", "plataforma"=>"PC", "data(1i)"=>"2017", "data(2i)"=>"10", "data(3i)"=>"15", "tempo_horas"=>"1", "tempo_minutos"=>"0", "tempo_segundos"=>"0", "milissegundos"=>"1", "categoria"=>"teste", "link"=>"https://www.youtube.com/embed/5N3BViqaqZo", "usuario_id"=>"1", "jogo_id"=>"1"}, "commit"=>"Enviar"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'tempo_horas' for Jogada.):
+  
+app/controllers/jogadas_controller.rb:30:in `create'
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 14:17:11 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_head.html.erb (46.1ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.9ms)
+Completed 200 OK in 63ms (Views: 60.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/jogadas/new" for 189.100.45.18 at 2017-10-15 14:44:41 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#new as HTML
+  Rendering jogadas/new.html.erb within layouts/application
+  Rendered jogadas/_form.html.erb (6.7ms)
+  Rendered jogadas/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_head.html.erb (77.2ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (7.9ms)
+Completed 200 OK in 116ms (Views: 96.8ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/jogadas" for 189.100.45.18 at 2017-10-15 14:44:45 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kGkBQjhb7sAYsvL4BkSIg4FMmpSaPPJcHb7w8+bshDpsXDl0FldplzsMES0BGhr/X882Ep5Q5Sil3Nr8B9wM4w==", "jogada"=>{"texto_post"=>"muito bom", "plataforma"=>"PC", "data(1i)"=>"2017", "data(2i)"=>"10", "data(3i)"=>"15", "tempo_horas"=>"1", "tempo_minutos"=>"0", "tempo_segundos"=>"0", "milissegundos"=>"1", "categoria"=>"teste", "link"=>"https://www.youtube.com/embed/5N3BViqaqZo", "usuario_id"=>"1", "jogo_id"=>"1"}, "commit"=>"Enviar"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'tempo_horas' for Jogada.):
+  
+app/controllers/jogadas_controller.rb:30:in `create'
+Started POST "/jogadas" for 189.100.45.18 at 2017-10-15 14:45:18 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kGkBQjhb7sAYsvL4BkSIg4FMmpSaPPJcHb7w8+bshDpsXDl0FldplzsMES0BGhr/X882Ep5Q5Sil3Nr8B9wM4w==", "jogada"=>{"texto_post"=>"muito bom", "plataforma"=>"PC", "data(1i)"=>"2017", "data(2i)"=>"10", "data(3i)"=>"15", "tempo_horas"=>"1", "tempo_minutos"=>"0", "tempo_segundos"=>"0", "milissegundos"=>"1", "categoria"=>"teste", "link"=>"https://www.youtube.com/embed/5N3BViqaqZo", "usuario_id"=>"1", "jogo_id"=>"1"}, "commit"=>"Enviar"}
+Unpermitted parameter: :tempo_horas
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'tempo_minutos' for Jogada.):
+  
+app/controllers/jogadas_controller.rb:30:in `create'
+Started GET "/" for 189.100.45.18 at 2017-10-15 14:54:50 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (142.8ms)
+  Rendered layouts/_head.html.erb (40.8ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.3ms)
+Completed 200 OK in 199ms (Views: 192.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/jogos" for 189.100.45.18 at 2017-10-15 14:55:23 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (12.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (2.3ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  Rendered jogos/index.html.erb within layouts/application (45.6ms)
+  Rendered layouts/_head.html.erb (169.1ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.9ms)
+Completed 200 OK in 224ms (Views: 206.8ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/jogos/new" for 189.100.45.18 at 2017-10-15 14:55:27 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogosController#new as HTML
+  Rendering jogos/new.html.erb within layouts/application
+  [1m[36mGenero Load (0.3ms)[0m  [1m[34mSELECT "generos".* FROM "generos"[0m
+  Rendered jogos/_form.html.erb (18.5ms)
+  Rendered jogos/new.html.erb within layouts/application (24.2ms)
+  Rendered layouts/_head.html.erb (71.9ms)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.2ms)
+Completed 200 OK in 113ms (Views: 105.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/jogadas" for 189.100.45.18 at 2017-10-15 16:16:14 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kGkBQjhb7sAYsvL4BkSIg4FMmpSaPPJcHb7w8+bshDpsXDl0FldplzsMES0BGhr/X882Ep5Q5Sil3Nr8B9wM4w==", "jogada"=>{"texto_post"=>"muito bom", "plataforma"=>"PC", "data(1i)"=>"2017", "data(2i)"=>"10", "data(3i)"=>"15", "tempo_horas"=>"1", "tempo_minutos"=>"0", "tempo_segundos"=>"0", "milissegundos"=>"1", "categoria"=>"teste", "link"=>"https://www.youtube.com/embed/5N3BViqaqZo", "usuario_id"=>"1", "jogo_id"=>"1"}, "commit"=>"Enviar"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Load (3.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (3.8ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (3.1ms)[0m  [1m[32mINSERT INTO "jogadas" ("texto_post", "plataforma", "data", "categoria", "link", "usuario_id", "jogo_id", "created_at", "updated_at", "milissegundos") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["texto_post", "muito bom"], ["plataforma", "PC"], ["data", "2017-10-15"], ["categoria", "teste"], ["link", "https://www.youtube.com/embed/5N3BViqaqZo"], ["usuario_id", 1], ["jogo_id", 1], ["created_at", "2017-10-15 16:16:15.326319"], ["updated_at", "2017-10-15 16:16:15.326319"], ["milissegundos", 1]]
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 339ms (ActiveRecord: 18.5ms)
+
+
+  
+ArgumentError (comparison of String with 0 failed):
+  
+app/models/jogada.rb:22:in `<'
+app/models/jogada.rb:22:in `salvar'
+app/controllers/jogadas_controller.rb:33:in `block in create'
+app/controllers/jogadas_controller.rb:32:in `create'
+Started POST "/jogadas" for 189.100.45.18 at 2017-10-15 16:19:55 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kGkBQjhb7sAYsvL4BkSIg4FMmpSaPPJcHb7w8+bshDpsXDl0FldplzsMES0BGhr/X882Ep5Q5Sil3Nr8B9wM4w==", "jogada"=>{"texto_post"=>"muito bom", "plataforma"=>"PC", "data(1i)"=>"2017", "data(2i)"=>"10", "data(3i)"=>"15", "tempo_horas"=>"1", "tempo_minutos"=>"0", "tempo_segundos"=>"0", "milissegundos"=>"1", "categoria"=>"teste", "link"=>"https://www.youtube.com/embed/5N3BViqaqZo", "usuario_id"=>"1", "jogo_id"=>"1"}, "commit"=>"Enviar"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "jogadas" ("texto_post", "plataforma", "data", "categoria", "link", "usuario_id", "jogo_id", "created_at", "updated_at", "milissegundos") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["texto_post", "muito bom"], ["plataforma", "PC"], ["data", "2017-10-15"], ["categoria", "teste"], ["link", "https://www.youtube.com/embed/5N3BViqaqZo"], ["usuario_id", 1], ["jogo_id", 1], ["created_at", "2017-10-15 16:19:56.207835"], ["updated_at", "2017-10-15 16:19:56.207835"], ["milissegundos", 1]]
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 237ms (ActiveRecord: 13.6ms)
+
+
+  
+ArgumentError (comparison of String with 60 failed):
+  
+app/models/jogada.rb:26:in `>'
+app/models/jogada.rb:26:in `salvar'
+app/controllers/jogadas_controller.rb:33:in `block in create'
+app/controllers/jogadas_controller.rb:32:in `create'
+Started POST "/jogadas" for 189.100.45.18 at 2017-10-15 16:20:22 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kGkBQjhb7sAYsvL4BkSIg4FMmpSaPPJcHb7w8+bshDpsXDl0FldplzsMES0BGhr/X882Ep5Q5Sil3Nr8B9wM4w==", "jogada"=>{"texto_post"=>"muito bom", "plataforma"=>"PC", "data(1i)"=>"2017", "data(2i)"=>"10", "data(3i)"=>"15", "tempo_horas"=>"1", "tempo_minutos"=>"0", "tempo_segundos"=>"0", "milissegundos"=>"1", "categoria"=>"teste", "link"=>"https://www.youtube.com/embed/5N3BViqaqZo", "usuario_id"=>"1", "jogo_id"=>"1"}, "commit"=>"Enviar"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "jogadas" ("texto_post", "plataforma", "data", "categoria", "link", "usuario_id", "jogo_id", "created_at", "updated_at", "milissegundos") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["texto_post", "muito bom"], ["plataforma", "PC"], ["data", "2017-10-15"], ["categoria", "teste"], ["link", "https://www.youtube.com/embed/5N3BViqaqZo"], ["usuario_id", 1], ["jogo_id", 1], ["created_at", "2017-10-15 16:20:22.850970"], ["updated_at", "2017-10-15 16:20:22.850970"], ["milissegundos", 1]]
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 12.4ms)
+
+
+  
+TypeError (no implicit conversion of Fixnum into String):
+  
+app/models/jogada.rb:32:in `+'
+app/models/jogada.rb:32:in `salvar'
+app/controllers/jogadas_controller.rb:33:in `block in create'
+app/controllers/jogadas_controller.rb:32:in `create'
+Started POST "/jogadas" for 189.100.45.18 at 2017-10-15 16:22:39 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kGkBQjhb7sAYsvL4BkSIg4FMmpSaPPJcHb7w8+bshDpsXDl0FldplzsMES0BGhr/X882Ep5Q5Sil3Nr8B9wM4w==", "jogada"=>{"texto_post"=>"muito bom", "plataforma"=>"PC", "data(1i)"=>"2017", "data(2i)"=>"10", "data(3i)"=>"15", "tempo_horas"=>"1", "tempo_minutos"=>"0", "tempo_segundos"=>"0", "milissegundos"=>"1", "categoria"=>"teste", "link"=>"https://www.youtube.com/embed/5N3BViqaqZo", "usuario_id"=>"1", "jogo_id"=>"1"}, "commit"=>"Enviar"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "jogadas" ("texto_post", "plataforma", "data", "categoria", "link", "usuario_id", "jogo_id", "created_at", "updated_at", "milissegundos") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["texto_post", "muito bom"], ["plataforma", "PC"], ["data", "2017-10-15"], ["categoria", "teste"], ["link", "https://www.youtube.com/embed/5N3BViqaqZo"], ["usuario_id", 1], ["jogo_id", 1], ["created_at", "2017-10-15 16:22:40.221800"], ["updated_at", "2017-10-15 16:22:40.221800"], ["milissegundos", 1]]
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://speedify-hugo-benjamim.c9users.io/jogadas/14
+Completed 302 Found in 237ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/jogadas/14" for 189.100.45.18 at 2017-10-15 16:22:40 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering jogadas/show.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComentario Load (1.0ms)[0m  [1m[34mSELECT "comentarios".* FROM "comentarios" WHERE (jogada_id = 14)[0m
+  Rendered jogadas/show.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_head.html.erb (101.5ms)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.6ms)
+Completed 200 OK in 134ms (Views: 122.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 16:23:10 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.7ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (3.4ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (57.6ms)
+  Rendered layouts/_head.html.erb (66.9ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.6ms)
+Completed 200 OK in 143ms (Views: 129.9ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/home" for 189.100.45.18 at 2017-10-15 16:26:18 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (33.5ms)
+  Rendered layouts/_head.html.erb (41.0ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.7ms)
+Completed 200 OK in 87ms (Views: 82.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/home" for 189.100.45.18 at 2017-10-15 16:29:23 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (18.7ms)
+  Rendered layouts/_head.html.erb (40.5ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 69ms (Views: 65.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 16:36:58 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (32.8ms)
+  Rendered layouts/_head.html.erb (38.8ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.4ms)
+Completed 200 OK in 81ms (Views: 77.6ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/jogadas/10" for 189.100.45.18 at 2017-10-15 16:47:19 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZPtD4O/Esdujmq7bu4+WEBOItqWWElkWZEiWQKFpFp6YznvWwcg2jIAkTQ680QRszQsaI5J+TmLcKrxPQFmeRw==", "id"=>"10"}
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "jogadas" WHERE "jogadas"."id" = ?[0m  [["id", 10]]
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://speedify-hugo-benjamim.c9users.io/jogadas
+Completed 302 Found in 18ms (ActiveRecord: 11.5ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 16:47:19 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (21.8ms)
+  Rendered layouts/_head.html.erb (46.9ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.8ms)
+Completed 200 OK in 80ms (Views: 76.6ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/jogadas/14" for 189.100.45.18 at 2017-10-15 16:47:23 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4KLG0vzxT1J86LKG/5eRs8q7NBkwebH2Tet+jXMm6cccl/7k0v3IBV9WUVP4yQPPFDiYnzQVpoL1iVSCkhZhHg==", "id"=>"14"}
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "jogadas" WHERE "jogadas"."id" = ?[0m  [["id", 14]]
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://speedify-hugo-benjamim.c9users.io/jogadas
+Completed 302 Found in 17ms (ActiveRecord: 13.7ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 16:47:24 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (13.4ms)
+  Rendered layouts/_head.html.erb (45.1ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.2ms)
+Completed 200 OK in 71ms (Views: 67.8ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/jogadas/11" for 189.100.45.18 at 2017-10-15 16:49:39 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#destroy as HTML
+  Parameters: {"authenticity_token"=>"o7KWp8Gbu/xJUgLkT3/btnoxaQ6NXopiJiyN9KpYFg9fh66R75c8q2rs4TFIIUnKpLLFiIkynRaeTqf7S2ie1g==", "id"=>"11"}
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "jogadas" WHERE "jogadas"."id" = ?[0m  [["id", 11]]
+  [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://speedify-hugo-benjamim.c9users.io/jogadas
+Completed 302 Found in 14ms (ActiveRecord: 9.3ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 16:49:39 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (10.8ms)
+  Rendered layouts/_head.html.erb (36.9ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.4ms)
+Completed 200 OK in 57ms (Views: 53.9ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/jogadas/13" for 189.100.45.18 at 2017-10-15 16:49:44 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#destroy as HTML
+  Parameters: {"authenticity_token"=>"25EHAAhRrOlUmxg4yI+WONG++1XFcEFMiURig5XeCJ4npD82Jl0rvncl++3P0QREDz1X08EcVjgxJkiMdO6ARw==", "id"=>"13"}
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "jogadas" WHERE "jogadas"."id" = ?[0m  [["id", 13]]
+  [1m[35m (11.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://speedify-hugo-benjamim.c9users.io/jogadas
+Completed 302 Found in 18ms (ActiveRecord: 11.9ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 16:49:44 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_head.html.erb (50.9ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 73ms (Views: 69.5ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/jogadas/12" for 189.100.45.18 at 2017-10-15 16:51:37 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KZjqHaCeohvjyjRm9ZPV2RrC8aUQhPG+z2AVfcsQShvVrdIrjpIlTMB017PyzUelxEFdIxTo5sp3Aj9yKiDCwg==", "id"=>"12"}
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "jogadas" WHERE "jogadas"."id" = ?[0m  [["id", 12]]
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://speedify-hugo-benjamim.c9users.io/jogadas
+Completed 302 Found in 12ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 16:51:37 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_head.html.erb (53.9ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 67ms (Views: 65.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/jogadas/new" for 189.100.45.18 at 2017-10-15 16:51:39 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#new as HTML
+  Rendering jogadas/new.html.erb within layouts/application
+  Rendered jogadas/_form.html.erb (7.5ms)
+  Rendered jogadas/new.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_head.html.erb (34.6ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 56ms (Views: 50.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/jogadas" for 189.100.45.18 at 2017-10-15 16:53:25 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cnhszDZ+OyEfpprVCaTCDGHNKmP4f3OvtpXvXtem8JPi+B+3Kn4R4hhPK1OrYhD9U6CQinB/6fqlJDG+hbq9VA==", "jogada"=>{"texto_post"=>"muito bom", "plataforma"=>"PC", "data(1i)"=>"2017", "data(2i)"=>"10", "data(3i)"=>"15", "tempo_horas"=>"1", "tempo_minutos"=>"0", "tempo_segundos"=>"0", "milissegundos"=>"1", "categoria"=>"teste", "link"=>"https://www.youtube.com/embed/b1uH4BnswKQ", "usuario_id"=>"1", "jogo_id"=>"1"}, "commit"=>"Enviar"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "jogadas" ("texto_post", "plataforma", "data", "categoria", "link", "usuario_id", "jogo_id", "created_at", "updated_at", "milissegundos") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["texto_post", "muito bom"], ["plataforma", "PC"], ["data", "2017-10-15"], ["categoria", "teste"], ["link", "https://www.youtube.com/embed/b1uH4BnswKQ"], ["usuario_id", 1], ["jogo_id", 1], ["created_at", "2017-10-15 16:53:25.667274"], ["updated_at", "2017-10-15 16:53:25.667274"], ["milissegundos", 1]]
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://speedify-hugo-benjamim.c9users.io/jogadas/15
+Completed 302 Found in 160ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/jogadas/15" for 189.100.45.18 at 2017-10-15 16:53:25 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering jogadas/show.html.erb within layouts/application
+  Rendered jogadas/show.html.erb within layouts/application (14.6ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `millisegundos' for #<Jogada:0x007f4060a479a8>
+Did you mean?  milissegundos
+               milissegundos=
+               milissegundos?):
+    19:   <%= @jogada.data %>
+    20: </p>
+    21: 
+    22: <%= @hora = @jogada.millisegundos / 3600000 %>
+    23: <p>
+    24:   <strong>Tempo da jogada:</strong>
+    25:   <%= @hora %> horas <%= @jogada.tempo_minutos %> minutos <%= @jogada.tempo_segundos %> segundos!
+  
+app/views/jogadas/show.html.erb:22:in `_app_views_jogadas_show_html_erb___2612075648421719242_69957238009700'
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 16:54:03 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_head.html.erb (39.9ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (23.7ms)
+Completed 200 OK in 81ms (Views: 77.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/jogadas/new" for 189.100.45.18 at 2017-10-15 17:01:17 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#new as HTML
+  Rendering jogadas/new.html.erb within layouts/application
+  Rendered jogadas/_form.html.erb (19.4ms)
+  Rendered jogadas/new.html.erb within layouts/application (21.5ms)
+  Rendered layouts/_head.html.erb (46.7ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (7.9ms)
+Completed 200 OK in 166ms (Views: 130.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/jogadas" for 189.100.45.18 at 2017-10-15 17:01:49 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uS/Xm+cdPwcjgohiIkxwhp+VyNe0BtVKntV4BkQ/rdEpr6Tg+x0VxCRrOeSAiqJ3rfhyPjwGTx+NZKbmFiPgFg==", "jogada"=>{"texto_post"=>"teste", "plataforma"=>"pc", "data(1i)"=>"2017", "data(2i)"=>"10", "data(3i)"=>"15", "tempo_horas"=>"1", "tempo_minutos"=>"0", "tempo_segundos"=>"0", "milissegundos"=>"1", "categoria"=>"teste", "link"=>"https://www.youtube.com/embed/b1uH4BnswKQ", "usuario_id"=>"1", "jogo_id"=>"1"}, "commit"=>"Enviar"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "jogadas" ("texto_post", "plataforma", "data", "categoria", "link", "usuario_id", "jogo_id", "created_at", "updated_at", "milissegundos") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["texto_post", "teste"], ["plataforma", "pc"], ["data", "2017-10-15"], ["categoria", "teste"], ["link", "https://www.youtube.com/embed/b1uH4BnswKQ"], ["usuario_id", 1], ["jogo_id", 1], ["created_at", "2017-10-15 17:01:49.955848"], ["updated_at", "2017-10-15 17:01:49.955848"], ["milissegundos", 3600001]]
+  [1m[35m (18.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://speedify-hugo-benjamim.c9users.io/jogadas/16
+Completed 302 Found in 185ms (ActiveRecord: 20.7ms)
+
+
+Started GET "/jogadas/16" for 189.100.45.18 at 2017-10-15 17:01:50 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering jogadas/show.html.erb within layouts/application
+  Rendered jogadas/show.html.erb within layouts/application (31.3ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `milisegundos' for #<Jogada:0x007f405e685380>
+Did you mean?  milissegundos
+               milissegundos=
+               milissegundos?):
+    19:   <%= @jogada.data %>
+    20: </p>
+    21: 
+    22: <%= @hora = @jogada.milisegundos / 3600000 %>
+    23: <p>
+    24:   <strong>Tempo da jogada:</strong>
+    25:   <%= @hora %> horas <%= @jogada.tempo_minutos %> minutos <%= @jogada.tempo_segundos %> segundos!
+  
+app/views/jogadas/show.html.erb:22:in `_app_views_jogadas_show_html_erb___2612075648421719242_69957219227400'
+Started GET "/jogadas/16" for 189.100.45.18 at 2017-10-15 17:06:17 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering jogadas/show.html.erb within layouts/application
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComentario Load (0.3ms)[0m  [1m[34mSELECT "comentarios".* FROM "comentarios" WHERE (jogada_id = 16)[0m
+  Rendered jogadas/show.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_head.html.erb (38.5ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 56ms (Views: 50.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/jogadas/" for 189.100.45.18 at 2017-10-15 17:07:01 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_head.html.erb (55.2ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 74ms (Views: 71.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/jogadas/" for 189.100.45.18 at 2017-10-15 17:25:57 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  Rendered jogadas/index.html.erb within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `milissegundos' for nil:NilClass):
+    19: 
+    20:   <tbody>
+    21:     <% @jogadas.each do |jogada| %>
+    22:     <% @hora = @jogada.milissegundos / 3600000 %>
+    23:     <% @minuto = (@jogada.milissegundos % 3600000 ) / 60000%>
+    24:     <% @segundo = ( (@jogada.milissegundos % 3600000) % 60000 ) / 1000 %>
+    25:     <% @milissegundo = ( (@jogada.milissegundos % 3600000) % 60000 ) % 1000 %>
+  
+app/views/jogadas/index.html.erb:22:in `block in _app_views_jogadas_index_html_erb__1002151791518956338_69957166711060'
+app/views/jogadas/index.html.erb:21:in `_app_views_jogadas_index_html_erb__1002151791518956338_69957166711060'
+Started GET "/jogadas/" for 189.100.45.18 at 2017-10-15 17:26:43 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  Rendered jogadas/index.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `milissegundos' for nil:NilClass):
+    20:   <tbody>
+    21:     <% @jogadas.each do |jogada| %>
+    22:     
+    23:     <% @hora = @jogada.milissegundos.to_i / 3600000 %>
+    24:     <% @minuto = (@jogada.milissegundos.to_i % 3600000 ) / 60000%>
+    25:     <% @segundo = ( (@jogada.milissegundos.to_i % 3600000) % 60000 ) / 1000 %>
+    26:     <% @milissegundo = ( (@jogada.milissegundos.to_i % 3600000) % 60000 ) % 1000 %>
+  
+app/views/jogadas/index.html.erb:23:in `block in _app_views_jogadas_index_html_erb__1002151791518956338_69957223146640'
+app/views/jogadas/index.html.erb:21:in `_app_views_jogadas_index_html_erb__1002151791518956338_69957223146640'
+Started GET "/jogadas/" for 189.100.45.18 at 2017-10-15 17:33:16 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  Rendered jogadas/index.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `milissegundos' for nil:NilClass):
+    20:   <tbody>
+    21:     <% @jogadas.each do |jogada| %>
+    22:     
+    23:     <% if @jogada.milissegundos
+    24:           @hora = @jogada.milissegundos.to_i / 3600000
+    25:           @minuto = (@jogada.milissegundos.to_i % 3600000 ) / 60000
+    26:           @segundo = ( (@jogada.milissegundos.to_i % 3600000) % 60000 ) / 1000 
+  
+app/views/jogadas/index.html.erb:23:in `block in _app_views_jogadas_index_html_erb__1002151791518956338_69957134836560'
+app/views/jogadas/index.html.erb:21:in `_app_views_jogadas_index_html_erb__1002151791518956338_69957134836560'
+Started GET "/jogadas/" for 189.100.45.18 at 2017-10-15 17:34:02 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_head.html.erb (42.7ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 65ms (Views: 62.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/jogadas/" for 189.100.45.18 at 2017-10-15 17:36:16 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_head.html.erb (49.7ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (60.1ms)
+Completed 200 OK in 126ms (Views: 123.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/jogadas/" for 189.100.45.18 at 2017-10-15 17:36:31 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (13.8ms)
+  Rendered layouts/_head.html.erb (61.0ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 84ms (Views: 81.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/jogadas/16" for 189.100.45.18 at 2017-10-15 17:56:45 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering jogadas/show.html.erb within layouts/application
+  [1m[36mComentario Load (0.2ms)[0m  [1m[34mSELECT  "comentarios".* FROM "comentarios" WHERE (jogada_id = 16) LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Comentario Load (0.0ms)[0m  [1m[34mSELECT  "comentarios".* FROM "comentarios" WHERE (jogada_id = 16) LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Comentario Load (0.0ms)[0m  [1m[34mSELECT  "comentarios".* FROM "comentarios" WHERE (jogada_id = 16) LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Comentario Load (0.0ms)[0m  [1m[34mSELECT  "comentarios".* FROM "comentarios" WHERE (jogada_id = 16) LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered jogadas/show.html.erb within layouts/application (130.5ms)
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 2.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `milissegundos' for #<#<Class:0x007f405ea1f428>:0x007f405ea1d538>
+Did you mean?  milissegundo):
+    20: </p>
+    21: <p>
+    22:   <strong>Tempo da jogada:</strong>
+    23:   <%= horas(@jogada.milissegundos) %> horas <%= minutos(@jogada.milissegundos) %> minutos <%= segundos(@jogada.milissegundos) %> segundos <%=milissegundos(@jogada.milissegundos) %> milissegundos!
+    24: </p>
+    25: 
+    26: <p>
+  
+app/views/jogadas/show.html.erb:23:in `_app_views_jogadas_show_html_erb___2612075648421719242_69957221154440'
+Started GET "/jogadas/16" for 189.100.45.18 at 2017-10-15 17:57:13 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mJogada Load (0.6ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering jogadas/show.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComentario Load (0.2ms)[0m  [1m[34mSELECT "comentarios".* FROM "comentarios" WHERE (jogada_id = 16)[0m
+  Rendered jogadas/show.html.erb within layouts/application (50.9ms)
+  Rendered layouts/_head.html.erb (46.8ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.0ms)
+Completed 200 OK in 109ms (Views: 103.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 17:58:10 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (24.4ms)
+  Rendered layouts/_head.html.erb (147.7ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.6ms)
+Completed 200 OK in 195ms (Views: 191.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/jogadas/new" for 189.100.45.18 at 2017-10-15 17:58:14 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#new as HTML
+  Rendering jogadas/new.html.erb within layouts/application
+  Rendered jogadas/_form.html.erb (13.1ms)
+  Rendered jogadas/new.html.erb within layouts/application (15.5ms)
+  Rendered layouts/_head.html.erb (72.2ms)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.4ms)
+Completed 200 OK in 100ms (Views: 97.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 17:59:49 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (156.4ms)
+  Rendered layouts/_head.html.erb (44.3ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.4ms)
+Completed 200 OK in 218ms (Views: 210.0ms | ActiveRecord: 78.3ms)
+
+
+Started GET "/jogadas/16" for 189.100.45.18 at 2017-10-15 18:01:35 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering jogadas/show.html.erb within layouts/application
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComentario Load (0.2ms)[0m  [1m[34mSELECT "comentarios".* FROM "comentarios" WHERE (jogada_id = 16)[0m
+  Rendered jogadas/show.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_head.html.erb (81.4ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.5ms)
+Completed 200 OK in 150ms (Views: 141.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/jogadas/16" for 189.100.45.18 at 2017-10-15 18:02:26 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering jogadas/show.html.erb within layouts/application
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComentario Load (0.5ms)[0m  [1m[34mSELECT "comentarios".* FROM "comentarios" WHERE (jogada_id = 16)[0m
+  Rendered jogadas/show.html.erb within layouts/application (92.0ms)
+  Rendered layouts/_head.html.erb (130.9ms)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (7.3ms)
+Completed 200 OK in 279ms (Views: 233.1ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/jogadas/16" for 189.100.45.18 at 2017-10-15 18:06:47 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" WHERE "jogadas"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering jogadas/show.html.erb within layouts/application
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComentario Load (0.4ms)[0m  [1m[34mSELECT "comentarios".* FROM "comentarios" WHERE (jogada_id = 16)[0m
+  Rendered jogadas/show.html.erb within layouts/application (64.8ms)
+  Rendered layouts/_head.html.erb (87.3ms)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.4ms)
+Completed 200 OK in 210ms (Views: 165.6ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 18:07:01 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.5ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (16.4ms)
+  Rendered layouts/_head.html.erb (174.5ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.9ms)
+Completed 200 OK in 204ms (Views: 199.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/jogadas" for 189.100.45.18 at 2017-10-15 18:09:13 +0000
+Cannot render console from 189.100.45.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (63.2ms)
+  Rendered layouts/_head.html.erb (63.6ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.1ms)
+Completed 200 OK in 145ms (Views: 138.1ms | ActiveRecord: 3.9ms)
+
+

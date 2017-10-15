@@ -1,4 +1,4 @@
-<%= provide(:title, 'Home') %>
+<%= provide(:title, 'Home')%>
 <div class="home_container container">
     <div class="home_box  row">
     <div class="home_box_title ">
@@ -23,8 +23,11 @@
                         <span class="fa fa-trophy" style="color:gold">
 </span> 1st    
                     </li>
+                    <% @hora = (jogada.milissegundos).to_i / 3600000 
+                    
+                    %>
                     <li class="home_rdl_time home_rdl_item">
-                        <span class="fa fa-bolt" /> <%=jogada.tempo_horas %>:<%=jogada.tempo_minutos %>:<%=jogada.tempo_segundos%>
+                        <span class="fa fa-bolt" /> <%=(jogada.milissegundos).to_i / 3600000 %>:<%= (jogada.milissegundos).to_i / 60000 %>  :<%= (jogada.milissegundos).to_i / 1000%> :  <%=(jogada.milissegundos).to_i %>
                     </li>
                     <li class="home_rdl_categoria home_rdl_item">
                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
@@ -66,7 +69,7 @@
 </span> 1st
                     </li>
                     <li class="home_rdl_time home_rdl_item">
-                        <span class="fa fa-bolt" /> 09:09:09
+                        <span class="fa fa-bolt" /> 09:09:09:009
                     </li>
                     <li class="home_rdl_categoria home_rdl_item">
                         <span class="fa fa-cogs" style="color:#9498a1"></span> Any%

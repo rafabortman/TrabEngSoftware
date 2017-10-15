@@ -19,11 +19,19 @@
 
   <tbody>
     <% @jogadas.each do |jogada| %>
+    <%
+      @hora = jogada.milissegundos.to_i / 3600000
+      @minuto = (jogada.milissegundos.to_i % 3600000 ) / 60000
+      @segundo = ( (jogada.milissegundos.to_i % 3600000) % 60000 ) / 1000 
+      @milissegundo = ( (jogada.milissegundos.to_i % 3600000) % 60000 ) % 1000
+    %>
+    
+    
       <tr>
         <td><%= jogada.texto_post %></td>
         <td><%= jogada.plataforma %></td>
         <td><%= jogada.data %></td>
-        <td><%= jogada.tempo_horas %> : <%= jogada.tempo_minutos %> : <%= jogada.tempo_segundos %></td>
+        <td><%= horas (jogada.milissegundos) %> : <%= minutos(jogada.milissegundos) %> : <%= segundos(jogada.milissegundos) %> : <%= milissegundo(jogada.milissegundos) %></td>
         <td><%= jogada.categoria %></td>
         <td><%= jogada.usuario.nome %></td>
         <td><a href = "/jogos/<%= jogada.jogo.id%>"><img src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a></td>

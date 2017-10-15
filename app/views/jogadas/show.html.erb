@@ -18,11 +18,9 @@
   <strong>Data da jogada:</strong>
   <%= @jogada.data %>
 </p>
-
-
 <p>
   <strong>Tempo da jogada:</strong>
-  <%= @jogada.tempo_horas %> horas <%= @jogada.tempo_minutos %> minutos <%= @jogada.tempo_segundos %> segundos!
+  <%= horas(@jogada.milissegundos) %> horas <%= minutos(@jogada.milissegundos) %> minutos <%= segundos(@jogada.milissegundos) %> segundos <%=milissegundo(@jogada.milissegundos) %> milissegundos!
 </p>
 
 <p>

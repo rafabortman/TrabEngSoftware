@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 20171008181343) do
+=======
+ActiveRecord::Schema.define(version: 20171008162405) do
+>>>>>>> Stashed changes
 
   create_table "amigos", force: :cascade do |t|
     t.string "usuarioId"
@@ -37,15 +41,13 @@ ActiveRecord::Schema.define(version: 20171008181343) do
     t.string "texto_post"
     t.string "plataforma"
     t.date "data"
-    t.integer "tempo_horas"
-    t.integer "tempo_minutos"
-    t.integer "tempo_segundos"
     t.string "categoria"
     t.string "link"
     t.integer "usuario_id"
     t.integer "jogo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "milissegundos", limit: 8
     t.index ["jogo_id"], name: "index_jogadas_on_jogo_id"
     t.index ["usuario_id"], name: "index_jogadas_on_usuario_id"
   end
