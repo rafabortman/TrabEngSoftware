@@ -44,7 +44,7 @@ class JogadasController < ApplicationController
   # PATCH/PUT /jogadas/1.json
   def update
     respond_to do |format|
-      if @jogada.update(jogada_params)
+      if @jogada.atualizar(jogada_params)
         format.html { redirect_to @jogada, notice: 'Jogada was successfully updated.' }
         format.json { render :show, status: :ok, location: @jogada }
       else

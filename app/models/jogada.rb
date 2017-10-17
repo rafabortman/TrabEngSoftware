@@ -14,21 +14,38 @@ class Jogada < ApplicationRecord
 	   ValidarLink.new(jogada).validar
 	end
 	
-	def salvar
-	  
-	  if self.tempo_horas.to_i <0 || self.tempo_minutos.to_i < 0 || self.tempo_segundos.to_i < 0 || self.milissegundos.to_i < 0
+	def converterTempo(horas,min,seg,milis)
+	   if horas <0 || min < 0 || seg < 0 || milis < 0
 	    self.errors[:tempo_horas] <<"-> Tempo Negativo não é permitido"
 	    return false;
 	  end
-	  if self.tempo_minutos.to_i > 60 || self.tempo_segundos.to_i > 60 || self.milissegundos.to_i > 1000
+	  if min >= 60 || seg >= 60 || milis >= 1000
 	    self.errors[:tempo_minutos] <<"-> Tempo inválido"
 	    return false;
 	  end
 	  
 	   #conversão para milissegundos
-	   self.milissegundos = ( self.tempo_horas.to_i * 3600000) + (self.tempo_minutos.to_i * 60000) + (self.tempo_segundos.to_i * 1000) + self.milissegundos.to_i
+	   self.milissegundos = ( horas * 3600000) + (min * 60000) + (seg * 1000) + milis
+	end
+
+	def salvar
+	  if(!converterTempo(self.tempo_horas.to_i, self.tempo_minutos.to_i,self.tempo_segundos.to_i, self.milissegundos.to_i))
+	    return false
+	  end
 	  salvou = self.save
 	  if salvou == false
+	   	return false
+	  end
+	  return true
+	end
+
+	def atualizar(params)
+	  if(!converterTempo(params[:tempo_horas].to_i,params[:tempo_minutos].to_i,params[:tempo_segundos].to_i,params[:milissegundos].to_i))
+  	    return false
+	  end
+	  params[:milissegundos] = self.milissegundos
+	  atualizou = self.update(params)
+	  if atualizou == false
 	   	return false
 	  end
 	  return true

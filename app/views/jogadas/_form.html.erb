@@ -28,21 +28,21 @@
 
   <div class="field">
     <%= form.label :tempo_horas %>
-    <%= form.number_field :tempo_horas, id: :jogada_tempo_horas %>
+    <%= form.number_field :tempo_horas, id: :jogada_tempo_horas, :value => horas(jogada.milissegundos) %>
   </div>
 
   <div class="field">
     <%= form.label :tempo_minutos %>
-    <%= form.number_field :tempo_minutos, id: :jogada_tempo_minutos %>
+    <%= form.number_field :tempo_minutos, id: :jogada_tempo_minutos, :value => minutos(jogada.milissegundos)  %>
   </div>
 
   <div class="field">
     <%= form.label :tempo_segundos %>
-    <%= form.number_field :tempo_segundos, id: :jogada_tempo_segundos %>
+    <%= form.number_field :tempo_segundos, id: :jogada_tempo_segundos, :value => segundos(jogada.milissegundos)  %>
   </div>
   <div class="field">
     <%= form.label :milissegundos %>
-    <%= form.number_field :milissegundos, id: :milissegundos %>
+    <%= form.number_field :milissegundos, id: :milissegundos, :value => milissegundo(jogada.milissegundos) %>
   </div>
 
   <div class="field">

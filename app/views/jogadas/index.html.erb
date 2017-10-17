@@ -31,7 +31,7 @@
         <td><%= jogada.texto_post %></td>
         <td><%= jogada.plataforma %></td>
         <td><%= jogada.data %></td>
-        <td><%= horas (jogada.milissegundos) %> : <%= minutos(jogada.milissegundos) %> : <%= segundos(jogada.milissegundos) %> : <%= milissegundo(jogada.milissegundos) %></td>
+        <td><%= getTempoJogada(jogada.milissegundos) %></td>
         <td><%= jogada.categoria %></td>
         <td><%= jogada.usuario.nome %></td>
         <td><a href = "/jogos/<%= jogada.jogo.id%>"><img src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a></td>
