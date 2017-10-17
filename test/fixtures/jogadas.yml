@@ -4,9 +4,7 @@ one:
   texto_post: MyString
   plataforma: MyString
   data: 2017-09-23
-  tempo_horas: 1
-  tempo_minutos: 1
-  tempo_segundos: 1
+  milissegundos: 2000000
   categoria: MyString
   link: MyString
   usuario: one
@@ -16,9 +14,7 @@ two:
   texto_post: MyString
   plataforma: MyString
   data: 2017-09-23
-  tempo_horas: 1
-  tempo_minutos: 1
-  tempo_segundos: 1
+  milissegundos: 24124212
   categoria: MyString
   link: MyString
   usuario: two

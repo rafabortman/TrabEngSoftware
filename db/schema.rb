@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 20171008181343) do
-=======
-ActiveRecord::Schema.define(version: 20171008162405) do
->>>>>>> Stashed changes
 
   create_table "amigos", force: :cascade do |t|
     t.string "usuarioId"

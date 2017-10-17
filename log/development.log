@@ -19103,3 +19103,210 @@ Processing by JogadasController#index as HTML
 Completed 200 OK in 145ms (Views: 138.1ms | ActiveRecord: 3.9ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddMilissegundosToJogadas (20171008162405)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "jogadas" ADD "milissegundos" bigint[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "tempo_horas" integer DEFAULT NULL, "tempo_minutos" integer DEFAULT NULL, "tempo_segundos" integer DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_jogo_id" ON "ajogadas" ("jogo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_usuario_id" ON "ajogadas" ("usuario_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ajogadas" ("id","texto_post","plataforma","data","tempo_horas","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","tempo_horas","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "jogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "jogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "jogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "tempo_minutos" integer DEFAULT NULL, "tempo_segundos" integer DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_usuario_id" ON "jogadas" ("usuario_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_jogo_id" ON "jogadas" ("jogo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "jogadas" ("id","texto_post","plataforma","data","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "ajogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ajogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "tempo_minutos" integer DEFAULT NULL, "tempo_segundos" integer DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_jogo_id" ON "ajogadas" ("jogo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_usuario_id" ON "ajogadas" ("usuario_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ajogadas" ("id","texto_post","plataforma","data","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","tempo_minutos","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "jogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "jogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "jogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "tempo_segundos" integer DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_usuario_id" ON "jogadas" ("usuario_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_jogo_id" ON "jogadas" ("jogo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "jogadas" ("id","texto_post","plataforma","data","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "ajogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ajogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "tempo_segundos" integer DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_jogo_id" ON "ajogadas" ("jogo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_ajogadas_on_usuario_id" ON "ajogadas" ("usuario_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ajogadas" ("id","texto_post","plataforma","data","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","tempo_segundos","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "jogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "jogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "jogadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "texto_post" varchar DEFAULT NULL, "plataforma" varchar DEFAULT NULL, "data" date DEFAULT NULL, "categoria" varchar DEFAULT NULL, "link" varchar DEFAULT NULL, "usuario_id" integer DEFAULT NULL, "jogo_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "milissegundos" integer(8) DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ajogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_usuario_id" ON "jogadas" ("usuario_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jogadas_on_jogo_id" ON "jogadas" ("jogo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "jogadas" ("id","texto_post","plataforma","data","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos")
+                     SELECT "id","texto_post","plataforma","data","categoria","link","usuario_id","jogo_id","created_at","updated_at","milissegundos" FROM "ajogadas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ajogadas"[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171008162405"]]
+  [1m[35m (64.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comentarios_on_jogada_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comentarios_on_jogada_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_jogo_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogadas_on_usuario_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogos_generos_on_genero_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogos_generos_on_genero_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_jogos_generos_on_jogo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_jogos_generos_on_jogo_id' AND type='index'
+[0m
