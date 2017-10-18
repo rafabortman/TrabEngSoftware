@@ -8,8 +8,8 @@ RSpec.describe JogadasController, type: :controller do
     email:"test@gmail.com",
     username:"tsttst",
     senha:"tester",
-    nacionalidade:"br"
-
+    nacionalidade:"br",
+    confirmar_senha:"tester"
   });
   Jogo.create({
       titulo:"Jogo Teste Jogadas Rspec",
@@ -30,6 +30,22 @@ RSpec.describe JogadasController, type: :controller do
       usuario_id: Usuario.find_by(nome: "Usuario Teste Jogadas Rspec").id,
       jogo_id: Jogo.find_by(titulo: "Jogo Teste Jogadas Rspec").id
     }
+  }
+
+   let(:valid_attributes_nomes) {
+    {
+      texto_post:"Mario Bros",
+      plataforma:"PC",
+      data:"Side scroller classico",
+      tempo_horas:1,
+      tempo_minutos:10,
+      tempo_segundos:37,
+      categoria:"Classico",
+      link:"https://www.youtube.com/embed/fEaTMekrcz0",
+      usuario_id:"tsttst",
+      jogo_id:"Jogo Teste Jogadas Rspec"
+    }
+
   }
 
   let(:invalid_attributes) {
@@ -74,13 +90,14 @@ RSpec.describe JogadasController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Jogada" do
+	jogada = Jogada.create! valid_attributes
         expect {
-          post :create, params: {jogada: valid_attributes}, session: valid_session
+          post :create, params: {jogada: valid_attributes_nomes}, session: valid_session
         }.to change(Jogada, :count).by(1)
       end
 
       it "redirects to the created jogada" do
-        post :create, params: {jogada: valid_attributes}, session: valid_session
+        post :create, params: {jogada: valid_attributes_nomes}, session: valid_session
         expect(response).to redirect_to(Jogada.last)
       end
     end
@@ -108,7 +125,7 @@ RSpec.describe JogadasController, type: :controller do
 
       it "redirects to the jogada" do
         jogada = Jogada.create! valid_attributes
-        put :update, params: {id: jogada.to_param, jogada: valid_attributes}, session: valid_session
+        put :update, params: {id: jogada.to_param, jogada: valid_attributes_nomes}, session: valid_session
         expect(response).to redirect_to(jogada)
       end
     end

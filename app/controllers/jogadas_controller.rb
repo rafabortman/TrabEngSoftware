@@ -30,7 +30,7 @@ class JogadasController < ApplicationController
     @jogada = Jogada.new(jogada_params)
 
     respond_to do |format|
-      if @jogada.salvar
+      if @jogada.salvar(jogada_params)
         format.html { redirect_to @jogada, notice: 'Jogada was successfully created.' }
         format.json { render :show, status: :created, location: @jogada }
       else

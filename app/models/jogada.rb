@@ -5,7 +5,7 @@ class Jogada < ApplicationRecord
   validates :link, format: { with: /embed/,message: "O vídeo deve ser encorporado do youtube" }
   validates :plataforma, presence: {message: "não pode estar vazio"}
   validates :categoria, presence: {message: "não pode estar vazio"}
-  validates :jogo, presence: {message: "não pode estar vazio"}
+  #validates :jogo, presence: {message: "não pode estar vazio"}
   attr_accessor :tempo_horas
   attr_accessor :tempo_minutos
   attr_accessor :tempo_segundos
@@ -28,8 +28,34 @@ class Jogada < ApplicationRecord
 	   self.milissegundos = ( horas * 3600000) + (min * 60000) + (seg * 1000) + milis
 	end
 
-	def salvar
+	#tenta buscar jogos e usuarios pelo titulo e username. Se nao achar, tenta procurar pelo id mesmo
+	def converterIdsJogoUsuario(nomeJogo,nomeUsuario)
+	   @jogo = Jogo.find_by("LOWER(titulo) = ?",nomeJogo.downcase)
+	   if(@jogo == nil)
+	     @jogo = Jogo.find_by("id = ?", nomeJogo)
+	     if(@jogo == nil)
+	       self.errors[:jogo] <<" não encontrado"
+	       return false
+	     end
+	   end
+	   @usuario = Usuario.find_by("LOWER(username) = ?", nomeUsuario.downcase)
+	   if(@usuario == nil)
+	     @usuario = Usuario.find_by("id = ?",nomeUsuario)
+	     if(@usuario == nil)
+	       self.errors[:usuario] <<" não encontrado"
+	       return false
+	     end
+	   end
+	   self.usuario_id = @usuario.id
+	   self.jogo_id = @jogo.id
+	end
+
+	def salvar(params)
 	  if(!converterTempo(self.tempo_horas.to_i, self.tempo_minutos.to_i,self.tempo_segundos.to_i, self.milissegundos.to_i))
+	    return false
+	  end
+	  
+ 	  if(!converterIdsJogoUsuario(params[:jogo_id],params[:usuario_id]))
 	    return false
 	  end
 	  salvou = self.save
@@ -43,7 +69,12 @@ class Jogada < ApplicationRecord
 	  if(!converterTempo(params[:tempo_horas].to_i,params[:tempo_minutos].to_i,params[:tempo_segundos].to_i,params[:milissegundos].to_i))
   	    return false
 	  end
+	  if(!converterIdsJogoUsuario(params[:jogo_id],params[:usuario_id]))
+	    return false
+	  end
 	  params[:milissegundos] = self.milissegundos
+	  params[:usuario_id] = self.usuario_id
+	  params[:jogo_id] = self.jogo_id
 	  atualizou = self.update(params)
 	  if atualizou == false
 	   	return false

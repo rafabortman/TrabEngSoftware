@@ -57,12 +57,12 @@
 
   <div class="field">
     <%= form.label :usuario_id %>
-    <%= form.text_field :usuario_id, id: :jogada_usuario_id %>
+    <%= form.text_field :usuario_id, id: :jogada_usuario_id, :value => ((jogada.usuario==nil)?"":jogada.usuario.username) %>
   </div>
 
   <div class="field">
     <%= form.label :jogo_id %>
-    <%= form.text_field :jogo_id, id: :jogada_jogo_id %>
+    <%= form.text_field :jogo_id, id: :jogada_jogo_id, :value => ((jogada.jogo==nil)?"":jogada.jogo.titulo) %>
   </div>
 
   <div class="actions">
