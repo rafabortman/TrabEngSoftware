@@ -11,7 +11,7 @@
       <th>Imagem</th>
       <th>Descricao</th>
       <th>Gêneros</th> 
-      <th colspan="3">Links</th>
+      <th colspan="4">Links</th>
     </tr>
   </thead>
 
@@ -30,6 +30,7 @@
         <td><%= link_to 'Mostrar', jogo , :class => "btn btn-outline-primary"%></td>
         <td><%= link_to 'Editar', edit_jogo_path(jogo) , :class => "btn btn-outline-primary"%></td>
         <td><%= link_to 'Deletar', jogo, method: :delete, data: { confirm: 'Você tem certeza?' } , :class => "btn btn-outline-primary"%></td>
+	<td><%= link_to 'Add Jogada', jogoAddJogada_path(jogo) , :class => "btn btn-outline-primary"%></td>
       </tr>
     <% end %>
   </tbody>

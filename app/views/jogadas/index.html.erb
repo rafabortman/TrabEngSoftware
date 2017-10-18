@@ -33,7 +33,7 @@
         <td><%= jogada.data %></td>
         <td><%= getTempoJogada(jogada.milissegundos) %></td>
         <td><%= jogada.categoria %></td>
-        <td><%= jogada.usuario.nome %></td>
+        <td><%= jogada.usuario.username %></td>
         <td><a href = "/jogos/<%= jogada.jogo.id%>"><img src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a></td>
 
         <td><%= link_to 'Mostrar', jogada , :class => "btn btn-outline-primary" %></td>

@@ -1,0 +1,69 @@
+<%= form_for(@jogada, url: create_jogada_pelo_jogo_path) do |form| %>
+  <% if flash[:error] %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flash[:error].scan(",").length+1, "error") %> prohibited this jogada from being saved:</h2>
+
+      <ul>
+      <% flash[:error].split(',').each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :texto_post %>
+    <%= form.text_field :texto_post, id: :@jogada_texto_post %>
+  </div>
+
+  <div class="field">
+    <%= form.label :plataforma %>
+    <%= form.text_field :plataforma, id: :@jogada_plataforma %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.date_select :data, id: :@jogada_data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tempo_horas %>
+    <%= form.number_field :tempo_horas, id: :@jogada_tempo_horas, :value => horas(@jogada.milissegundos) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tempo_minutos %>
+    <%= form.number_field :tempo_minutos, id: :@jogada_tempo_minutos, :value => minutos(@jogada.milissegundos)  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tempo_segundos %>
+    <%= form.number_field :tempo_segundos, id: :@jogada_tempo_segundos, :value => segundos(@jogada.milissegundos)  %>
+  </div>
+  <div class="field">
+    <%= form.label :milissegundos %>
+    <%= form.number_field :milissegundos, id: :milissegundos, :value => milissegundo(@jogada.milissegundos) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :categoria %>
+    <%= form.text_field :categoria, id: :@jogada_categoria %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'embed Youtube link' %>
+    <%= form.text_field :link, id: :@jogada_link %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :usuario_id, id: current_user.id, :value => current_user.id %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :jogo_id, id: @jogo.id, :value => @jogo.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Enviar" %>
+  </div>
+<% end %>

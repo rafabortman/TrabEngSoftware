@@ -25,5 +25,20 @@
   <%= @usuario.senha %>
 </p>
 
+<p>
+  <strong>Amigos:</strong>
+  <% @usuario.amigos.each do |amigo| %>
+	<%= link_to amigo.username , usuario_path(amigo)  , :class => "btn btn-outline-primary"%> 
+  <% end %>
+</p>
+<% if logged_in? %>
+  <% if current_user.id != @usuario.id %>
+	  <% if !current_user.amigos.include?(@usuario)%>
+	    <%= link_to 'add amigo', amigos_path(amigo: {usuario_id: current_user.id, amigo_id: @usuario.id}) , :class => "btn btn-outline-primary", method: :post %>
+	  <% else %>
+	    <%= link_to 'remover amigo', amigos_path(amigo: {usuario_id: current_user.id, amigo_id: @usuario.id}) , :class => "btn btn-outline-primary", method: :delete %>
+	  <% end %>
+  <% end %>
+<% end %>
 <%= link_to 'Editar', edit_usuario_path(@usuario)  , :class => "btn btn-outline-primary"%> 
 <%= link_to 'Voltar', usuarios_path , :class => "btn btn-outline-primary" %>

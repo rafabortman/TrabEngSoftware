@@ -40,6 +40,21 @@ class JogadasController < ApplicationController
     end
   end
 
+  # POST /createJogadaPeloJogo
+  def add_pelo_jogo
+
+      @jogada = Jogada.new(jogada_params)
+      respond_to do |format|
+      if @jogada.salvar(jogada_params)
+        format.html { redirect_to @jogada, notice: 'Jogada was successfully created.' }
+ 	format.json { head :no_content }
+      else
+        format.html { redirect_to jogoAddJogada_path(id: @jogada.jogo_id), flash: { error: @jogada.errors.full_messages.join(', ')}}
+	format.json { render json: @jogada.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PATCH/PUT /jogadas/1
   # PATCH/PUT /jogadas/1.json
   def update

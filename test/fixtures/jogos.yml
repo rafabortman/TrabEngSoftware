@@ -1,10 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 jogoCerto1:
+  id: 1
   titulo: Jogo1
   imagem_url: http://www.mobygames.com/images/covers/l/6126-super-mario-64-nintendo-64-front-cover.jpg
   descricao: MyString
 jogoCerto2:
+  id: 2
   titulo: Jogo2
   imagem_url: https://images-na.ssl-images-amazon.com/images/I/51kJF0ZKhqL._CR7,0,485,485_UX128.jpg
   descricao: MyString

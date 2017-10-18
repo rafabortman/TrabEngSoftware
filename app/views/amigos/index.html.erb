@@ -15,8 +15,8 @@
   <tbody>
     <% @amigos.each do |amigo| %>
       <tr>
-        <td><%= amigo.usuarioId %></td>
-        <td><%= amigo.amigoId %></td>
+        <td><%= Usuario.find(amigo.usuario_id).username %></td>
+        <td><%= Usuario.find(amigo.amigo_id).username %></td>
         <td><%= link_to 'Show', amigo %></td>
         <td><%= link_to 'Edit', edit_amigo_path(amigo) %></td>
         <td><%= link_to 'Destroy', amigo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

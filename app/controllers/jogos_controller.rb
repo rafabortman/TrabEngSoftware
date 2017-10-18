@@ -76,6 +76,19 @@ class JogosController < ApplicationController
     end
   end
 
+  # POST /jogoAddJogada/1
+  def add_jogada
+	@jogo = Jogo.find(params[:id])
+	@jogada = Jogada.new
+
+	if(!logged_in?)
+	  respond_to do |format|
+	    format.html { redirect_to login_path, notice: 'Você precisa estar logado para adicionar jogadas' }
+            format.json { head :no_content }
+	  end
+        end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jogo

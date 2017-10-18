@@ -61,6 +61,18 @@ class AmigosController < ApplicationController
     end
   end
 
+
+  # DELETE /amigos
+  def deletar
+     @amigo = Amigo.find_by(amigo_params)
+     @amigo.destruir
+     respond_to do |format|
+        format.html { redirect_to amigos_url, notice: 'Amigo was successfully destroyed.' }
+        format.json { head :no_content }
+     end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_amigo
@@ -69,6 +81,6 @@ class AmigosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def amigo_params
-      params.require(:amigo).permit(:usuarioId, :amigoId)
+      params.require(:amigo).permit(:usuario_id, :amigo_id)
     end
 end

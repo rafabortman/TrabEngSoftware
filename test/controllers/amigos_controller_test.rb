@@ -5,6 +5,7 @@ require 'test_helper'
 class AmigosControllerTest < ActionDispatch::IntegrationTest
   setup do
     @amigo = amigos(:one)
+    @usuarioBase = usuarios(:usuariobase)
   end
 
   test "should get index" do
@@ -19,7 +20,7 @@ class AmigosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create amigo" do
     assert_difference('Amigo.count') do
-      post amigos_url, params: { amigo: { amigoId: @amigo.amigoId, usuarioId: @amigo.usuarioId } }
+      post amigos_url, params: { amigo: { amigo_id: @amigo.amigo_id, usuario_id: @usuarioBase.id } }
     end
 
     assert_redirected_to amigo_url(Amigo.last)
@@ -36,7 +37,7 @@ class AmigosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update amigo" do
-    patch amigo_url(@amigo), params: { amigo: { amigoId: @amigo.amigoId, usuarioId: @amigo.usuarioId } }
+    patch amigo_url(@amigo), params: { amigo: { amigo_id: @amigo.amigo_id, usuario_id: @usuarioBase.id } }
     assert_redirected_to amigo_url(@amigo)
   end
 

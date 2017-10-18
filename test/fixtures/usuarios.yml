@@ -1,14 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nome: MyString
+  id: 1
+  nome: one
   email: MyString
-  username: MyString
+  username: one
   senha: MyString
 two:
+  id: 2
   nome: MyString
   email: MyString
-  username: MyString
+  username: two
   senha: MyString
 usuariobase:
   nome: Usuario Teste Jogadas Rspec

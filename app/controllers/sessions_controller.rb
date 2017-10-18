@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     @usuarios = Usuario.all
     respond_to do |format|
-      usuario = @usuarios.find_by(username: params[:session][:username].downcase)
+      usuario = @usuarios.find_by(username: params[:session][:username])
       if usuario && params[:session][:password]==usuario[:senha]
         log_in usuario
        format.html {  redirect_to login_path, notice: 'Usuario logado com sucesso' }

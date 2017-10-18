@@ -7,7 +7,7 @@ RSpec.describe UsuariosController, type: :controller do
   let(:valid_attributes) {
     {
       nome:"Joao",
-      email:"joaoneves@gmail.com",
+      email:"chicodasilva@gmail.com",
       username:"johnsnow",
       senha:"kingofthenorth",
       nacionalidade:"kingofthenorth",
@@ -63,6 +63,7 @@ RSpec.describe UsuariosController, type: :controller do
 
   describe "POST #mostrarResultados" do
     it "returns a list of existing users" do
+
       post :create, params: {usuario: valid_attributes}, session: valid_session
       post :create, params: {usuario:{nome:"Jonas", email:"jonasdeveloper@gmail.com", username:"johndev", senha:"fullstack", confirmar_senha:"fullstack",nacionalidade:"Brasileiro"}, session: valid_session}
       post :mostrarResultados, params:{username:"john"},:format => :json

@@ -7,8 +7,8 @@ one:
   milissegundos: 2000000
   categoria: MyString
   link: MyString
-  usuario: one
-  jogo: jogoCerto1
+  usuario_id: 1
+  jogo_id: 1
 
 two:
   texto_post: MyString
@@ -17,5 +17,5 @@ two:
   milissegundos: 24124212
   categoria: MyString
   link: MyString
-  usuario: two
-  jogo: jogoCerto2
+  usuario_id: 2
+  jogo_id: 2

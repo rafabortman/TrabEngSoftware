@@ -3,10 +3,29 @@ require 'coveralls'
 Coveralls.wear!
 
 RSpec.describe AmigosController, type: :controller do
+
+   Usuario.create({
+      nome:"Joaoqe",
+      email:"comida00999@gmail.com",
+      username:"j1qqwesnow",
+      senha:"kingofthenorth",
+      nacionalidade:"kingofthenorth",
+      confirmar_senha:"kingofthenorth"
+    });
+
+   Usuario.create({
+      nome:"Jo123fgao",
+      email:"teste12333@gmail.com",
+      username:"g23dhnsnow",
+      senha:"kingofthenorth",
+      nacionalidade:"kingofthenorth",
+      confirmar_senha:"kingofthenorth"
+    });
+
   let(:valid_attributes) {
     {
-      usuarioId:"Mark",
-      amigoId:"Elon"
+      usuario_id: Usuario.find_by(username: "j1qqwesnow").id,
+      amigo_id: Usuario.find_by(username: "g23dhnsnow").id
     }
   }
 
