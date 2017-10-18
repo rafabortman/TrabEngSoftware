@@ -1,7 +1,8 @@
 
 CodeClimate : <a href="https://codeclimate.com/github/trabEngSoftware/TrabEngSoftware"><img src="https://codeclimate.com/github/trabEngSoftware/TrabEngSoftware/badges/gpa.svg" /></a><br>
 Travis CI : <a href="https://travis-ci.org/trabEngSoftware/TrabEngSoftware"><img src="https://travis-ci.org/trabEngSoftware/TrabEngSoftware.svg?branch=interacao4" /></a><br>
-Coveralls : <a href='https://coveralls.io/github/trabEngSoftware/TrabEngSoftware?branch=interacao3'><img src='https://coveralls.io/repos/github/trabEngSoftware/TrabEngSoftware/badge.svg?branch=interacao4' alt='Coverage Status' /></a><br>
+Coveralls : <a href='https://coveralls.io/github/trabEngSoftware/TrabEngSoftware?branch=interacao4'><img src='https://coveralls.io/repos/github/trabEngSoftware/TrabEngSoftware/badge.svg?branch=interacao4' alt='Coverage Status' /></a><br>
+
 
 
 # Speedfy - Plataforma para divulgação de speedruns
