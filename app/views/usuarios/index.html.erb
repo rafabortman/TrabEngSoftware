@@ -10,7 +10,6 @@
       <th>Nacionalidade</th>
       <th>Email</th>
       <th>Username</th>
-      <th>Senha</th>
       <th colspan=<%= (logged_in?)?"4":"3" %>>Links</th>
     </tr>
   </thead>
@@ -22,7 +21,6 @@
         <td><%= usuario.nacionalidade %></td>
         <td><%= usuario.email %></td>
         <td><%= usuario.username %></td>
-        <td><%= usuario.senha %></td>
         <td><%= link_to 'Mostrar', usuario , :class => "btn btn-outline-primary" %></td>
         <td><%= link_to 'Editar', edit_usuario_path(usuario) , :class => "btn btn-outline-primary" %></td>
         <td><%= link_to 'Destruir', usuario, method: :delete, data: { confirm: 'Voce tem certeza?' } , :class => "btn btn-outline-primary" %></td>
