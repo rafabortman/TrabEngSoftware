@@ -1,3 +1,54 @@
 // Place all the styles related to the jogadas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.gameInsertion{
+    max-width: 100%;
+    
+}
+
+.form-inline{
+    max-width: 100%;
+}
+
+.jogadas-flex{
+   max-width: 100%;
+    min-width: 100%;
+}
+
+.jogadas-flex-column{
+    max-width: 100%;
+    min-width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    
+}
+.jogadas-flex-column .flex-inline{
+    max-width: 100%;
+    min-width: 100%;
+    margin-left: 1%;
+}
+
+.inputItem{
+    min-width: 24%;
+    max-width: 24%;
+    margin-right: 1.5%;    
+}
+.flex-inline .timeSelector{
+    font-size: 13px;
+    min-width: 21%;
+    max-width: 21%;
+    
+}
+.submitJogada:hover{
+    cursor:pointer;
+}
+.postItem{
+    min-width: 61.5%;
+    max-width: 61.5%;
+}
+
+
+
+
+
