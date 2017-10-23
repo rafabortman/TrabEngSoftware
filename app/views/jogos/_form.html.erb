@@ -17,8 +17,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :imagem_url %>
-    <%= form.text_field :imagem_url, id: :jogo_imagem %>
+    <p>------------------------------IMAGEM-------------------------------------</p>
+    
+    <%= form.label "Adicione uma imagem da internet (URL):" %>
+    <%= form.text_field :imagem_url, id: :jogo_imagem %><br>
+    ou<br>
+    <%= form.label "Faça upload de uma imagem: " %>
+    <%= form.file_field(:imagem_upload, accept: 'image/png,image/jpeg') %>
+    <p>-------------------------------------------------------------------------</p>
+    
   </div>
 
   <div class="field">

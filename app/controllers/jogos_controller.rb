@@ -26,7 +26,24 @@ class JogosController < ApplicationController
   # POST /jogos
   # POST /jogos.json
   def create
-    @jogo = Jogo.new(jogo_params)
+
+
+    if jogo_params[:imagem_upload] 
+      imageUploadPath = jogo_params[:imagem_upload].tempfile
+    else
+      imageUploadPath = nil
+    end
+    updated_jogo_params = jogo_params.except(:imagem_upload)
+    puts "<<<<<<<<<<<<<<<<"
+    p (updated_jogo_params)
+    puts "<<<<<<<<<<<<<<<<"
+
+    @jogo = Jogo.new(updated_jogo_params)
+ 
+    
+    if imageUploadPath
+      @jogo.imagem= Base64.encode64(File.open(imageUploadPath, "rb").read)
+    end
     generos = params[:genero_ids]
     respond_to do |format|
       if @jogo.salvar (generos)
@@ -97,6 +114,6 @@ class JogosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jogo_params
-      params.require(:jogo).permit(:titulo, :imagem_url, :descricao)
+      params.require(:jogo).permit(:titulo, :imagem_url, :descricao ,:imagem_upload)
     end
 end
