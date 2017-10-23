@@ -34,9 +34,6 @@ class JogosController < ApplicationController
       imageUploadPath = nil
     end
     updated_jogo_params = jogo_params.except(:imagem_upload)
-    puts "<<<<<<<<<<<<<<<<"
-    p (updated_jogo_params)
-    puts "<<<<<<<<<<<<<<<<"
 
     @jogo = Jogo.new(updated_jogo_params)
  

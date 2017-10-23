@@ -3,7 +3,6 @@ require 'coveralls'
 Coveralls.wear!
 
 RSpec.describe JogosController, type: :controller do
-
   Genero.create({
     nome: "Acao"
     });
@@ -28,10 +27,19 @@ RSpec.describe JogosController, type: :controller do
     }
   }
 
+  let(:valid_attributes3) {
+    {
+      titulo:"Cuphead",
+      imagem_url:"",
+      imagem_upload: fixture_file_upload('./testImages/cuphead.png','image/png'),
+      descricao:"Teste de upload de imagem"      
+    }
+  }
+
   let(:invalid_attributes) {
     {
     titulo:"Mario Bros 3",
-    imagem_url:"https://DanielOlhaEsseTesteEDa10HEHEHE.com.br",
+    imagem_url:"https://urldementiraessaaqui.com.br",
     descricao:"BAKABAKABAKA"
     }
   }
@@ -76,6 +84,8 @@ RSpec.describe JogosController, type: :controller do
     expect(gen1.jogos.count).to eq(0)
     expect(gen2.jogos.count).to eq(0)
     end
+
+
   end
 
   describe "Jogos repetidos" do
@@ -139,10 +149,11 @@ RSpec.describe JogosController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Jogo" do
+      it "creates a new Jogo com url de imagem e upload de arquivo" do
         expect {
           post :create, params: {jogo: valid_attributes}, session: valid_session
-        }.to change(Jogo, :count).by(1)
+          post :create, params: {jogo: valid_attributes3}, session: valid_session 
+        }.to change(Jogo, :count).by(2)
       end
 
       it "redirects to the created jogo" do
@@ -187,7 +198,7 @@ RSpec.describe JogosController, type: :controller do
       it "returns a success response (i.e. to display the 'edit' template)" do
         jogo = Jogo.create! valid_attributes
         put :update, params: {id: jogo.to_param, jogo: invalid_attributes}, session: valid_session
-        expect(response).to be_success
+        expect(response).not_to be_success
       end
     end
   end

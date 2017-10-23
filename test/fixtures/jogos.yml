@@ -12,7 +12,7 @@ jogoCerto2:
   descricao: MyString
 jogoTodoErrado:
   titulo:
-  imagem_url: Daniel Quero 10 Nesse EP em (sera que esta vendo isso???se sim, 10zinho pf).jpg 
+  imagem_url: falso teste.jpg 
   descricao:
 jogobase: 
    titulo: Jogo Teste Jogadas Rspec
