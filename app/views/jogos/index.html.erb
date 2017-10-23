@@ -19,7 +19,7 @@
     <% @jogos.each do |jogo| %>
       <tr>
         <td><%= jogo.titulo %></td>
-        <td><a href = "<%= jogo.imagem_url %>"><img src="data:image/jpg;base64,<%= jogo.imagem %>"></a></td>
+        <td><a href = "/jogos/<%= jogo.id%>"><img src="data:image/jpg;base64,<%= jogo.imagem %>"></a></td>
 	<td><%= jogo.descricao %></td>
 	<td>
 	   <% cont = jogo.generos.length-1 %>
