@@ -5,12 +5,13 @@
         <h4>Runs</h4 >
         </div>
        <div class="home_space col-sm-6 col-md-12">
-
+<%if logged_in? %>
      <div class="home_runs  col-sm-6 col-md-12" >
- <div class="home_run col-sm-6 col-md-12 " >
-	<%= render 'jogadas/form_jogada' %>
+ 	<div class="home_run col-sm-6 col-md-12 " >	
+		<%= render 'jogadas/form_jogada' %>
+	</div>
 </div>
-</div>
+<% end %>
 <% @jogadas.each do |jogada| %>       
 <div class="home_runs  col-sm-6 col-md-12" >
  <div class="home_run col-sm-6 col-md-12 " >

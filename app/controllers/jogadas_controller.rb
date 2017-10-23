@@ -6,6 +6,7 @@ class JogadasController < ApplicationController
   # GET /jogadas.json
   def index
     @jogadas = Jogada.order('milissegundos')
+    @jogos = Jogo.all
   end
 
   # GET /jogadas/1

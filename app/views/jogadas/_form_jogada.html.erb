@@ -1,42 +1,64 @@
 <div class="gameInsertion">                                  
-<form class="form-inline">  
+
+  
+<%= form_for(@jogada, url: create_jogada_pelo_jogo_path) do |form| %>
+<% if flash[:error] %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flash[:error].scan(",").length+1, "error") %> prohibited this jogada from being saved:</h2>
+
+      <ul>
+      <% flash[:error].split(',').each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <div class ="d-flex jogadas-flex">
 <div class="flex-column jogadas-flex-column">
     
 <div class="d-flex flex-inline  p-2  " >
 
+<%= form.select( :jogo_id, options_for_select(@jogos.collect{ |u| [u.titulo, u.id] }), {include_blank: 'Jogo'},class: "inputItem jogosSelector form-control" )%>
+ 
 
-        <select class="inputItem jogoSelector form-control" id="jogoSelection">
-            <option disabled selected>Jogo</option>
-            <option>1</option>
-            <option>2</option>
-        </select>
-
+ <%= form.select(:categoria,  options_for_select([['ANY%','ANY%'],['100%','100%']]) ,{include_blank: 'categoria'},class: "inputItem categoriaSelector form-control")%>   
     
     
-    <select class="inputItem categoriaSelector form-control" id="categoriaSelection">
-      <option disabled selected>Categoria</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
 
-    <select class="inputItem linkSelector form-control" id="plataformaSelector">
-        <option disabled selected>Plataforma</option>
-        <option>1</option>
-        <option>2</option>
-    </select>
-<input class="inputItem timeSelector form-control " type="time" step="00.001" value="00:00:00" id="example-time-input" min="00:00" max="99:59:59,999">
+
+  <%= form.text_field :plataforma, id: :@jogada_plataforma ,class: "inputItem plataformaSelector form-control" , placeholder: "Plataforma"%>
+
+  
+    <%= form.number_field :tempo_horas, id: :@jogada_tempo_horas,in: 0..720,:value => horas(@jogada.milissegundos), class: "timefield form-control" ,value: "720"%>
+  
+
+  
+    <%= form.number_field :tempo_minutos, id: :@jogada_tempo_minutos,in: 0..59, :value => minutos(@jogada.milissegundos) , class: "timefield form-control" ,value: "59"%>
+  
+
+  
+    <%= form.number_field :tempo_segundos, id: :@jogada_tempo_segundos, in: 0..59,:value => segundos(@jogada.milissegundos), class: "timefield form-control",value: "59"  %>
+  
+  
+    <%= form.number_field :milissegundos, id: :milissegundos,in: 0..999, :value => milissegundo(@jogada.milissegundos), class: "timefield form-control",value: "999" %>
+  
 
     </div>           
 
 <div class="d-flex flex-inline  p-2 " >
-    <input class="inputItem linkSelector form-control " type="url" placeholder="Run Link"id="example-text-input">
-  <input class="inputItem linkSelector postItem form-control" rows="3" type="text" placeholder="Fale algo sobre sua Run" id="example-text-input">
-    <button type="submit" class="btn btn-primary submitJogada">Inserir </button>
+    
+    <%= form.url_field :link, id: :@jogada_link, class: "inputItem linkSelector form-control" ,placeholder: "Run Link"%>
+
+    <%= form.text_field :texto_post, id: :@jogada_texto_post, class: "inputItem linkSelector postItem form-control", placeholder: "Fale algo sobre sua Run"%>
+<%= form.hidden_field :usuario_id, id: current_user.id, :value => current_user.id %>
+   <%= form.hidden_field :data, id: :@jogada_data, value: Time.now %>
+<%= form.submit "Inserir", class: "btn btn-default btn-primary submitJogada" %> 
+
 </div>
       
-    
     </div>
     </div>
-</form>
+<%end%>
+
     </div>
+
