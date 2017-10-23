@@ -24,4 +24,22 @@ module JogadasHelper
     def getTempoJogada (milissegundos)
 	return "" + horas(milissegundos).to_s + ":" + minutos(milissegundos).to_s + ":" + segundos(milissegundos).to_s + "." + milissegundo(milissegundos).to_s
     end
+    
+    def ranking (id_jogada)
+        
+        #recuperar a jogada passada por id
+        jogada = Jogada.find_by("id = ?",id_jogada)
+        
+        #filtrar apenas as jogadas que "competem" contra a jogada e ordenar por milissegundos
+        ranking = Jogada.where(jogo_id: jogada.jogo_id).where(categoria: jogada.categoria).order(:milissegundos)
+        
+        @i = 1
+        #percorrer as jogadas selecionadas para determinar o ranking da jogada
+        ranking.each do |jogadas|
+            if jogadas.id == id_jogada
+                return @i
+            end
+            @i += 1
+        end
+    end
 end
