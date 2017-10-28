@@ -13,7 +13,7 @@ RSpec.describe JogadasController, type: :controller do
   });
   Jogo.create({
       titulo:"Jogo Teste Jogadas Rspec",
-      imagem_url:"https://s3.minijuegosgratis.com/media/video-collection-img/video-collection-super-mario-run-thumb.jpg",
+      imagem_url:"https://yt3.ggpht.com/51PhqIUDv3rTv80bFhZk4UoVbpv4-7uI5OMBccn4TQkCFlfUpXO-gMhWi3abe8IM5laDjWsinrwmlc503w=w40-nd",
       descricao:"Side scroller classico"      
   })
 

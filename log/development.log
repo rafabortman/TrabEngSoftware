@@ -30358,3 +30358,662 @@ Processing by JogosController#new as HTML
 Completed 200 OK in 258ms (Views: 255.8ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/home" for 127.0.0.1 at 2017-10-28 14:38:22 -0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (56.0ms)
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (93.9ms)
+  Rendered layouts/_head.html.erb (9723.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 9848ms (Views: 9820.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2017-10-28 14:38:33 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (2.6ms)
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_head.html.erb (22.6ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/jogadas" for 127.0.0.1 at 2017-10-28 14:57:14 -0200
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (11.4ms)
+  Rendered layouts/_head.html.erb (21.6ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.8ms)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/jogos" for 127.0.0.1 at 2017-10-28 14:57:18 -0200
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (1.8ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 7]]
+  Rendered jogos/index.html.erb within layouts/application (95.5ms)
+  Rendered layouts/_head.html.erb (30.8ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+Completed 200 OK in 136ms (Views: 130.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/jogos/1" for 127.0.0.1 at 2017-10-28 14:57:52 -0200
+Processing by JogosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering jogos/show.html.erb within layouts/application
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  Rendered jogos/show.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_head.html.erb (35.0ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 63ms (Views: 44.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jogos" for 127.0.0.1 at 2017-10-28 14:57:55 -0200
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 7]]
+  Rendered jogos/index.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_head.html.erb (44.2ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.3ms)
+Completed 200 OK in 61ms (Views: 59.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/jogos/3" for 127.0.0.1 at 2017-10-28 14:57:56 -0200
+Processing by JogosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jogos/show.html.erb within layouts/application
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  Rendered jogos/show.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_head.html.erb (45.4ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 55ms (Views: 53.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jogos" for 127.0.0.1 at 2017-10-28 14:57:57 -0200
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 7]]
+  Rendered jogos/index.html.erb within layouts/application (15.2ms)
+  Rendered layouts/_head.html.erb (42.6ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.6ms)
+Completed 200 OK in 67ms (Views: 64.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/jogos/5" for 127.0.0.1 at 2017-10-28 14:57:59 -0200
+Processing by JogosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering jogos/show.html.erb within layouts/application
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  Rendered jogos/show.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_head.html.erb (45.5ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 55ms (Views: 53.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/jogos" for 127.0.0.1 at 2017-10-28 14:58:02 -0200
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (0.6ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 7]]
+  Rendered jogos/index.html.erb within layouts/application (22.3ms)
+  Rendered layouts/_head.html.erb (51.3ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+Completed 200 OK in 83ms (Views: 79.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/jogos" for 127.0.0.1 at 2017-10-28 14:58:21 -0200
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (0.6ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 7]]
+  Rendered jogos/index.html.erb within layouts/application (16.3ms)
+  Rendered layouts/_head.html.erb (30.8ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 54ms (Views: 51.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2017-10-28 14:58:28 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (3.8ms)
+  [1m[36mJogada Load (1.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_head.html.erb (29.3ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 47ms (Views: 44.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2017-10-28 14:59:22 -0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (9.6ms)
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (33.8ms)
+  Rendered layouts/_head.html.erb (186.1ms)
+  Rendered layouts/_header.html.erb (8.9ms)
+Completed 200 OK in 257ms (Views: 231.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2017-10-28 15:01:11 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.7ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (8.3ms)
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (151.6ms)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `millisegundo' for #<#<Class:0x007fb9487b06e8>:0x007fb949ae0da8>
+Did you mean?  milissegundo):
+    34:                     
+    35:                     %>
+    36:                     <li class="home_rdl_time home_rdl_item">
+    37:                         <span class="fa fa-bolt" /> <%= horas(jogada.milissegundos) %>:<%= minutos(jogada.milissegundos) %>  :<%= segundos(jogada.milissegundos)%> :  <%=millisegundo(jogada.milissegundos) %>
+    38:                     </li>
+    39:                     <li class="home_rdl_categoria home_rdl_item">
+    40:                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+  
+app/views/index/home.html.erb:37:in `block in _app_views_index_home_html_erb__3554793647294727656_70216890913820'
+app/views/index/home.html.erb:15:in `_app_views_index_home_html_erb__3554793647294727656_70216890913820'
+Started GET "/home" for 127.0.0.1 at 2017-10-28 15:01:22 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.7ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (6.3ms)
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (129.2ms)
+Completed 500 Internal Server Error in 132ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `millissegundo' for #<#<Class:0x007fb9487b06e8>:0x007fb93801a948>
+Did you mean?  milissegundo):
+    34:                     
+    35:                     %>
+    36:                     <li class="home_rdl_time home_rdl_item">
+    37:                         <span class="fa fa-bolt" /> <%= horas(jogada.milissegundos) %>:<%= minutos(jogada.milissegundos) %>  :<%= segundos(jogada.milissegundos)%> :  <%=millissegundo(jogada.milissegundos) %>
+    38:                     </li>
+    39:                     <li class="home_rdl_categoria home_rdl_item">
+    40:                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+  
+app/views/index/home.html.erb:37:in `block in _app_views_index_home_html_erb__3554793647294727656_70216742656480'
+app/views/index/home.html.erb:15:in `_app_views_index_home_html_erb__3554793647294727656_70216742656480'
+Started GET "/home" for 127.0.0.1 at 2017-10-28 15:01:28 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.7ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (8.3ms)
+  [1m[36mJogada Load (0.5ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (28.3ms)
+  Rendered layouts/_head.html.erb (35.1ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 74ms (Views: 69.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2017-10-28 15:03:00 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (4.3ms)
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (15.5ms)
+  Rendered layouts/_head.html.erb (46.1ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+Completed 200 OK in 68ms (Views: 65.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2017-10-28 15:07:03 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (6.9ms)
+  [1m[36mJogada Load (0.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (23.7ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Integer into String):
+    34:                     
+    35:                     %>
+    36:                     <li class="home_rdl_time home_rdl_item">
+    37:                         <span class="fa fa-bolt" /> <%= getTempoJogada(jogada.milissegundos) %>
+    38:                     </li>
+    39:                     <li class="home_rdl_categoria home_rdl_item">
+    40:                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+  
+app/helpers/jogadas_helper.rb:29:in `+'
+app/helpers/jogadas_helper.rb:29:in `getTempoJogada'
+app/views/index/home.html.erb:37:in `block in _app_views_index_home_html_erb__3554793647294727656_70216814920180'
+app/views/index/home.html.erb:15:in `_app_views_index_home_html_erb__3554793647294727656_70216814920180'
+Started GET "/home" for 127.0.0.1 at 2017-10-28 15:07:21 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (6.2ms)
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (22.5ms)
+  Rendered layouts/_head.html.erb (22.8ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 64ms (Views: 48.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/jogos" for 127.0.0.1 at 2017-10-28 15:15:13 -0200
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (0.5ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 7]]
+  Rendered jogos/index.html.erb within layouts/application (33.7ms)
+  Rendered layouts/_head.html.erb (22.6ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 62ms (Views: 59.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/jogadas" for 127.0.0.1 at 2017-10-28 15:15:14 -0200
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (16.1ms)
+  Rendered layouts/_head.html.erb (31.4ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 61ms (Views: 55.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/jogos" for 127.0.0.1 at 2017-10-28 15:15:24 -0200
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 7]]
+  Rendered jogos/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_head.html.erb (30.9ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/buscarJogoNome" for 127.0.0.1 at 2017-10-28 15:15:27 -0200
+Processing by JogosController#buscar_nome as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jQfl/6ofSG+uqAc5tVDuNxqCS5foCslh1PEQhiTD0i+UvlsiIkrC2OGrd0YuetGFERMfibiBPAU40mHFH3RL/A==", "titulo"=>"aya"}
+  Rendering jogos/buscar_nome.html.erb within layouts/application
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos" WHERE (titulo LIKE '%aya%')[0m
+  [1m[36mGenero Load (0.3ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  Rendered jogos/buscar_nome.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_head.html.erb (30.8ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.7ms)
+Completed 200 OK in 58ms (Views: 46.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/buscarJogoNome" for 127.0.0.1 at 2017-10-28 15:15:31 -0200
+Processing by JogosController#buscar_nome as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tMYvy0hxmXsTnBXog1fYVTQ/aIbAV7SwXxEovr897pegDWd3byG8YrqCKf9Ow0SChY9s9JoCXGy+nYeqOaAeaA==", "titulo"=>"ya"}
+  Rendering jogos/buscar_nome.html.erb within layouts/application
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos" WHERE (titulo LIKE '%ya%')[0m
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  Rendered jogos/buscar_nome.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_head.html.erb (35.4ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 44ms (Views: 42.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/jogos" for 127.0.0.1 at 2017-10-28 15:15:43 -0200
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 7]]
+  Rendered jogos/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_head.html.erb (27.2ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/buscarJogoNome" for 127.0.0.1 at 2017-10-28 15:15:48 -0200
+Processing by JogosController#buscar_nome as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nEPqOOdecM34fT5/p0ZNCy+WxfUmh9n8caWF3GUREbKF+lTlbwv6erd+TgA8bHK5JAeR63YMLJidhvSfXqaIYQ==", "titulo"=>"f1"}
+  Rendering jogos/buscar_nome.html.erb within layouts/application
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos" WHERE (titulo LIKE '%f1%')[0m
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  Rendered jogos/buscar_nome.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_head.html.erb (29.6ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+Completed 200 OK in 39ms (Views: 36.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/buscarJogoNome" for 127.0.0.1 at 2017-10-28 15:15:50 -0200
+Processing by JogosController#buscar_nome as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xeDuov7IB5ypJDuBtF1CfZKOmiH4WnqvdQ9Q60hq4yjRK6Ye2ZgihQA6B5Z5yd6qIz6eU6IPknOUg///zvcT1w==", "titulo"=>"f"}
+  Rendering jogos/buscar_nome.html.erb within layouts/application
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos" WHERE (titulo LIKE '%f%')[0m
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  Rendered jogos/buscar_nome.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_head.html.erb (36.7ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 51ms (Views: 47.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/jogos" for 127.0.0.1 at 2017-10-28 15:15:54 -0200
+Processing by JogosController#index as HTML
+  Rendering jogos/index.html.erb within layouts/application
+  [1m[36mJogo Load (0.3ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 1]]
+  [1m[36mGenero Load (0.1ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 2]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 3]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 5]]
+  [1m[36mGenero Load (0.0ms)[0m  [1m[34mSELECT "generos".* FROM "generos" INNER JOIN "jogos_generos" ON "generos"."id" = "jogos_generos"."genero_id" WHERE "jogos_generos"."jogo_id" = ?[0m  [["jogo_id", 7]]
+  Rendered jogos/index.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_head.html.erb (24.6ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2017-10-28 15:16:00 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mUsuario Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 3], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 3], ["id", 9], ["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (43.9ms)
+  Rendered layouts/_head.html.erb (27.3ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 78ms (Views: 76.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/generos" for 127.0.0.1 at 2017-10-28 15:16:14 -0200
+Processing by GenerosController#index as HTML
+  Rendering generos/index.html.erb within layouts/application
+  [1m[36mGenero Load (0.2ms)[0m  [1m[34mSELECT "generos".* FROM "generos"[0m
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos" INNER JOIN "jogos_generos" ON "jogos"."id" = "jogos_generos"."jogo_id" WHERE "jogos_generos"."genero_id" = ?[0m  [["genero_id", 5]]
+  Rendered generos/index.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_head.html.erb (30.6ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 44ms (Views: 41.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2017-10-28 15:16:23 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mUsuario Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 3], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 3], ["id", 9], ["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_head.html.erb (38.7ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 57ms (Views: 54.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/jogadas" for 127.0.0.1 at 2017-10-28 15:16:24 -0200
+Processing by JogadasController#index as HTML
+  Rendering jogadas/index.html.erb within layouts/application
+  [1m[36mJogada Load (0.4ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" ORDER BY milissegundos[0m
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.5ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jogadas/index.html.erb within layouts/application (23.2ms)
+  Rendered layouts/_head.html.erb (29.4ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 62ms (Views: 58.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2017-10-28 15:38:18 -0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.4ms)[0m  [1m[34mSELECT "jogos".* FROM "jogos"[0m
+  Rendered jogadas/_form_jogada.html.erb (8.5ms)
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (29.2ms)
+  Rendered layouts/_head.html.erb (156.7ms)
+  Rendered layouts/_header.html.erb (4.9ms)
+Completed 200 OK in 214ms (Views: 192.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2017-10-28 15:38:24 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mUsuario Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 3], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 3], ["id", 9], ["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (47.6ms)
+  Rendered layouts/_head.html.erb (39.3ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 95ms (Views: 91.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/usuarios/3/edit" for 127.0.0.1 at 2017-10-28 15:38:28 -0200
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (16.2ms)
+  Rendered usuarios/edit.html.erb within layouts/application (17.8ms)
+  Rendered layouts/_head.html.erb (23.5ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 48ms (Views: 45.9ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/usuarios/3" for 127.0.0.1 at 2017-10-28 15:38:32 -0200
+Processing by UsuariosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zSSwGlWsQHtZwR89aADAfO+NYXIRvEhagI1/4KSI/J3819CAHCMA06swnXzgTMevadEPoxEj30B3BqHdZq6SxA==", "usuario"=>{"nome"=>"Mat", "nacionalidade"=>"A", "email"=>"mat@mat.mat", "username"=>"MatDoido", "senha"=>"", "confirmar_senha"=>""}, "commit"=>"Update Usuario", "id"=>"3"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" WHERE "usuarios"."email" = ? AND ("usuarios"."id" != ?) LIMIT ?[0m  [["email", "mat@mat.mat"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (2.3ms)
+  Rendered usuarios/edit.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_head.html.erb (28.4ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 41ms (Views: 36.6ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/usuarios/3" for 127.0.0.1 at 2017-10-28 15:38:38 -0200
+Processing by UsuariosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LTI2csQbHoWEGuLFOhpso65MrzbBrQvaqmZjDRkG+Tc5+X7O40s7nC0E3tL3jvB0H/yrRJv44wZL6swZn5sJyA==", "usuario"=>{"nome"=>"Mat", "nacionalidade"=>"A", "email"=>"mat@mat.mat", "username"=>"MatDoido", "senha"=>"1234", "confirmar_senha"=>"1234"}, "commit"=>"Update Usuario", "id"=>"3"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" WHERE "usuarios"."email" = ? AND ("usuarios"."id" != ?) LIMIT ?[0m  [["email", "mat@mat.mat"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "usuarios" SET "username" = ?, "updated_at" = ? WHERE "usuarios"."id" = ?[0m  [["username", "MatDoido"], ["updated_at", "2017-10-28 17:38:38.510685"], ["id", 3]]
+  [1m[35m (46.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/usuarios/3
+Completed 302 Found in 56ms (ActiveRecord: 48.1ms)
+
+
+Started GET "/usuarios/3" for 127.0.0.1 at 2017-10-28 15:38:38 -0200
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering usuarios/show.html.erb within layouts/application
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ?[0m  [["usuario_id", 3]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered usuarios/show.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_head.html.erb (25.4ms)
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 36ms (Views: 33.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2017-10-28 15:38:40 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_head.html.erb (35.0ms)
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 47ms (Views: 45.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2017-10-28 15:38:40 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_head.html.erb (25.9ms)
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "Mat"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 45ms (Views: 43.4ms | ActiveRecord: 0.6ms)
+
+

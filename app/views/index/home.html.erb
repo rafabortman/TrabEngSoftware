@@ -24,7 +24,7 @@
                     <!-- Talvez dividir os itens em duas linhas -->
                     <ul class="home_run_description_list  ">
                     <li class="home_rdl_user home_rdl_item">
-                        <span class="fa fa-user"/> <%= userLength(jogada.usuario.nome) %> 
+                        <span class="fa fa-user"/> <%= userLength(jogada.usuario.username) %> 
                     </li>
                     <li class="home_rdl_position home_rdl_item">
                         <span class="fa fa-trophy" style="color:gold">
@@ -34,7 +34,7 @@
                     
                     %>
                     <li class="home_rdl_time home_rdl_item">
-                        <span class="fa fa-bolt" /> <%=(jogada.milissegundos).to_i / 3600000 %>:<%= (jogada.milissegundos).to_i / 60000 %>  :<%= (jogada.milissegundos).to_i / 1000%> :  <%=(jogada.milissegundos).to_i %>
+                        <span class="fa fa-bolt" /> <%= getTempoJogada(jogada.milissegundos) %>
                     </li>
                     <li class="home_rdl_categoria home_rdl_item">
                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    

@@ -35,7 +35,7 @@ RSpec.describe GenerosController, type: :controller do
 
   it "deletar generos com jogo associado" do
     genero = Genero.create valid_attributes
-    jogo = Jogo.create({titulo:"Mario Bros 2", imagem_url:"https://s3.minijuegosgratis.com/media/video-collection-img/video-collection-super-mario-run-thumb.jpg", descricao:"AAAA"})
+    jogo = Jogo.create({titulo:"Mario Bros 2", imagem_url:"https://yt3.ggpht.com/51PhqIUDv3rTv80bFhZk4UoVbpv4-7uI5OMBccn4TQkCFlfUpXO-gMhWi3abe8IM5laDjWsinrwmlc503w=w40-nd", descricao:"AAAA"})
     jogo.generos << genero
     expect(JogosGenero.count).to eq(1) 
     expect(jogo.generos.count).to eq(1) 

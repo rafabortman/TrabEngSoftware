@@ -22,7 +22,11 @@ module JogadasHelper
     end
 
     def getTempoJogada (milissegundos)
-	return "" + horas(milissegundos).to_s + ":" + minutos(milissegundos).to_s + ":" + segundos(milissegundos).to_s + "." + milissegundo(milissegundos).to_s
+	h = horas(milissegundos)
+	m = minutos(milissegundos)
+	s = segundos(milissegundos)
+	ms = milissegundo(milissegundos)
+	return "" + h.to_s + ":" + (m<10?"0":"") + m.to_s + ":" + (s<10?"0":"") + s.to_s + "." + (ms<100?"0":"") + (ms<10?"0":"") + ms.to_s
     end
     
     def ranking (id_jogada)
