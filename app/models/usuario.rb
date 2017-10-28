@@ -2,6 +2,7 @@ class Usuario < ApplicationRecord
     has_many :usuarios_amigos, dependent: :destroy, foreign_key: "usuario_id",class_name: "Amigo"
     has_many :amigo_dos_outros, dependent: :destroy, foreign_key: "amigo_id",class_name: "Amigo"
     has_many :amigos, through: :usuarios_amigos, foreign_key: "amigo_id"
+    has_many :seguidores, through: :amigo_dos_outros,source: :usuario
     has_many :jogadas, dependent: :destroy
     validates_presence_of :nome, message: "deve ser preenchido"
     validates_presence_of :email, message: "deve ser preenchido"

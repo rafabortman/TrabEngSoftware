@@ -7,12 +7,12 @@ class Amigo < ApplicationRecord
 
 
 #destroi as relacoes desse usuario para os outros e dos outros para esse
-    def destruir
-	@amigos = Amigo.where("amigo_id = ?",self.usuario_id)
-	@amigos.each do |amigo|
-	   amigo.destroy
-	end
-	self.destroy
+   # def destruir
+	#@amigos = Amigo.where("amigo_id = ?",self.usuario_id)
+	#@amigos.each do |amigo|
+	 #  amigo.destroy
+	#end
+	#self.destroy
 
-    end
+    #end
 end

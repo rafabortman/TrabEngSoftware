@@ -2,7 +2,7 @@
 <div class="home_container container">
     <div class="home_box  row">
     <div class="home_box_title ">
-        <h4>Runs</h4 >
+        <h4>Jogadas recentes</h4 >
         </div>
        <div class="home_space col-sm-6 col-md-12">
 <%if logged_in? %>
@@ -18,7 +18,7 @@
                     <div class="d-flex flex-row-reverse">
                     <div class="d-flex flex-column  p-2 w-100  " >
                     <div class="home_run_title p-2  ">
-                        <h4><%= gameLength(jogada.jogo.titulo) %></h4>
+                        <a href = "<%= jogada_path(jogada.id) %>"><h4><%= gameLength(jogada.jogo.titulo) %></h4></a>
                     </div>
                     <div class="home_run_description p-2 ">
                     <!-- Talvez dividir os itens em duas linhas -->
@@ -27,8 +27,7 @@
                         <span class="fa fa-user"/> <%= userLength(jogada.usuario.username) %> 
                     </li>
                     <li class="home_rdl_position home_rdl_item">
-                        <span class="fa fa-trophy" style="color:gold">
-</span> 1st    
+                        <span class="fa fa-trophy" style="color:gold"></span> 1st    
                     </li>
                     <% @hora = (jogada.milissegundos).to_i / 3600000 
                     
@@ -42,7 +41,9 @@
                    <li class="home_rdl_plataforma home_rdl_item">
                         <span class="fa fa-gamepad"/> <%=jogada.plataforma%> 
                     </li>    
-                    <li class="home_rdl_link home_rdl_item">
+                    <li>
+                        <%=jogada.data%> 
+                    </li> 
 			<a href="<%=jogada.link %>"target="_blank"><span class="fa fa-youtube-play" style="color:red;"/></a>
                     </li>
                     </ul>
@@ -52,12 +53,13 @@
                         </div>
                         </div>
                     <div class="home_run_image p-2 d-inline-block  ">
-<a href = "/jogos/<%= jogada.jogo.id%>"><img  class="img-thumbnail " src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a>
+                <a href = "/jogos/<%= jogada.jogo.id%>"><img  class="img-thumbnail " src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a>
              </div>
             </div>
            </div>                                                            
- </div>
-        <% end %>
+        </div>
+<% end %>
+<!--
 <div class="home_runs  col-sm-6 col-md-12" >
  <div class="home_run col-sm-6 col-md-12 " >
                     <div class="d-flex flex-row-reverse">
@@ -66,7 +68,6 @@
                         <h4>Super Mario Galaxy 2</h4>
                     </div>
                     <div class="home_run_description p-2 ">
-                    <!-- Talvez dividir os itens em duas linhas -->
                     <ul class="home_run_description_list  ">
                     <li class="home_rdl_user home_rdl_item">
 			<span class="fa fa-user"/> <%= userLength("RickLoucoooooo0000000000000000000000oooooooooooooooo")%>
@@ -104,4 +105,4 @@
          </div>
         </div>
        </div>
-
+ -->

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1><%= @usuario.username %></h1>
 <p>
   <strong>Nome:</strong>
   <%= @usuario.nome %>
@@ -16,29 +16,147 @@
 </p>
 
 <p>
-  <strong>Username:</strong>
-  <%= @usuario.username %>
-</p>
-
-<p>
   <strong>Senha:</strong>
   <%= @usuario.senha %>
 </p>
 
 <p>
-  <strong>Amigos:</strong>
-  <% @usuario.amigos.each do |amigo| %>
-	<%= link_to amigo.username , usuario_path(amigo)  , :class => "btn btn-outline-primary"%> 
-  <% end %>
+  <strong>Número de jogadas:</strong>
+  <%= @usuario.jogadas.count %>
 </p>
+
 <% if logged_in? %>
   <% if current_user.id != @usuario.id %>
 	  <% if !current_user.amigos.include?(@usuario)%>
-	    <%= link_to 'add amigo', amigos_path(amigo: {usuario_id: current_user.id, amigo_id: @usuario.id}) , :class => "btn btn-outline-primary", method: :post %>
+	    <%= link_to 'seguir', amigos_path(amigo: {usuario_id: current_user.id, amigo_id: @usuario.id}) , :class => "btn btn-outline-primary", method: :post %>
 	  <% else %>
-	    <%= link_to 'remover amigo', amigos_path(amigo: {usuario_id: current_user.id, amigo_id: @usuario.id}) , :class => "btn btn-outline-primary", method: :delete %>
+	    <%= link_to 'parar de seguir', amigos_path(amigo: {usuario_id: current_user.id, amigo_id: @usuario.id}) , :class => "btn btn-outline-primary", method: :delete %>
 	  <% end %>
   <% end %>
 <% end %>
 <%= link_to 'Editar', edit_usuario_path(@usuario)  , :class => "btn btn-outline-primary"%> 
 <%= link_to 'Voltar', usuarios_path , :class => "btn btn-outline-primary" %>
+
+<p>
+
+<!-- ULTIMAS JOGADAS -->
+<h1>Ultimas jogadas adicionadas</h1>
+<% @usuario.jogadas.order("created_at desc").first(5).each do |jogada| %>       
+<div class="home_runs  col-sm-6 col-md-12" >
+ <div class="home_run col-sm-6 col-md-12 " >
+                    <div class="d-flex flex-row-reverse">
+                    <div class="d-flex flex-column  p-2 w-100  " >
+                    <div class="home_run_title p-2  ">
+                        <a href = "<%= jogada_path(jogada.id) %>"><h4><%= gameLength(jogada.jogo.titulo) %></h4></a>
+                    </div>
+                    <div class="home_run_description p-2 ">
+                    <!-- Talvez dividir os itens em duas linhas -->
+                    <ul class="home_run_description_list  ">
+                    <li class="home_rdl_user home_rdl_item">
+                        <span class="fa fa-user"/> <%= userLength(jogada.usuario.username) %> 
+                    </li>
+                    <li class="home_rdl_position home_rdl_item">
+                        <span class="fa fa-trophy" style="color:gold"></span> 1st    
+                    </li>
+                    <% @hora = (jogada.milissegundos).to_i / 3600000 
+                    
+                    %>
+                    <li class="home_rdl_time home_rdl_item">
+                        <span class="fa fa-bolt" /> <%= getTempoJogada(jogada.milissegundos) %>
+                    </li>
+                    <li class="home_rdl_categoria home_rdl_item">
+                        <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+                    </li>
+                    <li class="home_rdl_plataforma home_rdl_item">
+                        <span class="fa fa-gamepad"/> <%=jogada.plataforma%> 
+                    </li>    
+                    <li>
+                        <%=jogada.data%> 
+                    </li> 
+                    <li class="home_rdl_link home_rdl_item">
+                      <a href="<%= jogada.link %>"target="_blank"><span class="fa fa-youtube-play" style="color:red;"/></a>
+                    </li>
+                    </ul>
+                    </div>
+                    <div class="home_run_post p-2 ">
+                        <%= jogada.texto_post %> 
+                        </div>
+                        </div>
+                    <div class="home_run_image p-2 d-inline-block  ">
+                <a href = "/jogos/<%= jogada.jogo.id%>"><img  class="img-thumbnail " src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a>
+             </div>
+            </div>
+           </div>                                                            
+        </div>
+<% end %>
+
+
+<!-- Jogos mais jogados -->
+
+<h1>Top 5 jogos mais jogados</h1>
+
+<% jogos_mais_jogados(@usuario.jogadas).first(5).each do |jogo,count| %> 
+ <div class="home_runs  col-sm-6 col-md-12" >
+ <div class="home_run col-sm-6 col-md-12 " >
+                    <div class="d-flex flex-row-reverse">
+                    <div class="d-flex flex-column  p-2 w-100  " >
+                    <div class="home_run_title p-2  ">
+                        <a href = "/jogos/<%= jogo.id%>"><h4><%= gameLength(jogo.titulo) %></h4></a>
+                    </div>
+                    <div class="home_run_description p-2 ">
+                    <!-- Talvez dividir os itens em duas linhas -->
+                    <ul class="home_run_description_list  ">
+                    <li>
+                        <span/> Jogado <%= count %> vezes
+                    </li>
+                    </div>
+                    </div>
+                    <div class="home_run_image p-2 d-inline-block  ">
+                <a href = "/jogos/<%= jogo.id%>"><img  class="img-thumbnail " src="data:image/jpg;base64,<%= jogo.imagem %>"></a>
+             </div>
+            </div>
+           </div>                                                            
+        </div>
+<% end %>
+
+
+<!-- Usuarios seguidos -->
+
+<h1>Usuarios seguidos</h1>
+<table class = "table">
+<thead>
+  <tr>
+      <th>Username</th>
+      <th>Número de jogadas</th>
+  </tr>
+</thead>
+<tbody>
+<% @usuario.amigos.order("username asc").each do |amigo| %>
+  <tr>
+    <td><a href = "<%= usuario_path(amigo.id) %>"><%= amigo.username %></a></td>
+    <td><%= amigo.jogadas.count %></td>
+  </tr>
+  
+<% end %>
+</tbody>
+</table>
+
+<!-- Seguidores -->
+
+<h1>Seguidores</h1>
+<table class = "table">
+<thead>
+  <tr>
+      <th>Username</th>
+      <th>Número de jogadas</th>
+  </tr>
+</thead>
+<tbody>
+<% @usuario.seguidores.each do |seguidor| %>
+  <tr>
+    <td><a href = "<%= usuario_path(seguidor.id) %>"><%= seguidor.username %></a></td>
+    <td><%= seguidor.jogadas.count %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>

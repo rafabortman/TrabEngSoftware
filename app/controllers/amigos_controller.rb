@@ -65,7 +65,7 @@ class AmigosController < ApplicationController
   # DELETE /amigos
   def deletar
      @amigo = Amigo.find_by(amigo_params)
-     @amigo.destruir
+     @amigo.destroy
      respond_to do |format|
         format.html { redirect_to amigos_url, notice: 'Amigo was successfully destroyed.' }
         format.json { head :no_content }
