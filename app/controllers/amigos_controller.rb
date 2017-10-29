@@ -39,17 +39,17 @@ class AmigosController < ApplicationController
 
   # PATCH/PUT /amigos/1
   # PATCH/PUT /amigos/1.json
-  def update
-    respond_to do |format|
-      if @amigo.update(amigo_params)
-        format.html { redirect_to @amigo, notice: 'Amigo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @amigo }
-      else
-        format.html { render :edit }
-        format.json { render json: @amigo.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #def update
+  #  respond_to do |format|
+  #     if @amigo.update(amigo_params)
+  #      format.html { redirect_to @amigo, notice: 'Amigo was successfully updated.' }
+  #      format.json { render :show, status: :ok, location: @amigo }
+  #    else
+  #      format.html { render :edit }
+  #      format.json { render json: @amigo.errors, status: :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   # DELETE /amigos/1
   # DELETE /amigos/1.json

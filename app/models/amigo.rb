@@ -1,7 +1,7 @@
 class Amigo < ApplicationRecord
 	belongs_to :usuario, class_name: "Usuario"
   	belongs_to :amigo, class_name: "Usuario"
-	validates :usuario_id, uniqueness: {scope: :amigo_id , message: "já são amigos"}
+	validates :usuario_id, uniqueness: {scope: :amigo_id , message: "já é seguidor"}
 	validates :usuario_id, numericality: {other_than: :amigo_id}
 
 

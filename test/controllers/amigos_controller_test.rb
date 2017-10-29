@@ -36,10 +36,6 @@ class AmigosControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update amigo" do
-    patch amigo_url(@amigo), params: { amigo: { amigo_id: @amigo.amigo_id, usuario_id: @usuarioBase.id } }
-    assert_redirected_to amigo_url(@amigo)
-  end
 
   test "should destroy amigo" do
     assert_difference('Amigo.count', -1) do
