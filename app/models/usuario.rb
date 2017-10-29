@@ -1,4 +1,7 @@
 class Usuario < ApplicationRecord
+  
+    
+  
     has_many :usuarios_amigos, dependent: :destroy, foreign_key: "usuario_id",class_name: "Amigo"
     has_many :amigo_dos_outros, dependent: :destroy, foreign_key: "amigo_id",class_name: "Amigo"
     has_many :amigos, through: :usuarios_amigos, foreign_key: "amigo_id"
@@ -20,5 +23,5 @@ class Usuario < ApplicationRecord
     def check_senha_and_confirmar
       errors.add(:senha, " precisa ser igual a confirmação de senha") if senha != confirmar_senha
     end
-	
+  
 end
