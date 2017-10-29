@@ -44,6 +44,21 @@ RSpec.describe JogosController, type: :controller do
     }
   }
 
+  let(:usuario_valid_attributes){
+    {
+      nome:"Joao",
+      email:"chicodasilva@gmail.com",
+      username:"johnsnow",
+      senha:"kingofthenorth",
+      nacionalidade:"kingofthenorth",
+      confirmar_senha:"kingofthenorth"
+    }
+  }
+
+    #INCLUI OS METODOS DO HELPER
+    RSpec.configure do |config|
+      config.include SessionsHelper
+    end
   
   let(:valid_session) { {} }
 
@@ -115,6 +130,26 @@ RSpec.describe JogosController, type: :controller do
   end
   end
 
+  describe "acessar pagina de adicionar jogada na pagina do jogo" do
+  it "estando deslogado" do
+    jogo = Jogo.create! valid_attributes
+    get "add_jogada", params: {id: jogo.to_param}, session: valid_session
+    expect(response).to redirect_to("/login")
+  end
+  it "estando logado" do
+    jogo = Jogo.create! valid_attributes
+    usuario = Usuario.create! usuario_valid_attributes
+    controle_antigo = @controller
+    @controller = SessionsController.new
+    post "create", params: {session:{username: usuario.username, password: usuario.senha}}, session: valid_session
+    expect(response).to redirect_to("/login")
+    expect(logged_in?).to eq(true)
+    @controller = controle_antigo
+    get "add_jogada", params: {id: jogo.to_param}, session: valid_session
+    expect(response).to be_success
+
+  end
+  end
 
   describe "GET #index" do
     it "returns a success response" do

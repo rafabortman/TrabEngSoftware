@@ -8,7 +8,7 @@ end
 
 Given("i have jogos titled {string}") do |string|
   string.split(',').each do |jogo|
-    Jogo.create!(:titulo=>jogo,:imagem_url=>"https://pbs.twimg.com/profile_images/874026752250478592/A-Bs-WB8.jpg", :descricao=>"jogo de teste")
+    Jogo.create!(:titulo=>jogo,:imagem_url=>"ttps://yt3.ggpht.com/51PhqIUDv3rTv80bFhZk4UoVbpv4-7uI5OMBccn4TQkCFlfUpXO-gMhWi3abe8IM5laDjWsinrwmlc503w=w40-nd", :descricao=>"jogo de teste")
   end
 end
 
