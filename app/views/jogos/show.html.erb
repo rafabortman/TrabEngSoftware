@@ -25,3 +25,52 @@
 
 <%= link_to 'Editar', edit_jogo_path(@jogo) , :class => "btn btn-outline-primary"%>
 <%= link_to 'Voltar', jogos_path , :class => "btn btn-outline-primary"%>
+
+<h1>Ranking dos Jogadores</h1>
+<% @jogo.jogadas.order("created_at desc").first(5).each do |jogada| %>       
+<div class="home_runs  col-sm-6 col-md-12" >
+ <div class="home_run col-sm-6 col-md-12 " >
+                    <div class="d-flex flex-row-reverse">
+                    <div class="d-flex flex-column  p-2 w-100  " >
+                    <div class="home_run_title p-2  ">
+                        <a href = "<%= jogada_path(jogada.id) %>"><h4><%= gameLength(jogada.jogo.titulo) %></h4></a>
+                    </div>
+                    <div class="home_run_description p-2 ">
+                    <ul class="home_run_description_list  ">
+                    <li class="home_rdl_user home_rdl_item">
+                        <span class="fa fa-user"/> <%= userLength(jogada.usuario.username) %> 
+                    </li>
+                    <li class="home_rdl_position home_rdl_item">
+                        <span class="fa fa-trophy" style="color:gold"></span> 1st    
+                    </li>
+                    <% @hora = (jogada.milissegundos).to_i / 3600000 
+                    
+                    %>
+                    <li class="home_rdl_time home_rdl_item">
+                        <span class="fa fa-bolt" /> <%= getTempoJogada(jogada.milissegundos) %>
+                    </li>
+                    <li class="home_rdl_categoria home_rdl_item">
+                        <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+                    </li>
+                    <li class="home_rdl_plataforma home_rdl_item">
+                        <span class="fa fa-gamepad"/> <%=jogada.plataforma%> 
+                    </li>    
+                    <li>
+                        <%=jogada.data%> 
+                    </li> 
+                    <li class="home_rdl_link home_rdl_item">
+                      <a href="<%= jogada.link %>"target="_blank"><span class="fa fa-youtube-play" style="color:red;"/></a>
+                    </li>
+                    </ul>
+                    </div>
+                    <div class="home_run_post p-2 ">
+                        <%= jogada.texto_post %> 
+                        </div>
+                        </div>
+                    <div class="home_run_image p-2 d-inline-block  ">
+                <a href = "/jogos/<%= jogada.jogo.id%>"><img  class="img-thumbnail " src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a>
+             </div>
+            </div>
+           </div>                                                            
+        </div>
+<% end %>
