@@ -101,6 +101,9 @@ class JogadasController < ApplicationController
     end
   end
   
+  #GET /shared
+  def shared
+  end
   
 
   private

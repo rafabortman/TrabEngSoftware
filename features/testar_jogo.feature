@@ -4,7 +4,7 @@ Feature: Manage Jogos
   I want to create and manage jogos
 
   Scenario: title
-    Given i have jogos titled "Teste1,Teste2"
+    Given I have jogos titled "Teste1,Teste2"
     When I am on the list of "jogos"
     Then I should see "Teste1"
     And I should see "Teste2"
@@ -20,3 +20,7 @@ Feature: Manage Jogos
     When I click the button "Create Jogo"
     Then I should see "Jogo foi criado com sucesso"
     And I should see "Cuphead"
+
+    
+
+  

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :amigos
   root 'index#home'
   get 'buscar' => 'usuarios#buscar'
+  get 'shared' => 'jogadas#shared'
   post 'buscarJogoNome' => 'jogos#buscar_nome'
   get 'jogoAddJogada/:id' => 'jogos#add_jogada', as: 'jogoAddJogada'
   post 'createJogada' => 'jogadas#create', as: 'create_jogada'

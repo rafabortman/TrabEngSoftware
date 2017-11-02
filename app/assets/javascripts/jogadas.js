@@ -18,9 +18,12 @@ $( document ).ready(function() {
                         },
                         dataType: "json",
                         success: function (response) {
-                                alert(JSON.stringify(response))
                                 location.reload();
                         }
                 });
+        });
+
+        $('#btn_share_facebook').click(function(){
+                window.open('http://www.facebook.com/share.php?u=' + location.href);
         });
 });
