@@ -35,7 +35,7 @@ class JogadasController < ApplicationController
         format.html { redirect_to @jogada, notice: 'Jogada was successfully created.' }
         format.json { render :show, status: :created, location: @jogada }
       else
-        format.html { render :new }
+        format.html { redirect_to home_path(id: @jogada.jogo_id), flash: { error: @jogada.errors.full_messages.join(', ')}}
         format.json { render json: @jogada.errors, status: :unprocessable_entity }
       end
     end
@@ -49,7 +49,7 @@ class JogadasController < ApplicationController
       if @jogada.salvar(jogada_params)
         format.html { redirect_to @jogada, notice: 'Jogada was successfully created.' }
  	format.json { head :no_content }
-      else
+      else  
         format.html { redirect_to jogoAddJogada_path(id: @jogada.jogo_id), flash: { error: @jogada.errors.full_messages.join(', ')}}
 	format.json { render json: @jogada.errors, status: :unprocessable_entity }
       end

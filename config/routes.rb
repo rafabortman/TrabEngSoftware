@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'buscar' => 'usuarios#buscar'
   post 'buscarJogoNome' => 'jogos#buscar_nome'
   get 'jogoAddJogada/:id' => 'jogos#add_jogada', as: 'jogoAddJogada'
+  post 'createJogada' => 'jogadas#create', as: 'create_jogada'
   post 'createJogadaPeloJogo' => 'jogadas#add_pelo_jogo', as: 'create_jogada_pelo_jogo' 
   delete 'amigos' => 'amigos#deletar'
   get '/cadastro' => 'usuarios#new'

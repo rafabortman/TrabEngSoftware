@@ -1,7 +1,7 @@
 <div class="gameInsertion">                                  
 
   
-<%= form_for(@jogada, url: create_jogada_pelo_jogo_path) do |form| %>
+<%= form_for(@jogada, url: create_jogada_path) do |form| %>
 <% if flash[:error] %>
     <div id="error_explanation">
       <h2><%= pluralize(flash[:error].scan(",").length+1, "error") %> prohibited this jogada from being saved:</h2>
