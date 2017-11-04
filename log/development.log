@@ -31496,3 +31496,369 @@ awesome things!</p>
   </body>
 </html>
 
+Started GET "/usuarios" for 127.0.0.1 at 2017-11-04 00:09:20 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.8ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "henrique"], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mUsuario Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 12], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 12], ["id", 3], ["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (105.9ms)
+  Rendered layouts/_head.html.erb (964.7ms)
+  Rendered layouts/_header.html.erb (6.0ms)
+Completed 200 OK in 1165ms (Views: 1101.7ms | ActiveRecord: 17.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-11-04 00:09:24 -0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XFIlYJAZwEsNysk5CPqBxm36/EaUrm5Y4ju7uM8AQWzSPGYpxLzyuR5EipK6krxHfE4mRqAXfOS3ajqJGvrchw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-04 00:09:24 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mJogada Load (14.3ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data ASC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (5.6ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (48.6ms)
+  Rendered layouts/_head.html.erb (47.1ms)
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.8ms)
+Completed 200 OK in 180ms (Views: 82.1ms | ActiveRecord: 21.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-11-04 00:09:26 -0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_head.html.erb (53.4ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.4ms)
+Completed 200 OK in 94ms (Views: 67.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cadastro" for 127.0.0.1 at 2017-11-04 00:09:27 -0200
+Processing by UsuariosController#new as HTML
+  Rendering usuarios/new.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (6.0ms)
+  Rendered usuarios/new.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_head.html.erb (43.7ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 63ms (Views: 58.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/usuarios" for 127.0.0.1 at 2017-11-04 00:09:39 -0200
+Processing by UsuariosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xIXIw6M/2n2OShO+bK8O1MILhdN5LTnh2BMGPl0y1piq+w8d5NqUQbbWENKs+r0ZyrWVCiyPadThvJ2uARefXQ==", "usuario"=>{"nome"=>"henrique", "nacionalidade"=>"brasileira", "email"=>"henriquebortoletti@gmail.com", "username"=>"silva", "senha"=>"12345678", "confirmar_senha"=>"12345678"}, "commit"=>"Create Usuario"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" WHERE "usuarios"."email" = ? LIMIT ?[0m  [["email", "henriquebortoletti@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering usuarios/new.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (4.6ms)
+  Rendered usuarios/new.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_head.html.erb (48.5ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.7ms)
+Completed 200 OK in 68ms (Views: 61.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2017-11-04 00:09:46 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (41.3ms)
+  Rendered layouts/_head.html.erb (51.8ms)
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 104ms (Views: 101.8ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/usuarios/12" for 127.0.0.1 at 2017-11-04 00:09:49 -0200
+Processing by UsuariosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mEzYdeFEwMz8N3+S6bjYnBN3V1gKyqzTkv+SnU2FwVAWIps8teHyPu+5PDlb0OUdAsONWD5zvm/HrhOsmH9cuw==", "id"=>"12"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAmigo Load (19.0ms)[0m  [1m[34mSELECT "amigos".* FROM "amigos" WHERE "amigos"."usuario_id" = ?[0m  [["usuario_id", 12]]
+  [1m[36mAmigo Load (0.3ms)[0m  [1m[34mSELECT "amigos".* FROM "amigos" WHERE "amigos"."amigo_id" = ?[0m  [["amigo_id", 12]]
+  [1m[36mJogada Load (11.4ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" WHERE "jogadas"."usuario_id" = ?[0m  [["usuario_id", 12]]
+  [1m[35mSQL (13.3ms)[0m  [1m[31mDELETE FROM "usuarios" WHERE "usuarios"."id" = ?[0m  [["id", 12]]
+  [1m[35m (72.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/usuarios
+Completed 302 Found in 140ms (ActiveRecord: 117.9ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2017-11-04 00:09:49 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_head.html.erb (59.8ms)
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.4ms)
+Completed 200 OK in 75ms (Views: 72.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-11-04 00:09:50 -0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_head.html.erb (60.1ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.4ms)
+Completed 200 OK in 75ms (Views: 71.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cadastro" for 127.0.0.1 at 2017-11-04 00:09:52 -0200
+Processing by UsuariosController#new as HTML
+  Rendering usuarios/new.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (6.1ms)
+  Rendered usuarios/new.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_head.html.erb (46.4ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.6ms)
+Completed 200 OK in 67ms (Views: 64.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/usuarios" for 127.0.0.1 at 2017-11-04 00:10:05 -0200
+Processing by UsuariosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2sGsAXbaa4FtJi9qkNBGMDiBsp8iT+t7wUYnW5ejPe+0v2vfMT8lvVW6LAZQhfX9MD+iRnftu0746bzLy4Z0Kg==", "usuario"=>{"nome"=>"henrique", "nacionalidade"=>"brasileira", "email"=>"henriquebortoletti@gmail.com", "username"=>"silva", "senha"=>"12345678", "confirmar_senha"=>"12345678"}, "commit"=>"Create Usuario"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" WHERE "usuarios"."email" = ? LIMIT ?[0m  [["email", "henriquebortoletti@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (108.3ms)[0m  [1m[32mINSERT INTO "usuarios" ("nome", "email", "username", "senha", "created_at", "updated_at", "nacionalidade", "confirmar_senha") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nome", "henrique"], ["email", "henriquebortoletti@gmail.com"], ["username", "silva"], ["senha", "12345678"], ["created_at", "2017-11-04 02:10:05.765442"], ["updated_at", "2017-11-04 02:10:05.765442"], ["nacionalidade", "brasileira"], ["confirmar_senha", "12345678"]]
+  [1m[35m (200.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering contato_mailer/contato_email.html.erb within layouts/mailer
+  Rendered contato_mailer/contato_email.html.erb within layouts/mailer (1.7ms)
+ContatoMailer#contato_email: processed outbound mail in 57.1ms
+Sent mail to henriquebortoletti@gmail.com (61.6ms)
+Date: Sat, 04 Nov 2017 00:10:09 -0200
+From: engsistemas2017@gmail.com
+To: henriquebortoletti@gmail.com
+Message-ID: <59fd21813fee_4ff921fec7434dd@henrique-VPCEH30EB.mail>
+Subject: Thanks for signing up for our amazing app
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for signing up, henrique!</h1>
+    <p>Thanks for joining and have a great day! Now sign in and do
+awesome things!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://localhost:3000/usuarios/13
+Completed 302 Found in 3303ms (ActiveRecord: 308.8ms)
+
+
+Started GET "/usuarios/13" for 127.0.0.1 at 2017-11-04 00:10:09 -0200
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering usuarios/show.html.erb within layouts/application
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ?[0m  [["usuario_id", 13]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "silva"], ["LIMIT", 1]]
+  Rendered usuarios/show.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_head.html.erb (68.4ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 97ms (Views: 84.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2017-11-04 00:10:12 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "silva"], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mUsuario Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 13], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 13], ["id", 3], ["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_head.html.erb (55.7ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+Completed 200 OK in 77ms (Views: 74.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/usuarios/13" for 127.0.0.1 at 2017-11-04 01:58:47 -0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUsuario Load (0.7ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering usuarios/show.html.erb within layouts/application
+  [1m[36mUsuario Load (14.5ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ?[0m  [["usuario_id", 13]]
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "silva"], ["LIMIT", 1]]
+  Rendered usuarios/show.html.erb within layouts/application (104.4ms)
+  Rendered layouts/_head.html.erb (927.0ms)
+  Rendered layouts/_header.html.erb (8.5ms)
+Completed 200 OK in 1172ms (Views: 1083.7ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2017-11-04 01:58:53 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "silva"], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mUsuario Exists (15.7ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 13], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 13], ["id", 3], ["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (54.5ms)
+  Rendered layouts/_head.html.erb (70.2ms)
+  Rendered layouts/_header.html.erb (3.8ms)
+Completed 200 OK in 212ms (Views: 117.6ms | ActiveRecord: 18.8ms)
+
+
+Started DELETE "/usuarios/13" for 127.0.0.1 at 2017-11-04 01:58:56 -0200
+Processing by UsuariosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eCrHCaXcUQMWYv0kWuGhmWsE0OaA79q7WGAr1o0t+eT2RIRA8Xlj8QXsvo/oiZwYerAK5rRWyAcNMarnWNdkDw==", "id"=>"13"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAmigo Load (0.3ms)[0m  [1m[34mSELECT "amigos".* FROM "amigos" WHERE "amigos"."usuario_id" = ?[0m  [["usuario_id", 13]]
+  [1m[36mAmigo Load (0.2ms)[0m  [1m[34mSELECT "amigos".* FROM "amigos" WHERE "amigos"."amigo_id" = ?[0m  [["amigo_id", 13]]
+  [1m[36mJogada Load (8.9ms)[0m  [1m[34mSELECT "jogadas".* FROM "jogadas" WHERE "jogadas"."usuario_id" = ?[0m  [["usuario_id", 13]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "usuarios" WHERE "usuarios"."id" = ?[0m  [["id", 13]]
+  [1m[35m (117.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/usuarios
+Completed 302 Found in 176ms (ActiveRecord: 127.8ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2017-11-04 01:58:56 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.7ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "silva"], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "silva"], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "silva"], ["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_head.html.erb (73.2ms)
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "silva"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.7ms)
+Completed 200 OK in 91ms (Views: 88.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-11-04 01:58:58 -0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (88.6ms)
+  Rendered layouts/_head.html.erb (42.1ms)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "silva"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 144ms (Views: 139.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cadastro" for 127.0.0.1 at 2017-11-04 01:59:00 -0200
+Processing by UsuariosController#new as HTML
+  Rendering usuarios/new.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (4.4ms)
+  Rendered usuarios/new.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_head.html.erb (42.9ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "silva"], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.9ms)
+Completed 200 OK in 73ms (Views: 57.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/usuarios" for 127.0.0.1 at 2017-11-04 01:59:12 -0200
+Processing by UsuariosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TDL50LG/sEZ4mlX2g7yanCSTC7da9NSUzn/z0681lOkiTD4O9lr+ekAGVppD6SlRLC0bbg9WhKH30GhD8xDdLA==", "usuario"=>{"nome"=>"henrique", "nacionalidade"=>"brasileira", "email"=>"henriquebortoletti@gmail.com", "username"=>"henrique", "senha"=>"12345678", "confirmar_senha"=>"12345678"}, "commit"=>"Create Usuario"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUsuario Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" WHERE "usuarios"."email" = ? LIMIT ?[0m  [["email", "henriquebortoletti@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (47.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("nome", "email", "username", "senha", "created_at", "updated_at", "nacionalidade", "confirmar_senha") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nome", "henrique"], ["email", "henriquebortoletti@gmail.com"], ["username", "henrique"], ["senha", "12345678"], ["created_at", "2017-11-04 03:59:12.385363"], ["updated_at", "2017-11-04 03:59:12.385363"], ["nacionalidade", "brasileira"], ["confirmar_senha", "12345678"]]
+  [1m[35m (206.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering contato_mailer/contato_email.html.erb within layouts/mailer
+  Rendered contato_mailer/contato_email.html.erb within layouts/mailer (1.2ms)
+ContatoMailer#contato_email: processed outbound mail in 246.5ms
+Sent mail to henriquebortoletti@gmail.com (17.8ms)
+Date: Sat, 04 Nov 2017 01:59:13 -0200
+From: engsistemas2017@gmail.com
+To: henriquebortoletti@gmail.com
+Message-ID: <59fd3b11b9b55_ff421fbc186347d@henrique-VPCEH30EB.mail>
+Subject: Thanks for signing up for our amazing app
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for signing up, henrique!</h1>
+    <p>Thanks for joining and have a great day! Now sign in and do
+awesome things!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://localhost:3000/usuarios/14
+Completed 302 Found in 1397ms (ActiveRecord: 253.8ms)
+
+
+Started GET "/usuarios/14" for 127.0.0.1 at 2017-11-04 01:59:13 -0200
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUsuario Load (0.8ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering usuarios/show.html.erb within layouts/application
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ?[0m  [["usuario_id", 14]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "henrique"], ["LIMIT", 1]]
+  Rendered usuarios/show.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_head.html.erb (47.5ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+Completed 200 OK in 61ms (Views: 57.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2017-11-04 01:59:37 -0200
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" = ? LIMIT ?[0m  [["username", "henrique"], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[36mUsuario Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 14], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUsuario Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "usuarios" INNER JOIN "amigos" ON "usuarios"."id" = "amigos"."amigo_id" WHERE "amigos"."usuario_id" = ? AND "usuarios"."id" = ? LIMIT ?[0m  [["usuario_id", 14], ["id", 3], ["LIMIT", 1]]
+  Rendered usuarios/index.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_head.html.erb (48.1ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 69ms (Views: 65.9ms | ActiveRecord: 1.6ms)
+
+
