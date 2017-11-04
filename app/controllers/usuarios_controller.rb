@@ -29,6 +29,7 @@ class UsuariosController < ApplicationController
     respond_to do |format|
       if @usuario.save
         log_in @usuario
+        ContatoMailer.contato_email(@usuario).deliver   
         format.html { redirect_to @usuario, notice: 'Usuario criado com sucesso' }
         format.json { render :show, status: :created, location: @usuario }
       else

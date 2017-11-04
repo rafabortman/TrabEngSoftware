@@ -12,6 +12,7 @@ gem 'mini_magick'
 gem 'coveralls', require: false
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'twitch', '~> 0.1.0'
+gem 'figaro'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
