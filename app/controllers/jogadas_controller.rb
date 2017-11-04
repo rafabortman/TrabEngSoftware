@@ -32,7 +32,8 @@ class JogadasController < ApplicationController
 
     respond_to do |format|
       if @jogada.salvar(jogada_params)
-        format.html { redirect_to @jogada, notice: 'Jogada was successfully created.' }
+        
+	format.html { redirect_to @jogada, notice: 'Jogada was successfully created.' }
         format.json { render :show, status: :created, location: @jogada }
       else
         format.html { redirect_to home_path(id: @jogada.jogo_id), flash: { error: @jogada.errors.full_messages.join(', ')}}

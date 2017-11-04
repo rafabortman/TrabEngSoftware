@@ -9,18 +9,4 @@ def pageTitle(name)
 end
 end
 
-def userLength(user)
-   if user.mb_chars.length > 13
-   user = user[0..13]	
-  end
-user
-end
-def gameLength(game)
-   if game.mb_chars.length > 40
-   game = game[0..40]
-  end
-game
-end
-
-
 end

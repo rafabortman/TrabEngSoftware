@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
   get 'password_resets/new'
-
   get 'password_resets/edit'
-
+  resources :contatos
   resources :generos
   resources :jogadas
   resources :usuarios
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
   root 'index#home'
   get 'buscar' => 'usuarios#buscar'
   get 'shared' => 'jogadas#shared'
+  get 'contato' => 'contatos#index', as: 'contatoindex'
   post 'buscarJogoNome' => 'jogos#buscar_nome'
   get 'jogoAddJogada/:id' => 'jogos#add_jogada', as: 'jogoAddJogada'
   post 'createJogada' => 'jogadas#create', as: 'create_jogada'

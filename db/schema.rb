@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018201528) do
+ActiveRecord::Schema.define(version: 20171104064914) do
 
   create_table "amigos", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20171018201528) do
     t.index ["jogada_id"], name: "index_comentarios_on_jogada_id"
   end
 
+  create_table "contatos", force: :cascade do |t|
+    t.string "email"
+    t.string "assunto"
+    t.text "corpo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "generos", force: :cascade do |t|
     t.string "nome"
     t.datetime "created_at", null: false
@@ -38,7 +46,7 @@ ActiveRecord::Schema.define(version: 20171018201528) do
   create_table "jogadas", force: :cascade do |t|
     t.string "texto_post"
     t.string "plataforma"
-    t.date "data"
+    t.datetime "data"
     t.string "categoria"
     t.string "link"
     t.integer "usuario_id"

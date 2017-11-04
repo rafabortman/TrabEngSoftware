@@ -18,28 +18,25 @@
                     <div class="d-flex flex-row-reverse">
                     <div class="d-flex flex-column  p-2 w-100  " >
                     <div class="home_run_title p-2  ">
-                        <a href = "<%= jogada_path(jogada.id) %>"><h4><%= gameLength(jogada.jogo.titulo) %></h4></a>
+                        <h4><%=maxLength(jogada.jogo.titulo,40) %></h4>
                     </div>
                     <div class="home_run_description p-2 ">
                     <!-- Talvez dividir os itens em duas linhas -->
                     <ul class="home_run_description_list  ">
                     <li class="home_rdl_user home_rdl_item">
-                        <span class="fa fa-user"/> <%= userLength(jogada.usuario.username) %> 
+                        <span class="fa fa-user"/> <%= maxLength(jogada.usuario.nome,13) %> 
                     </li>
                     <li class="home_rdl_position home_rdl_item">
                         <span class="fa fa-trophy" style="color:gold"></span> 1st    
                     </li>
-                    <% @hora = (jogada.milissegundos).to_i / 3600000 
-                    
-                    %>
                     <li class="home_rdl_time home_rdl_item">
-                        <span class="fa fa-bolt" /> <%= getTempoJogada(jogada.milissegundos) %>
+                        <span class="fa fa-bolt" /> <%= Last_Mili_To_Hour((jogada.milissegundos).to_i) %>:<%= Last_Mili_To_Min((jogada.milissegundos).to_i) %>  :<%= Last_Mili_To_Seg((jogada.milissegundos).to_i)%>:<%= Last_Mili((jogada.milissegundos).to_i )%>
                     </li>
                     <li class="home_rdl_categoria home_rdl_item">
-                        <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+                        <span class="fa fa-cogs" style="color:#9498a1"></span> <%= maxLength(jogada.categoria,6)%>    
                     </li>
                    <li class="home_rdl_plataforma home_rdl_item">
-                        <span class="fa fa-gamepad"/> <%=jogada.plataforma%> 
+                        <span class="fa fa-gamepad"/> <%=maxLength(jogada.plataforma,12)%> 
                     </li>    
                     <li>
                         <%=jogada.data%> 
@@ -57,52 +54,6 @@
              </div>
             </div>
            </div>                                                            
-        </div>
-<% end %>
-<!--
-<div class="home_runs  col-sm-6 col-md-12" >
- <div class="home_run col-sm-6 col-md-12 " >
-                    <div class="d-flex flex-row-reverse">
-                    <div class="d-flex flex-column  p-2 w-100  " >
-                    <div class="home_run_title p-2  ">
-                        <h4>Super Mario Galaxy 2</h4>
-                    </div>
-                    <div class="home_run_description p-2 ">
-                    <ul class="home_run_description_list  ">
-                    <li class="home_rdl_user home_rdl_item">
-			<span class="fa fa-user"/> <%= userLength("RickLoucoooooo0000000000000000000000oooooooooooooooo")%>
-                    </li>
-                    <li class="home_rdl_position home_rdl_item">
-                        <span class="fa fa-trophy" style="color:gold">
-</span> 1st
-                    </li>
-                    <li class="home_rdl_time home_rdl_item">
-                        <span class="fa fa-bolt" /> 09:09:09:009
-                    </li>
-                    <li class="home_rdl_categoria home_rdl_item">
-                        <span class="fa fa-cogs" style="color:#9498a1"></span> Any%
-                    </li>
-                   <li class="home_rdl_plataforma home_rdl_item">
-                        <span class="fa fa-gamepad"/> Computer 
-                    </li>
-                    <li class="home_rdl_link home_rdl_item">
-                        <a href="https://youtu.be/AzBRiwbZxIs" target="_blank"><span class="fa fa-youtube-play" style="color:red;"/></a>
-                    </li>
-                    </ul>
-                    </div>
-                    <div class="home_run_post p-2 ">
-                        It was a hard run but I did it
-                        </div>
-                        </div>
-                    <div class="home_run_image p-2 d-inline-block  ">
-                    <img class="img-thumbnail "
- src="https://dannosekai.files.wordpress.com/2010/03/78773978.jpg" />
-             </div>
-            </div>
-           </div>
  </div>
-
-         </div>
-        </div>
-       </div>
- -->
+        <% end %>
+</div>

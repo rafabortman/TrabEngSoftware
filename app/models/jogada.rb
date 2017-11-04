@@ -2,10 +2,10 @@ require 'net/http'
 class Jogada < ApplicationRecord
   belongs_to :usuario
   belongs_to :jogo
- # validates :link, format: { with: /embed/,message: "O vídeo deve ser encorporado do youtube" }
+  #validates :link, format: { with: /embed/,message: "O vídeo deve ser encorporado do youtube" }
   validates :plataforma, presence: {message: "não pode estar vazio"}
   validates :categoria, presence: {message: "não pode estar vazio"}
-  #validates :jogo, presence: {message: "não pode estar vazio"}
+  validates :jogo, presence: {message: "não pode estar vazio"}
   attr_accessor :tempo_horas
   attr_accessor :tempo_minutos
   attr_accessor :tempo_segundos
