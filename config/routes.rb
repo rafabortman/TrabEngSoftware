@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :contatos
   resources :generos
   resources :jogadas
   resources :usuarios
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   resources :amigos
   root 'index#home'
   get 'buscar' => 'usuarios#buscar'
+  get 'contato' => 'contatos#index', as: 'contatoindex'
   post 'buscarJogoNome' => 'jogos#buscar_nome'
   get 'jogoAddJogada/:id' => 'jogos#add_jogada', as: 'jogoAddJogada'
   post 'createJogadaPeloJogo' => 'jogadas#add_pelo_jogo', as: 'create_jogada_pelo_jogo' 

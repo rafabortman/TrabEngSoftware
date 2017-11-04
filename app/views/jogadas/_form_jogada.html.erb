@@ -23,9 +23,6 @@
 
  <%= form.select(:categoria,  options_for_select([['ANY%','ANY%'],['100%','100%']]) ,{include_blank: 'categoria'},class: "inputItem categoriaSelector form-control")%>   
     
-    
-
-
   <%= form.text_field :plataforma, id: :@jogada_plataforma ,class: "inputItem plataformaSelector form-control" , placeholder: "Plataforma"%>
 
   
@@ -50,9 +47,9 @@
     <%= form.url_field :link, id: :@jogada_link, class: "inputItem linkSelector form-control" ,placeholder: "Run Link"%>
 
     <%= form.text_field :texto_post, id: :@jogada_texto_post, class: "inputItem linkSelector postItem form-control", placeholder: "Fale algo sobre sua Run"%>
-<%= form.hidden_field :usuario_id, id: current_user.id, :value => current_user.id %>
+   <%= form.hidden_field :usuario_id, id: current_user.id, :value => current_user.id %>
    <%= form.hidden_field :data, id: :@jogada_data, value: Time.now %>
-<%= form.submit "Inserir", class: "btn btn-default btn-primary submitJogada" %> 
+   <%= form.submit "Inserir", class: "btn btn-default btn-primary submitJogada" %> 
 
 </div>
       

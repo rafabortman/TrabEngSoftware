@@ -98,7 +98,7 @@ config.action_mailer.smtp_settings = {
       :domain => 'localhost:80',
       :user_name => ENV['gmail_username'],
       :password => ENV['gmail_password'],
-      :authentication => "plain",
+      :authentication => :plain,
       :enable_starttls_auto => true
 }
 
