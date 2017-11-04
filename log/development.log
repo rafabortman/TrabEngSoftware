@@ -35885,3 +35885,86 @@ Completed 200 OK in 57ms (Views: 54.9ms | ActiveRecord: 0.4ms)
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2017-11-04 05:40:59 -0200
+Processing by IndexController#home as HTML
+  Rendering index/home.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mJogada Load (0.2ms)[0m  [1m[34mSELECT  "jogadas".* FROM "jogadas" ORDER BY data DESC LIMIT ?[0m  [["LIMIT", 10]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.2ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mJogo Load (0.1ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Jogo Load (0.0ms)[0m  [1m[34mSELECT  "jogos".* FROM "jogos" WHERE "jogos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered index/home.html.erb within layouts/application (52.8ms)
+  Rendered layouts/_head.html.erb (47.1ms)
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.6ms)
+Completed 200 OK in 134ms (Views: 104.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/contato" for 127.0.0.1 at 2017-11-04 05:41:01 -0200
+Processing by ContatosController#index as HTML
+  Rendering contatos/index.html.erb within layouts/application
+  [1m[36mContato Load (0.7ms)[0m  [1m[34mSELECT "contatos".* FROM "contatos"[0m
+  Rendered contatos/index.html.erb within layouts/application (15.6ms)
+  Rendered layouts/_head.html.erb (50.3ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 79ms (Views: 72.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/contato" for 127.0.0.1 at 2017-11-04 05:41:02 -0200
+Processing by ContatosController#index as HTML
+  Rendering contatos/index.html.erb within layouts/application
+  [1m[36mContato Load (0.3ms)[0m  [1m[34mSELECT "contatos".* FROM "contatos"[0m
+  Rendered contatos/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_head.html.erb (49.9ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 62ms (Views: 60.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/contato" for 127.0.0.1 at 2017-11-04 05:41:02 -0200
+Processing by ContatosController#index as HTML
+  Rendering contatos/index.html.erb within layouts/application
+  [1m[36mContato Load (0.2ms)[0m  [1m[34mSELECT "contatos".* FROM "contatos"[0m
+  Rendered contatos/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_head.html.erb (63.7ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 75ms (Views: 73.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/contato" for 127.0.0.1 at 2017-11-04 05:41:02 -0200
+Processing by ContatosController#index as HTML
+  Rendering contatos/index.html.erb within layouts/application
+  [1m[36mContato Load (0.3ms)[0m  [1m[34mSELECT "contatos".* FROM "contatos"[0m
+  Rendered contatos/index.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_head.html.erb (73.4ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.2ms)
+Completed 200 OK in 92ms (Views: 89.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/contato" for 127.0.0.1 at 2017-11-04 05:41:02 -0200
+Processing by ContatosController#index as HTML
+  Rendering contatos/index.html.erb within layouts/application
+  [1m[36mContato Load (0.3ms)[0m  [1m[34mSELECT "contatos".* FROM "contatos"[0m
+  Rendered contatos/index.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_head.html.erb (47.7ms)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 67ms (Views: 61.5ms | ActiveRecord: 0.6ms)
+
+
