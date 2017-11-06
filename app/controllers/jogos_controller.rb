@@ -36,11 +36,11 @@ class JogosController < ApplicationController
     updated_jogo_params = jogo_params.except(:imagem_upload)
 
     @jogo = Jogo.new(updated_jogo_params)
- 
     
     if imageUploadPath
       @jogo.imagem= Base64.encode64(File.open(imageUploadPath, "rb").read)
     end
+
     generos = params[:genero_ids]
     respond_to do |format|
       if @jogo.salvar (generos)

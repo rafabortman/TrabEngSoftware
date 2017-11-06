@@ -57,11 +57,17 @@ class ValidarImagem
 			Rails.logger.debug @jogo.imagem_url
 			image = MiniMagick::Image.open(@jogo.imagem_url)
 			image.resize "300x600"
-				@jogo.imagem = Base64.encode64(open(image.path) { |f| f.read })
+			@jogo.imagem = Base64.encode64(open(image.path) { |f| f.read })
+		else
+			binImage = Base64.decode64(@jogo.imagem)
+			image = MiniMagick::Image.read(binImage)
+			image.resize "300x600"
+			@jogo.imagem = Base64.encode64(open(image.path) { |f| f.read })
 		end
-	   rescue
+	   	rescue
 		
-	  	@jogo.errors[:imagem] <<"-> não foi possível carregar"
+		  @jogo.errors[:imagem] <<"-> não foi possível carregar"
+		  puts @jogo.errors	
 	   	#return
 	   end
 	end
