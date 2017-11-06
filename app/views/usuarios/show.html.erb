@@ -101,7 +101,7 @@
                     <div class="d-flex flex-row-reverse">
                     <div class="d-flex flex-column  p-2 w-100  " >
                     <div class="home_run_title p-2  ">
-                        <a href = "/jogos/<%= jogo.id%>"><h4><%= gameLength(jogo.titulo) %></h4></a>
+                        <a href = "/jogos/<%= jogo.id%>"><h4><%=maxLength(jogo.titulo,40)%></h4></a>
                     </div>
                     <div class="home_run_description p-2 ">
                     <!-- Talvez dividir os itens em duas linhas -->

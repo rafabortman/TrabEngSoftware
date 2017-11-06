@@ -33,12 +33,12 @@
                     <div class="d-flex flex-row-reverse">
                     <div class="d-flex flex-column  p-2 w-100  " >
                     <div class="home_run_title p-2  ">
-                        <a href = "<%= jogada_path(jogada.id) %>"><h4><%= gameLength(jogada.jogo.titulo) %></h4></a>
+                        <a href = "<%= jogada_path(jogada.id) %>"><h4><%=  maxLength(jogada.jogo.titulo,40) %></h4></a>
                     </div>
                     <div class="home_run_description p-2 ">
                     <ul class="home_run_description_list  ">
                     <li class="home_rdl_user home_rdl_item">
-                        <span class="fa fa-user"/> <%= userLength(jogada.usuario.username) %> 
+                        <span class="fa fa-user"/> <%= maxLength(jogada.usuario.username,15) %> 
                     </li>
                     <% @hora = (jogada.milissegundos).to_i / 3600000 
                     
