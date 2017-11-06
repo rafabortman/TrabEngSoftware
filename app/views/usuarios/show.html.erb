@@ -47,13 +47,13 @@
                     <div class="d-flex flex-row-reverse">
                     <div class="d-flex flex-column  p-2 w-100  " >
                     <div class="home_run_title p-2  ">
-                        <a href = "<%= jogada_path(jogada.id) %>"><h4><%= gameLength(jogada.jogo.titulo) %></h4></a>
+                        <a href = "<%= jogada_path(jogada.id) %>"><h4><%= maxLength(jogada.jogo.titulo,40) %></h4></a>
                     </div>
                     <div class="home_run_description p-2 ">
                     <!-- Talvez dividir os itens em duas linhas -->
                     <ul class="home_run_description_list  ">
                     <li class="home_rdl_user home_rdl_item">
-                        <span class="fa fa-user"/> <%= userLength(jogada.usuario.username) %> 
+                        <span class="fa fa-user"/> <%= maxLength(jogada.usuario.nome,13)  %> 
                     </li>
                     <li class="home_rdl_position home_rdl_item">
                         <span class="fa fa-trophy" style="color:gold"></span> 1st    
@@ -65,13 +65,13 @@
                         <span class="fa fa-bolt" /> <%= getTempoJogada(jogada.milissegundos) %>
                     </li>
                     <li class="home_rdl_categoria home_rdl_item">
-                        <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
+                        <span class="fa fa-cogs" style="color:#9498a1"></span> <%maxLength(jogada.categoria,6)=%>    
                     </li>
                     <li class="home_rdl_plataforma home_rdl_item">
-                        <span class="fa fa-gamepad"/> <%=jogada.plataforma%> 
+                        <span class="fa fa-gamepad"/> <%maxLength(jogada.plataforma,12)=%> 
                     </li>    
                     <li>
-                        <%=jogada.data%> 
+                        
                     </li> 
                     <li class="home_rdl_link home_rdl_item">
                       <a href="<%= jogada.link %>"target="_blank"><span class="fa fa-youtube-play" style="color:red;"/></a>

@@ -30,8 +30,8 @@
                         <span class="fa fa-trophy" style="color:gold"></span> 1st    
                     </li>
                     <li class="home_rdl_time home_rdl_item">
-                        <span class="fa fa-bolt" /> <%= Last_Mili_To_Hour((jogada.milissegundos).to_i) %>:<%= Last_Mili_To_Min((jogada.milissegundos).to_i) %>  :<%= Last_Mili_To_Seg((jogada.milissegundos).to_i)%>:<%= Last_Mili((jogada.milissegundos).to_i )%>
-                    </li>
+                   <span class="fa fa-bolt" /> <%= getTempoJogada(jogada.milissegundos) %>  
+		   </li>
                     <li class="home_rdl_categoria home_rdl_item">
                         <span class="fa fa-cogs" style="color:#9498a1"></span> <%= maxLength(jogada.categoria,6)%>    
                     </li>
@@ -39,7 +39,7 @@
                         <span class="fa fa-gamepad"/> <%=maxLength(jogada.plataforma,12)%> 
                     </li>    
                     <li>
-                        <%=jogada.data%> 
+                         
                     </li> 
 			<a href="<%=jogada.link %>"target="_blank"><span class="fa fa-youtube-play" style="color:red;"/></a>
                     </li>

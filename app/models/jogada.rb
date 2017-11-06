@@ -9,7 +9,7 @@ class Jogada < ApplicationRecord
   attr_accessor :tempo_horas
   attr_accessor :tempo_minutos
   attr_accessor :tempo_segundos
-  has_many :comentarios
+  has_many :comentarios, :dependent => :destroy
   validate do |jogada|
 	   ValidarLink.new(jogada).validar
 	end
