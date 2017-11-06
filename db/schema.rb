@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104064914) do
+ActiveRecord::Schema.define(version: 20171106202601) do
 
   create_table "amigos", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 20171104064914) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "hackroms", force: :cascade do |t|
+    t.string "nomeRom"
+    t.integer "jogo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jogo_id"], name: "index_hackroms_on_jogo_id"
+  end
+
   create_table "jogadas", force: :cascade do |t|
     t.string "texto_post"
     t.string "plataforma"
@@ -65,6 +73,7 @@ ActiveRecord::Schema.define(version: 20171104064914) do
     t.datetime "updated_at", null: false
     t.string "descricao"
     t.string "imagem_url"
+    t.boolean "temrom"
   end
 
   create_table "jogos_generos", force: :cascade do |t|
