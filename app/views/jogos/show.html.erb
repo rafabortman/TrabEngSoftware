@@ -38,7 +38,7 @@
                     <div class="home_run_description p-2 ">
                     <ul class="home_run_description_list  ">
                     <li class="home_rdl_user home_rdl_item">
-                        <span class="fa fa-user"/> <%= userLength(jogada.usuario.username) %> 
+                        <span class="fa fa-user"/> <%= maxLength(jogada.usuario.username,15) %> 
                     </li>
                     <% @hora = (jogada.milissegundos).to_i / 3600000 
                     
