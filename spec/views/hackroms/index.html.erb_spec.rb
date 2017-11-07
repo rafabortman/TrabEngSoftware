@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+=begin
 RSpec.describe "hackroms/index", type: :view do
   before(:each) do
     assign(:hackroms, [
@@ -20,3 +20,4 @@ RSpec.describe "hackroms/index", type: :view do
     assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end
+=end
