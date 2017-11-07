@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106202601) do
+ActiveRecord::Schema.define(version: 20171107231115) do
 
   create_table "amigos", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20171106202601) do
   create_table "jogadas", force: :cascade do |t|
     t.string "texto_post"
     t.string "plataforma"
-    t.datetime "data"
+    t.date "data"
     t.string "categoria"
     t.string "link"
     t.integer "usuario_id"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20171106202601) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "milissegundos", limit: 8
+    t.integer "hackrom_id"
+    t.index ["hackrom_id"], name: "index_jogadas_on_hackrom_id"
     t.index ["jogo_id"], name: "index_jogadas_on_jogo_id"
     t.index ["usuario_id"], name: "index_jogadas_on_usuario_id"
   end
