@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+=begin
 RSpec.describe "hackroms/edit", type: :view do
   before(:each) do
     @hackrom = assign(:hackrom, Hackrom.create!(
@@ -19,3 +19,4 @@ RSpec.describe "hackroms/edit", type: :view do
     end
   end
 end
+=end
