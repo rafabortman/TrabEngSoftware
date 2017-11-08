@@ -3,12 +3,11 @@ Feature: Manage Jogos
   As an user
   I want to create and manage jogos
 
-  Scenario: title
+  Scenario: Visualize jogos
     Given I have jogos titled "Teste1,Teste2"
     When I am on the list of "jogos"
     Then I should see "Teste1"
     And I should see "Teste2"
-  
   
   Scenario: Create Valid Jogo
     Given I have no jogos
@@ -20,6 +19,14 @@ Feature: Manage Jogos
     When I click the button "Create Jogo"
     Then I should see "Jogo foi criado com sucesso"
     And I should see "Cuphead"
+
+  Scenario: Sinalize invalid input
+    Given I have no jogos
+    And I am on the list of "jogos"
+    When I click the link "Novo Jogo"
+    Then I click the button "Create Jogo"
+    Then I should see "Titulo não pode estar vazio"
+    And I should see "Imagem -> não foi possível carregar"
 
     
 

@@ -21,6 +21,7 @@ Given("I have a jogada called {string}") do |textPost|
             tempo_horas:1,
             tempo_minutos:10,
             tempo_segundos:37,
+            milissegundos:4,
             categoria:"Classico",
             link:"https://www.youtube.com/embed/fEaTMekrcz0",
             usuario_id: Usuario.find_by(nome: "TestUser").id,
@@ -34,3 +35,23 @@ When("I visualize the jogada {string}") do |jogadaTexto|
     idJogada = Jogada.where(["texto_post = ?", jogadaTexto]).first.id.to_s
     visit '/jogadas/'+idJogada
 end
+
+Given("I have no jogadas") do
+    Jogada.delete_all
+  end
+  
+  When("I fill in the date field") do
+    select '2017', :from => 'jogada_data_1i'
+    select 'February', :from => 'jogada_data_2i'
+    select '3', :from => 'jogada_data_3i'
+  end
+  
+  When("I fill in a valid jogada_usuario_id") do
+    @idUser = Usuario.find_by(nome: "TestUser").id
+    fill_in "jogada_usuario_id", with: @idUser
+  end
+  
+  When("I fill in a valid jogo_id") do
+    @idJogo = Jogo.find_by(titulo: "Teste1").id
+    fill_in "jogada_jogo_id", with: @idJogo
+  end
