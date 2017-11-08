@@ -15,7 +15,7 @@
     <% @hackroms.each do |hackrom| %>
       <tr>
         <td><%= hackrom.nomeRom %></td>
-        <td><%= hackrom.jogo %></td>
+        <td><%= hackrom.jogo.titulo %></td>
         <td><%= link_to 'Show', hackrom %></td>
         <td><%= link_to 'Edit', edit_hackrom_path(hackrom) %></td>
         <td><%= link_to 'Destroy', hackrom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
