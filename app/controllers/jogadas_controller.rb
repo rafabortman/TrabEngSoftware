@@ -7,6 +7,7 @@ class JogadasController < ApplicationController
   def index
     @jogadas = Jogada.order('milissegundos')
     @jogos = Jogo.all
+    @hackroms = Hackrom.all
   end
 
   # GET /jogadas/1
@@ -116,6 +117,6 @@ class JogadasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     # 1 segundo = 1000 millisegundos, 1 minuto = 60.000, 1 hora = 3.600.000 milissegundos
     def jogada_params
-      params.require(:jogada).permit(:texto_post, :plataforma, :data,:tempo_horas, :tempo_minutos, :tempo_segundos ,:milissegundos, :categoria, :link, :usuario_id, :jogo_id)
+      params.require(:jogada).permit(:texto_post, :plataforma, :data,:tempo_horas, :tempo_minutos, :tempo_segundos ,:milissegundos, :categoria, :link, :usuario_id, :jogo_id, :hackrom_id)
     end
 end
