@@ -26,17 +26,25 @@ class UsuariosController < ApplicationController
   def create
     @usuario = Usuario.new(usuario_params)
 
-    respond_to do |format|
-      if @usuario.save
-        log_in @usuario
-        ContatoMailer.contato_email(@usuario).deliver   
-        format.html { redirect_to @usuario, notice: 'Usuario criado com sucesso' }
-        format.json { render :show, status: :created, location: @usuario }
-      else
-        format.html { render :new }
-        format.json { render json: @usuario.errors, status: :unprocessable_entity }
+    @checkUsername = Usuario.find_by(username:usuario_params[:username])
+    if(@checkUsername.blank?)
+      respond_to do |format|
+        if @usuario.save
+          log_in @usuario
+          ContatoMailer.contato_email(@usuario).deliver   
+          format.html { redirect_to @usuario, notice: 'Usuario criado com sucesso' }
+          format.json { render :show, status: :created, location: @usuario }
+        else
+          format.html { render :new }     
+          format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      flash[:error] = "================== ERRO: O NOME DE USUARIO ESCOLHIDO JA EXISTE  ==================  "
+      redirect_to "/usuarios/new"
     end
+
+    
   end
 
   # PATCH/PUT /usuarios/1

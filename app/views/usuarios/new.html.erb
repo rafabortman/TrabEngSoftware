@@ -1,5 +1,9 @@
 <h1>Novo Usuario</h1>
-
+<div id="flash_messages">
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, :class => "flash #{key}") %>
+  <% end %>
+</div>
 <%= render 'form', usuario: @usuario %>
 
 <%= link_to 'Voltar', usuarios_path  , :class => "btn btn-outline-primary"%>
