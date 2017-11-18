@@ -12,6 +12,11 @@ When("I click the button {string}") do |button|
   click_button (button)
 end
 
+When("I visualize the usuario {string}") do |usuarioUsername|
+     idUsuario = Usuario.where(["texto_post = ?", usuarioUsername]).first.id.to_s
+     visit '/usuario/'+idUsuario
+end
+
 Then("I should see {string}") do |textValue|
   expect(page).to have_content (textValue)
 end
