@@ -6,12 +6,12 @@ RSpec.describe UsuariosController, type: :controller do
 
   let(:valid_attributes) {
     {
-      nome:"Joao",
-      email:"chicodasilva@gmail.com",
-      username:"johnsnow",
-      senha:"kingofthenorth",
-      nacionalidade:"kingofthenorth",
-      confirmar_senha:"kingofthenorth"
+      nome:"Olar",
+      email:"olar123@gmail.com",
+      username:"brhue",
+      senha:"olar123",
+      nacionalidade:"soubr",
+      confirmar_senha:"olar123"
     }
   }
 
