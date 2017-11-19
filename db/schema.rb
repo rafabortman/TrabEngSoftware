@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107231115) do
+ActiveRecord::Schema.define(version: 20171114104912) do
 
   create_table "amigos", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20171107231115) do
     t.datetime "updated_at", null: false
     t.string "nacionalidade"
     t.string "confirmar_senha"
+    t.index ["username"], name: "index_usuarios_on_username", unique: true
   end
 
 end

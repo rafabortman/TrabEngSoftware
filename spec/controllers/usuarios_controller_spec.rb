@@ -68,7 +68,7 @@ RSpec.describe UsuariosController, type: :controller do
       post :create, params: {usuario:{nome:"Jonas", email:"jonasdeveloper@gmail.com", username:"johndev", senha:"fullstack", confirmar_senha:"fullstack",nacionalidade:"Brasileiro"}, session: valid_session}
       post :mostrarResultados, params:{username:"john"},:format => :json
       result = JSON.parse(response.body)
-      result.size.should eq(2)
+      result.size.should eq(1)
       response.should be_ok
     end
   end
