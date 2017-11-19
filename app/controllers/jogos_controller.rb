@@ -27,28 +27,18 @@ class JogosController < ApplicationController
   # POST /jogos.json
   def create
 
-
-    if jogo_params[:imagem_upload] 
-      imageUploadPath = jogo_params[:imagem_upload].tempfile
-    else
-      imageUploadPath = nil
-    end
     updated_jogo_params = jogo_params.except(:imagem_upload)
 
     @jogo = Jogo.new(updated_jogo_params)
-    
-    if imageUploadPath
-      @jogo.imagem= Base64.encode64(File.open(imageUploadPath, "rb").read)
-    end
-
+    imagemUpload = jogo_params[:imagem_upload]
     generos = params[:genero_ids]
     respond_to do |format|
-      if @jogo.salvar (generos)
+      if @jogo.salvar generos,imagemUpload
         format.html { redirect_to @jogo, notice: 'Jogo foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @jogo }
       else
         format.html { render :new }
-	@generos = Genero.all
+	      @generos = Genero.all
         format.json { render json: @jogo.errors, status: :unprocessable_entity }
       end
     end
@@ -59,7 +49,7 @@ class JogosController < ApplicationController
   def update
     generos = params[:genero_ids]
     respond_to do |format|
-      if @jogo.atualizar(jogo_params,generos)
+      if @jogo.atualizar(jogo_params.except(:imagem_upload),generos,jogo_params[:imagem_upload])
         format.html { redirect_to @jogo, notice: 'Jogo foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @jogo }
       else
