@@ -1,0 +1,45 @@
+<%= form_with(model: torneio, local: true) do |form| %>
+  <% if torneio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(torneio.errors.count, "error") %> prohibited this torneio from being saved:</h2>
+
+      <ul>
+      <% torneio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :titulo %>
+    <%= form.text_field :titulo, id: :torneio_titulo %>
+  </div>
+
+    <div class="field">
+    <%= form.label :jogo_id %>
+    <%= form.text_field :jogo_id, id: :torneio_jogo_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_inicio %>
+    <%= form.datetime_select :data_inicio, id: :torneio_data_inicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_fim %>
+    <%= form.datetime_select :data_fim, id: :torneio_data_fim %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :regras %>
+    <%= form.text_area :regras, id: :torneio_regras %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

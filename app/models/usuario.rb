@@ -1,7 +1,8 @@
 class Usuario < ApplicationRecord
   
     
-  
+    has_many :jogada_torneios, dependent: :destroy
+    has_many :torneios, through: :jogada_torneios
     has_many :usuarios_amigos, dependent: :destroy, foreign_key: "usuario_id",class_name: "Amigo"
     has_many :amigo_dos_outros, dependent: :destroy, foreign_key: "amigo_id",class_name: "Amigo"
     has_many :amigos, through: :usuarios_amigos, foreign_key: "amigo_id"

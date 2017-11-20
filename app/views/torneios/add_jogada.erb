@@ -1,0 +1,31 @@
+<h1>Adicionar jogada no torneio <%=@torneio.titulo%> </h1>
+<%= form_with(scope: :post, url: jogada_torneio_add_path, local: true) do |form| %>
+<% if flash[:error] %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flash[:error].scan(",").length+1, "error") %> prohibited this jogada from being saved:</h2>
+
+      <ul>
+      <% flash[:error].split(',').each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_field :link, id: :jogada_torneio%>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :usuario_id, :value => (logged_in??current_user.id:"-1") %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :torneio_id, :value => @torneio.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+

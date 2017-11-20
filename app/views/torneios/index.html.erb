@@ -1,0 +1,40 @@
+<%= provide(:title, 'torneios') %>
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<h1>Torneios</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Data inicio</th>
+      <th>Data fim</th>
+      <th>Regras</th>
+      <th>Jogo</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @torneios.each do |torneio| %>
+      <tr>
+        <td><%= torneio.titulo %></td>
+        <td><%= torneio.data_inicio %></td>
+        <td><%= torneio.data_fim %></td>
+        <td><%= torneio.regras %></td>
+        <td><a href = "/jogos/<%= torneio.jogo.id%>"><img src="data:image/jpg;base64,<%= torneio.jogo.imagem %>"></a></td>
+        <td><%= link_to 'Mostrar', torneio , :class => "btn btn-outline-primary"%></td>
+        <td><%= link_to 'Editar', edit_torneio_path(torneio), :class => "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Destruir', torneio, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Add jogada', jogada_torneio_path(torneio), :class => "btn btn-outline-primary"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo torneio', new_torneio_path ,:class => "btn btn-outline-primary"%>
+</div>
+<p><p>
