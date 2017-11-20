@@ -4,6 +4,8 @@
 
 <p id="notice"><%= notice %></p>
 
+
+
 <p>
   <strong>Detalhes:</strong>
   <%= @jogada.texto_post %>
@@ -42,10 +44,22 @@
   <iframe width="560" height="315" src="<%= @jogada.link %>" frameborder="0" allowfullscreen></iframe>
 </p>
 
+<section class="starsContainer">
+  <input type="radio" name="example" class="rating" value="1" />
+  <input type="radio" name="example" class="rating" value="2" />
+  <input type="radio" name="example" class="rating" value="3" />
+  <input type="radio" name="example" class="rating" value="4" />
+  <input type="radio" name="example" class="rating" value="5" />
+</section>
+
+
+<p>
+    <strong>Avaliacao: </strong><%=@media.to_s%><br>
+</p>
+
 <p>
     <strong>Comentários:</strong><br>
 </p>
-
 
 
 <div id="comments_section">
@@ -54,6 +68,9 @@
     <br><strong>--------------------------------</strong><br>  
   <% end %>
 </div>
+
+
+
 
 <p>
     <textarea placeholder="Adicione um comentário!" id="txt_comment" cols="50" rows="3"></textarea><br>

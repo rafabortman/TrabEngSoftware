@@ -2,17 +2,13 @@ require 'rails_helper'
 require 'coveralls'
 Coveralls.wear!
 
-RSpec.describe ComentariosController, type: :controller do
+RSpec.describe PontosController, type: :controller do
 
-  let(:valid_attributes) {
-    {
-      jogada_id:1,
-      comentario:"teste"
-    }
-  }
+  # This should return the minimal set of attributes required to create a valid
+  # Ponto. As you add validations to Ponto, be sure to
+  # adjust the attributes here as well.
+  
 
-  
-  
   Usuario.find_by(email:"testUserforpontos@test.com").destroy
   Usuario.create!(
     nome:"TestUserPontos",
@@ -45,20 +41,36 @@ RSpec.describe ComentariosController, type: :controller do
   
   )
 
-  describe "POST #create" do
-    it "returns http success" do
-      expect {
-        post :create, params: {jogada_id:1,comentario:"teste"}
-      }.to change(Comentario, :count).by(1)
-    end
-  end
+  let(:valid_attributes) {
+    {
+      jogada_id:jogada.id,
+      nota:3
+    }
+  }
 
-  describe "POST #destroy" do
-    it "returns http success" do
-      comentario = Comentario.create! valid_attributes
-      expect {
-        delete :destroy, params: {id: comentario.to_param}
-      }.to change(Comentario, :count).by(-1)
+  let(:invalid_attributes) {
+    {
+      jogada_id:"1",
+      nota:"3"
+    }
+  }
+
+
+  describe "POST #create" do
+    context "with valid params" do
+      it "creates a new Ponto" do
+        expect {
+          post :create, params: {jogada_id:jogada.id,nota:3}
+        }.to change(Ponto, :count).by(1)
+      end
+
+    end
+
+    context "with invalid params" do
+      it "returns a success response (i.e. to display the 'new' template)" do
+        post :create, params: {ponto: invalid_attributes}
+        expect(response).to be_success
+      end
     end
   end
 

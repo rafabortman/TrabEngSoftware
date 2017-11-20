@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120015004) do
+ActiveRecord::Schema.define(version: 20171120165706) do
 
   create_table "amigos", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -93,6 +93,14 @@ ActiveRecord::Schema.define(version: 20171120015004) do
     t.datetime "updated_at", null: false
     t.index ["genero_id"], name: "index_jogos_generos_on_genero_id"
     t.index ["jogo_id"], name: "index_jogos_generos_on_jogo_id"
+  end
+
+  create_table "pontos", force: :cascade do |t|
+    t.integer "jogada_id"
+    t.integer "nota"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jogada_id"], name: "index_pontos_on_jogada_id"
   end
 
   create_table "torneios", force: :cascade do |t|

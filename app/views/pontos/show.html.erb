@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Jogada:</strong>
+  <%= @ponto.jogada %>
+</p>
+
+<p>
+  <strong>Nota:</strong>
+  <%= @ponto.nota %>
+</p>
+
+<%= link_to 'Edit', edit_ponto_path(@ponto) %> |
+<%= link_to 'Back', pontos_path %>

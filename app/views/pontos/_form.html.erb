@@ -1,0 +1,27 @@
+<%= form_with(model: ponto, local: true) do |form| %>
+  <% if ponto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ponto.errors.count, "error") %> prohibited this ponto from being saved:</h2>
+
+      <ul>
+      <% ponto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :jogada_id %>
+    <%= form.text_field :jogada_id, id: :ponto_jogada_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nota %>
+    <%= form.number_field :nota, id: :ponto_nota %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

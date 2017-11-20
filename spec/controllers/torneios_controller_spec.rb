@@ -1,6 +1,6 @@
 require 'rails_helper'
-
-
+require 'coveralls'
+Coveralls.wear!
 
 RSpec.describe TorneiosController, type: :controller do
 
