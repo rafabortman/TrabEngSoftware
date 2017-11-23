@@ -9,7 +9,6 @@ RSpec.describe PontosController, type: :controller do
   # adjust the attributes here as well.
   
 
-  Usuario.find_by(email:"testUserforpontos@test.com").destroy
   Usuario.create!(
     nome:"TestUserPontos",
     email:"testUserforpontos@test.com",
@@ -18,7 +17,6 @@ RSpec.describe PontosController, type: :controller do
     nacionalidade:"BR",
     confirmar_senha:"pswd"
   )
-  Jogo.find_by(titulo:"TestPontos").destroy
   Jogo.create!({
     titulo:"TestPontos", 
     imagem_url:"https://yt3.ggpht.com/51PhqIUDv3rTv80bFhZk4UoVbpv4-7uI5OMBccn4TQkCFlfUpXO-gMhWi3abe8IM5laDjWsinrwmlc503w=w40-nd", 

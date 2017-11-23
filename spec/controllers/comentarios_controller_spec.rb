@@ -13,18 +13,16 @@ RSpec.describe ComentariosController, type: :controller do
 
   
   
-  Usuario.find_by(email:"testUserforpontos@test.com").destroy
   Usuario.create!(
-    nome:"TestUserPontos",
-    email:"testUserforpontos@test.com",
-    username:"TestUserPontos",
+    nome:"testUserforcomments",
+    email:"testUserforcomments@test.com",
+    username:"testUserforcomments",
     senha:"pswd",
     nacionalidade:"BR",
     confirmar_senha:"pswd"
   )
-  Jogo.find_by(titulo:"TestPontos").destroy
   Jogo.create!({
-    titulo:"TestPontos", 
+    titulo:"TestComments", 
     imagem_url:"https://yt3.ggpht.com/51PhqIUDv3rTv80bFhZk4UoVbpv4-7uI5OMBccn4TQkCFlfUpXO-gMhWi3abe8IM5laDjWsinrwmlc503w=w40-nd", 
     descricao:"AAAA"}
   )
@@ -40,8 +38,8 @@ RSpec.describe ComentariosController, type: :controller do
     milissegundos:4,
     categoria:"Classico",
     link:"https://www.youtube.com/embed/fEaTMekrcz0",
-    usuario_id: Usuario.find_by(nome: "TestUserPontos").id,
-    jogo_id: Jogo.find_by(titulo: "TestPontos").id
+    usuario_id: Usuario.find_by(nome: "testUserforcomments").id,
+    jogo_id: Jogo.find_by(titulo: "TestComments").id
   
   )
 

@@ -18,12 +18,11 @@ class JogadasController < ApplicationController
     @pontos =  Ponto.where(["jogada_id = ?", idJogada])
     
     @media = 0
-    if !(@pontos.blank?)
+    if (@pontos!=nil && @pontos.length>0)
       sum = 0
       @pontos.each do |p|
         sum = sum + p.nota
       end
-  
       @media = sum/@pontos.length
     end
 
