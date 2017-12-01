@@ -5,22 +5,13 @@ Feature: Manage Usuarios
 
   Scenario: See usuario
     Given I have users titled "Usuario1, Usuario2, Usuario3, Usuario4"
-    When I am on the list of "usuarios"
-    And I am on the list of "Usuario1"
-    When I click the link "Mostrar"
+    When I am in the page of "Buscar Usuarios"
+    And I fill in "search_username" with "Usuario1"
+    When I click the link "Buscar"
     Then I should see "Usuario1!"
 
-  Scenario: Visualize usuarios
-    Given I have users titled "Usuario1, Usuario2, Usuario3, Usuario4"
-    When I am on the list of "usuarios"
-    Then I should see "Usuario1"
-    And I should see "Usuario2"
-    And I should see "Usuario3"
-    And I should see "Usuario4"
-    
   Scenario: Create Valid Usuario
     Given I have no usuarios
-    And I am on the list of "usuarios"
     When I click the link "Novo usuario"
     And I fill in "usuario_nome" with "Marshmello"
     And I fil in "usuario_nacionalidade" with "sou br"
@@ -33,7 +24,6 @@ Feature: Manage Usuarios
     
   Scenario: Create Invalid Usuario with empty nome
     Given I have no usuarios
-    And I am on the list of "usuarios"
     When I click the link "Novo usuario"
     And I fil in "usuario_nacionalidade" with "sou br"
     And I fill in "usuario_email" with "teste@gmail.com"
@@ -45,7 +35,6 @@ Feature: Manage Usuarios
     
   Scenario: Create Invalid Usuario with empty nacionalidade
     Given I have no usuarios
-    And I am on the list of "usuarios"
     When I click the link "Novo usuario"
     And I fill in "usuario_nome" with "Marshmello"
     And I fill in "usuario_email" with "teste@gmail.com"
@@ -57,7 +46,6 @@ Feature: Manage Usuarios
     
   Scenario: Create Invalid Usuario with empty email
     Given I have no usuarios
-    And I am on the list of "usuarios"
     When I click the link "Novo usuario"
     And I fill in "usuario_nome" with "Marshmello"
     And I fil in "usuario_nacionalidade" with "sou br"
@@ -69,7 +57,6 @@ Feature: Manage Usuarios
     And I should see "Email is invalid"
     
   Scenario: Create Invalid Usuario with wrong email
-    Given I have no usuarios
     And I am on the list of "usuarios"
     When I click the link "Novo usuario"
     And I fill in "usuario_nome" with "Marshmello"
@@ -95,7 +82,6 @@ Feature: Manage Usuarios
     
   Scenario: Create Invalid Usuario with empty senha
     Given I have no usuarios
-    And I am on the list of "usuarios"
     When I click the link "Novo usuario"
     And I fill in "usuario_nome" with "Marshmello"
     And I fil in "usuario_nacionalidade" with "sou br"
@@ -109,7 +95,6 @@ Feature: Manage Usuarios
     
   Scenario: Create Invalid Usuario with wrong senha
     Given I have no usuarios
-    And I am on the list of "usuarios"
     When I click the link "Novo usuario"
     And I fill in "usuario_nome" with "Marshmello"
     And I fil in "usuario_nacionalidade" with "sou br"
@@ -122,7 +107,6 @@ Feature: Manage Usuarios
     
   Scenario: Create Invalid Usuario with wrong senha
     Given I have no usuarios
-    And I am on the list of "usuarios"
     When I click the link "Novo usuario"
     And I fill in "usuario_nome" with "Marshmello"
     And I fil in "usuario_nacionalidade" with "sou br"
@@ -135,7 +119,6 @@ Feature: Manage Usuarios
     
   Scenario: Create Invalid Usuario with wrong confirmacao senha
     Given I have no usuarios
-    And I am on the list of "usuarios"
     When I click the link "Novo usuario"
     And I fill in "usuario_nome" with "Marshmello"
     And I fil in "usuario_nacionalidade" with "sou br"
