@@ -15,10 +15,14 @@
   <%= @usuario.email %>
 </p>
 
-<p>
-  <strong>Senha:</strong>
-  <%= @usuario.senha %>
-</p>
+<% if logged_in? %>
+  <% if current_user.id == @usuario.id %>
+    <p>
+     <strong>Senha:</strong>
+     <%= @usuario.senha %>
+    </p>
+   <%end%>
+<%end%>
 
 <p>
   <strong>Número de jogadas:</strong>
@@ -35,7 +39,7 @@
   <% end %>
 <% end %>
 <%= link_to 'Editar', edit_usuario_path(@usuario)  , :class => "btn btn-outline-primary"%> 
-<%= link_to 'Voltar', "/" , :class => "btn btn-outline-primary"%>
+<%= link_to 'Voltar', usuarios_path , :class => "btn btn-outline-primary"%>
 
 <p>
 

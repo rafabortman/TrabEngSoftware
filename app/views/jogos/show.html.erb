@@ -25,6 +25,7 @@
 
 <%= link_to 'Editar', edit_jogo_path(@jogo) , :class => "btn btn-outline-primary"%>
 <%= link_to 'Voltar', jogos_path , :class => "btn btn-outline-primary"%>
+<%= link_to 'Add Jogada', jogoAddJogada_path(@jogo) , :class => "btn btn-outline-primary"%>
 
 <h1>Ranking dos Jogadores</h1>
 <% @jogo.jogadas.order("milissegundos asc").each do |jogada| %>       

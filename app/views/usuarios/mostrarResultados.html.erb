@@ -2,25 +2,7 @@
 <div class="container">
 <h1>Resultado de busca</h1>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>E-mail</th>
-      <th>Info</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @usuarios.each do |usuario| %>
-      <tr>
-        <td><%= usuario.username %></td> 
-        <td><%= usuario.email %></td>
-        <td><%= link_to 'Mostrar', usuario , :class => "btn btn-outline-primary"%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render "tabela_usuarios"%>
 
 <br> 
 

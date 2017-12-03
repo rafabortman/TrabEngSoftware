@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
 <h1>Hackroms</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th>Nomerom</th>
+      <th>Nome da rom</th>
       <th>Jogo</th>
-      <th colspan="3"></th>
+      <th colspan="3">Links</th>
     </tr>
   </thead>
 
@@ -16,9 +17,9 @@
       <tr>
         <td><%= hackrom.nomeRom %></td>
         <td><%= hackrom.jogo.titulo %></td>
-        <td><%= link_to 'Show', hackrom %></td>
-        <td><%= link_to 'Edit', edit_hackrom_path(hackrom) %></td>
-        <td><%= link_to 'Destroy', hackrom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', hackrom   , :class => "btn btn-outline-primary"%></td>
+        <td><%= link_to 'Edit', edit_hackrom_path(hackrom)   , :class => "btn btn-outline-primary"%></td>
+        <td><%= link_to 'Destroy', hackrom, method: :delete, data: { confirm: 'Are you sure?' }   , :class => "btn btn-outline-primary"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Hackrom', new_hackrom_path %>
+<%= link_to 'New Hackrom', new_hackrom_path   , :class => "btn btn-outline-primary"%>
