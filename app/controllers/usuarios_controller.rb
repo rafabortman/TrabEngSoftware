@@ -24,8 +24,8 @@ class UsuariosController < ApplicationController
   # POST /usuarios
   # POST /usuarios.json
   def create
-    @usuario = Usuario.new(usuario_params)
-
+    @usuario = Usuario.new(usuario_params.except(:imagem_upload))
+    @usuario.definir_imagem_perfil(usuario_params[:imagem_upload],0)
     @checkUsername = Usuario.find_by(username:usuario_params[:username])
     if(@checkUsername.blank?)
       respond_to do |format|
@@ -50,8 +50,9 @@ class UsuariosController < ApplicationController
   # PATCH/PUT /usuarios/1
   # PATCH/PUT /usuarios/1.json
   def update
+    @usuario.definir_imagem_perfil(usuario_params[:imagem_upload],1)
     respond_to do |format|
-      if @usuario.update(usuario_params)
+      if @usuario.update(usuario_params.except(:imagem_upload))
         format.html { redirect_to @usuario, notice: 'Usuario atualizado com sucesso' }
         format.json { render :show, status: :ok, location: @usuario }
       else
@@ -92,6 +93,6 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:nome, :nacionalidade, :email, :username, :senha, :confirmar_senha)
+      params.require(:usuario).permit(:nome, :nacionalidade, :email, :username, :senha, :confirmar_senha, :imagem_upload)
     end
 end

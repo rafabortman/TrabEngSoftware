@@ -9,7 +9,8 @@ RSpec.describe JogadasController, type: :controller do
     username:"tsttst",
     senha:"tester",
     nacionalidade:"br",
-    confirmar_senha:"tester"
+    confirmar_senha:"tester",
+    imagem_perfil:"asdsd"
   });
   Jogo.create({
       titulo:"Jogo Teste Jogadas Rspec",

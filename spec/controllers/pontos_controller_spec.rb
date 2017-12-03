@@ -19,7 +19,8 @@ RSpec.describe PontosController, type: :controller do
     username:"TestUserPontos",
     senha:"pswd",
     nacionalidade:"BR",
-    confirmar_senha:"pswd"
+    confirmar_senha:"pswd",
+    imagem_perfil:"asdasd"
   )
   
 

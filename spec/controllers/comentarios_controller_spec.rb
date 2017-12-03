@@ -17,7 +17,8 @@ RSpec.describe ComentariosController, type: :controller do
     username:"testUserforcomments",
     senha:"pswd",
     nacionalidade:"BR",
-    confirmar_senha:"pswd"
+    confirmar_senha:"pswd",
+    imagem_perfil:"asdsd"
   )
 
 

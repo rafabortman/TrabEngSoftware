@@ -34,7 +34,9 @@
         <td><%= jogada.data %></td>
         <td><%= getTempoJogada(jogada.milissegundos) %></td>
         <td><%= jogada.categoria %></td>
-        <td><%= jogada.usuario.username %></td>
+        <td><%= link_to maxLength(jogada.usuario.username,13), usuario_path(jogada.usuario) %> <p>
+          <img  class="img-thumbnail " src="data:image/jpg;base64,<%= jogada.usuario.imagem_perfil %>">
+        </td>
         <td><a href = "/jogos/<%= jogada.jogo.id%>"><img src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a></td>
         <td><a href = "/hackroms/<%= jogada.hackrom_id%>"><%= jogada.hackrom_id %>"></a></td>
 

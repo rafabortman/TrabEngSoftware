@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @usuario.username %></h1>
 <p>
+  <td><img  class="img-thumbnail " src="data:image/jpg;base64,<%= @usuario.imagem_perfil %>"></td>
+</p>
+<p>
   <strong>Nome:</strong>
   <%= @usuario.nome %>
 </p>

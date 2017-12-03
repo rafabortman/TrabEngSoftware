@@ -32,7 +32,8 @@
 
 <p>
   <strong>Usuario:</strong>
-  <%= @jogada.usuario.nome %>
+  <%= link_to maxLength(@jogada.usuario.username,13), usuario_path(@jogada.usuario) %>
+  <img  class="img-thumbnail " src="data:image/jpg;base64,<%= @jogada.usuario.imagem_perfil %>">
 </p>
 
 <p>

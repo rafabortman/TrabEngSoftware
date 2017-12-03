@@ -11,7 +11,8 @@ RSpec.describe UsuariosController, type: :controller do
       username:"brhue",
       senha:"olar123",
       nacionalidade:"soubr",
-      confirmar_senha:"olar123"
+      confirmar_senha:"olar123",
+      imagem_perfil:"dsasd"
     }
   }
 

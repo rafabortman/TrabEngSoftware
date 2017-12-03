@@ -43,6 +43,14 @@
        <%= form.password_field :confirmar_senha, id: :confirmar_senha %>
     </div>
 
+  <div class="field">
+    <p>
+    <%= form.label "Se quiser, faça upload de uma imagem de perfil: " %>
+    <%= form.file_field(:imagem_upload, id: :imagem_perfil, accept: 'image/png,image/jpeg') %>
+    <p>
+    
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

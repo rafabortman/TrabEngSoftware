@@ -39,7 +39,7 @@
       </li>
     </ul>
     <% if logged_in? %>
-      <td><%= link_to 'Logout', logout_path, method: :delete %></td>
+      <td><%= link_to 'Logout', logout_path, method: :delete , :class => "btn btn-outline-primary"%></td>
     <% else %>
       <a href="/login" class="btn btn-primary" role="button">Login</a>
     <% end %>
