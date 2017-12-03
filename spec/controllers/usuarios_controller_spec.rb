@@ -99,14 +99,21 @@ RSpec.describe UsuariosController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          nome:"NomeNovo",
+          email:"olar123@gmail.com",
+          username:"brhue",
+          senha:"olar123",
+          nacionalidade:"soubr",
+          confirmar_senha:"olar123"
+        }
       }
 
       it "updates the requested usuario" do
         usuario = Usuario.create! valid_attributes
         put :update, params: {id: usuario.to_param, usuario: new_attributes}, session: valid_session
         usuario.reload
-        skip("Add assertions for updated state")
+        expect(Usuario.find_by(email:"olar123@gmail.com").nome).to eq("NomeNovo")
       end
 
       it "redirects to the usuario" do

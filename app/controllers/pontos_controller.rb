@@ -5,9 +5,7 @@ class PontosController < ApplicationController
     if @ponto.save
       render json:{status:true}
     else
-      puts "<<<<<<<<<ERRO>>>>>>>>>"
       err = @ponto.errors.full_messages
-      puts err
       render json:{status:false}
     end
   end

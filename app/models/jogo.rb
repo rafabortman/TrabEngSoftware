@@ -80,7 +80,6 @@ class ValidarImagem
 	   	rescue
 		
 		  @jogo.errors[:imagem] <<"-> não foi possível carregar"
-		  puts @jogo.errors	
 	   	#return
 	   end
 	end

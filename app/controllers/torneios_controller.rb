@@ -26,7 +26,7 @@ class TorneiosController < ApplicationController
   def create
     @torneio = Torneio.new(torneio_params)
     respond_to do |format|
-      if @torneio.salvar(torneio_params)
+      if @torneio.save
         format.html { redirect_to @torneio, notice: 'Torneio was successfully created.' }
         format.json { render :show, status: :created, location: @torneio }
       else

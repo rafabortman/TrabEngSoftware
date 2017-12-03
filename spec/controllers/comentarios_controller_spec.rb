@@ -4,14 +4,12 @@ Coveralls.wear!
 
 RSpec.describe ComentariosController, type: :controller do
 
-  let(:valid_attributes) {
-    {
-      jogada_id:1,
-      comentario:"teste"
-    }
-  }
 
-  
+  @usertest= Usuario.find_by(email:"testUserforcomments@test.com");
+
+  if @usertest!=nil
+    @usertest.destroy
+  end
   
   Usuario.create!(
     nome:"testUserforcomments",
@@ -21,6 +19,12 @@ RSpec.describe ComentariosController, type: :controller do
     nacionalidade:"BR",
     confirmar_senha:"pswd"
   )
+
+
+  @jogoTest = Jogo.find_by(titulo:"TestComments")
+  if @jogoTest!=nil
+    @jogoTest.destroy
+  end
   Jogo.create!({
     titulo:"TestComments", 
     imagem_url:"https://yt3.ggpht.com/51PhqIUDv3rTv80bFhZk4UoVbpv4-7uI5OMBccn4TQkCFlfUpXO-gMhWi3abe8IM5laDjWsinrwmlc503w=w40-nd", 
@@ -43,10 +47,18 @@ RSpec.describe ComentariosController, type: :controller do
   
   )
 
+
+  let(:valid_attributes) {
+    {
+      jogada_id:jogada.id,
+      comentario:"teste"
+    }
+  }
+
   describe "POST #create" do
     it "returns http success" do
       expect {
-        post :create, params: {jogada_id:1,comentario:"teste"}
+        post :create, params: {jogada_id:jogada.id,comentario:"teste"}
       }.to change(Comentario, :count).by(1)
     end
   end
@@ -55,7 +67,7 @@ RSpec.describe ComentariosController, type: :controller do
     it "returns http success" do
       comentario = Comentario.create! valid_attributes
       expect {
-        delete :destroy, params: {id: comentario.to_param}
+        delete :destroy, params: {id: comentario.id}
       }.to change(Comentario, :count).by(-1)
     end
   end
