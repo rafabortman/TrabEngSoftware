@@ -3,11 +3,14 @@ class JogadaTorneio < ApplicationRecord
 	 belongs_to :usuario
 	 belongs_to :torneio
 	 validate do |jogada|
+	   if(self.torneio.data_fim <= Time.now)
+	   		self.errors[:torneio] <<"-> O prazo de inscrição já acabou"
+	   end
 	   ValidarLink.new(jogada).validar
 	   if(self.usuario)
-	   if(self.torneio.usuarios.find_by(id: self.usuario.id))
-	   	self.errors[:usuario] <<"-> esse usuario ja esta participando"
-	   end
+	   	if(self.torneio.usuarios.find_by(id: self.usuario.id))
+	   		self.errors[:usuario] <<"-> esse usuario ja esta participando"
+	  	end
 	   else
 	   	self.errors[:usuario] <<"-> você não está logado"
 	   end

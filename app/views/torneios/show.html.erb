@@ -22,12 +22,14 @@
 
 <p>
   <strong>Jogo:</strong>
-  <%= @torneio.jogo_id %>
+  <td><a href = "/jogos/<%= @torneio.jogo.id%>"><img src="data:image/jpg;base64,<%= @torneio.jogo.imagem %>"></a></td>
 </p>
 
 <%= link_to 'Editar', edit_torneio_path(@torneio) , :class => "btn btn-outline-primary"%> 
 <%= link_to 'Voltar', torneios_path,:class => "btn btn-outline-primary" %>
-
+<%if logged_in? && (@torneio.data_fim > Time.now)%>
+            <%= link_to 'Add jogada', jogada_torneio_path(@torneio), :class => "btn btn-outline-primary"%>
+          <%end%>
 <h1>Ultimas jogadas adicionadas</h1>
 <% if @torneio.jogada_torneios.count > 0 %>
 <table class="table table-bordered">

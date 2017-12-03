@@ -16,7 +16,7 @@
     <% @hackroms.each do |hackrom| %>
       <tr>
         <td><%= hackrom.nomeRom %></td>
-        <td><%= hackrom.jogo.titulo %></td>
+        <td><a href = "/jogos/<%= hackrom.jogo.id%>"><img src="data:image/jpg;base64,<%= hackrom.jogo.imagem %>"></a></td>
         <td><%= link_to 'Show', hackrom   , :class => "btn btn-outline-primary"%></td>
         <td><%= link_to 'Edit', edit_hackrom_path(hackrom)   , :class => "btn btn-outline-primary"%></td>
         <td><%= link_to 'Destroy', hackrom, method: :delete, data: { confirm: 'Are you sure?' }   , :class => "btn btn-outline-primary"%></td>
