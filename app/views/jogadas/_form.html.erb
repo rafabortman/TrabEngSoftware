@@ -55,11 +55,6 @@
     <%= form.text_field :link, id: :jogada_link %>
   </div>
 
-<div class="collection_select">
-     <%= form.label :hackrom_id %>
-     <%= form.collection_select :hackrom_id, Hackrom.order(:nomeRom),:id,:nomeRom, include_blank: true %>
-</div>
-
   <div class="field">
     <%= form.label :usuario_id %>
     <%= form.text_field :usuario_id, id: :jogada_usuario_id, :value => ((jogada.usuario==nil)?"":jogada.usuario.username) %>
@@ -70,6 +65,16 @@
     <%= form.text_field :jogo_id, id: :jogada_jogo_id, :value => ((jogada.jogo==nil)?"":jogada.jogo.titulo) %>
   </div>
   
+  <div class="collection_select">
+     <%= form.label :jogo_id %>
+     <%= form.collection_select :jogo_id, Jogo.order(:titulo),:id,:titulo, include_blank: false %>
+  </div>
+  
+  <div class="collection_select">
+     <%= form.label :hackrom_id %>
+     <%= form.collection_select :hackrom_id, Hackrom.order(:nomeRom),:id,:nomeRom, include_blank: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit "Enviar" %>
   </div>
