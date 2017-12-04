@@ -67,9 +67,7 @@ RSpec.describe JogadasController, type: :controller do
 
   describe "GET #index" do
     it "returns a success response" do
-     subject {
-          Jogada.new(valid_attributes)
-      } 
+      Jogada.new(valid_attributes)
       get :index, params: {}
       expect(response).to be_success
     end

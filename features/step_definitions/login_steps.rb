@@ -23,6 +23,7 @@ Given("eu tenho um usuario chamado{string}") do |username|
 	  username:username,
 	  senha:"senha",
 	  nacionalidade:"soubr",
-		confirmar_senha:"senha"
+	  confirmar_senha:"senha",
+      imagem_perfil:"qpeioasd"
 	)
 end

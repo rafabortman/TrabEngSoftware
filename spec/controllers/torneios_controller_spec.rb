@@ -137,6 +137,15 @@ RSpec.describe TorneiosController, type: :controller do
     end
   end
 
+  describe "GET #add_jogada" do
+    it "retornar pagina de adicao de jogadas para tal torneio" do
+      torneio = Torneio.create! valid_attributes
+      get :jogada, params: {id: torneio.to_param}
+      expect(response).to be_success
+    end
+
+  end
+
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Torneio" do

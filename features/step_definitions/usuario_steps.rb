@@ -5,7 +5,8 @@ Given("existe um usuario {string} com senha {string}" ) do |username,senha|
 	  username:username,
 	  senha:senha,
 	  nacionalidade:"soubr",
-	  confirmar_senha:senha)
+	  confirmar_senha:senha,
+    imagem_perfil:"qpeioasd")
 end
 
 Given("I have a user called {string}") do |username|
@@ -15,7 +16,8 @@ Given("I have a user called {string}") do |username|
 	  username:username,
 	  senha:"senha",
 	  nacionalidade:"soubr",
-	  confirmar_senha:"senha")
+	  confirmar_senha:"senha",
+    imagem_perfil:"qpeioasd")
 end
 
 
@@ -41,7 +43,8 @@ Given("i have users named {string}") do |string|
         username:username,
         senha:senha,
         nacionalidade:"inglês",
-        confirmar_senha:senha)
+        confirmar_senha:senha,
+        imagem_perfil:"qpeioasd")
   end
 end
 

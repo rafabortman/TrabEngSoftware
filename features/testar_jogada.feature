@@ -7,7 +7,7 @@ Scenario: Share jogada
     Given I have an user named "Fallen"
     And I have jogos titled "Teste1"
     And I am on the list of "jogadas"
-    And I have a jogada called "TestPlay"
+    And "Fallen" has a jogada called "TestPlay" of "Teste1" game
     When I visualize the jogada "TestPlay"
     And I click the link "btn_share_facebook"
     Then I should see "Jogada compartilhada!"

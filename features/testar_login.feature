@@ -1,7 +1,7 @@
 Feature: login
 
 Scenario: realizar login
-    Given eu tenho um usuario chamado"Matheus"
+    Given existe um usuario "Matheus" com senha "senha"
 	And estou na pagina inicial
 	When eu clico no link "Meu Perfil"
 	Then eu devo ser redirecionado para a pagina "login"

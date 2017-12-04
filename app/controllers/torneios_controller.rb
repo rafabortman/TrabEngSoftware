@@ -63,12 +63,12 @@ class TorneiosController < ApplicationController
 
   #GET /jogada_torneio/
 
-#  def jogada
-   # if(!@torneio)
-   #   @torneio = set_torneio
-   # end
-  #  @jogada = JogadaTorneio.new
- # end
+  def jogada
+    if(!@torneio)
+      @torneio = set_torneio
+    end
+    @jogada = JogadaTorneio.new
+  end
 
   #POST /torneioAddJogada
   def add_jogada

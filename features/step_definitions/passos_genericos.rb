@@ -26,6 +26,10 @@ Then("nao devo ver {string}") do |valor|
 	expect(page).to have_no_content(valor)
 end
 
+Then("I should not see {string}") do |valor|
+	expect(page).to have_no_content(valor)
+end
+
 When("I am in the page of {string}") do |page|
   visit '/'+page
 end

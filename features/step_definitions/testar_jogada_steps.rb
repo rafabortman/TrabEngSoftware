@@ -1,17 +1,18 @@
 Given("I have an user named {string}" ) do |usrName|
     expect{
         Usuario.create!(
-            nome:"TestUser",
+            nome:usrName,
             email:usrName+"@test.com",
             username:usrName,
             senha:"pswd",
             nacionalidade:"BR",
-            confirmar_senha:"pswd"
+            confirmar_senha:"pswd",
+            imagem_perfil:"qpeioasd"
         )
     }.to change(Usuario, :count).by(1)
 end
 
-Given("I have a jogada called {string}") do |textPost|
+Given("{string} has a jogada called {string} of {string} game") do |usuario,textPost,jogo|
     
     expect{
         Jogada.create!(
@@ -24,8 +25,8 @@ Given("I have a jogada called {string}") do |textPost|
             milissegundos:4,
             categoria:"Classico",
             link:"https://www.youtube.com/embed/fEaTMekrcz0",
-            usuario_id: Usuario.find_by(nome: "TestUser").id,
-            jogo_id: Jogo.find_by(titulo: "Teste1").id
+            usuario_id: Usuario.find_by(nome: usuario).id,
+            jogo_id: Jogo.find_by(titulo: jogo).id
         )
     }.to change(Jogada, :count).by(1)
     
