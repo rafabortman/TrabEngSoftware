@@ -6,6 +6,9 @@ class JogadaTorneio < ApplicationRecord
 	   if(self.torneio.data_fim <= Time.now)
 	   		self.errors[:torneio] <<"-> O prazo de inscrição já acabou"
 	   end
+	   if(self.torneio.data_inicio > Time.now)
+	   		self.errors[:torneio] <<"-> O prazo de inscrição ainda não começou"
+	   end
 	   ValidarLink.new(jogada).validar
 	   if(self.usuario)
 	   	if(self.torneio.usuarios.find_by(id: self.usuario.id))

@@ -87,7 +87,15 @@ RSpec.describe UsuariosController, type: :controller do
         post :create, params: {usuario: valid_attributes}, session: valid_session
         expect(response).to redirect_to(Usuario.last)
       end
+
+      it "sem enviar imagem de perfil" do 
+        valid_attributes[:imagem_perfil] = nil
+        post :create, params: {usuario: valid_attributes}, session: valid_session
+        expect(Usuario.find_by(username:valid_attributes[:username]).imagem_perfil).not_to eq(nil)
+      end
+
     end
+
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do

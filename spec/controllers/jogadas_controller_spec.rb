@@ -101,7 +101,7 @@ RSpec.describe JogadasController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Jogada" do
-	jogada = Jogada.create! valid_attributes
+	      jogada = Jogada.create! valid_attributes
         expect {
           post :create, params: {jogada: valid_attributes_nomes}
         }.to change(Jogada, :count).by(1)
@@ -118,12 +118,49 @@ RSpec.describe JogadasController, type: :controller do
         post :create, params: {jogada: invalid_attributes}
         expect(response).not_to be_success
       end
+
+      it "criar com tempo negativo" do
+        valid_attributes[:tempo_horas] = -1
+        post :create, params: {jogada: valid_attributes_nomes}
+        expect(response).not_to be_success
+        valid_attributes[:tempo_horas] = 2
+        valid_attributes[:tempo_minutos] = -1
+        post :create, params: {jogada: valid_attributes_nomes}
+        expect(response).not_to be_success
+        valid_attributes[:tempo_minutos] = 2
+        valid_attributes[:tempo_segundos] = -1
+        post :create, params: {jogada: valid_attributes_nomes}
+        expect(response).not_to be_success
+      end
+
+      it "criar com campos de tempo maiores do que deviam" do 
+        valid_attributes[:tempo_minutos] = 60
+        post :create, params: {jogada: valid_attributes_nomes}
+        expect(response).not_to be_success
+        valid_attributes[:tempo_minutos] = 2
+        valid_attributes[:tempo_segundos] = 60
+        post :create, params: {jogada: valid_attributes_nomes}
+        expect(response).not_to be_success
+      end
+
+      it "criar com titulo e id do jogo invalido" do
+        valid_attributes[:jogo_id] = "QEJHOASDHLHAEWQWEJD"
+        post :create, params: {jogada: valid_attributes_nomes}
+        expect(response).not_to be_success
+      end
+
+      it "criar com username e id do usuario invalido" do 
+        valid_attributes[:usuario_id] = "QEJHOASDHLHAEWQWEJD"
+        post :create, params: {jogada: valid_attributes_nomes}
+        expect(response).not_to be_success
+      end
+
+
     end
   end
 
   describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
+     let(:new_attributes) {
         {
           texto_post:"Mario Bros",
           plataforma:"PS4",
@@ -137,7 +174,7 @@ RSpec.describe JogadasController, type: :controller do
           jogo_id: Jogo.find_by(titulo: "Jogo Teste Jogadas Rspec").id
         }
       }
-
+    context "with valid params" do
       it "updates the requested jogada" do
         jogada = Jogada.create! valid_attributes
         put :update, params: {id: jogada.to_param, jogada: new_attributes}
@@ -158,6 +195,48 @@ RSpec.describe JogadasController, type: :controller do
         put :update, params: {id: jogada.to_param, jogada: invalid_attributes}
         expect(response).to be_success
       end
+
+      it "atualizar com tempo negativo" do
+        jogada = Jogada.create! valid_attributes
+        new_attributes[:tempo_horas] = -1
+        put :update, params: {id: jogada.to_param, jogada: new_attributes}
+        expect(response).to be_success
+        new_attributes[:tempo_horas] = 2
+        new_attributes[:tempo_minutos] = -1
+        put :update, params: {id: jogada.to_param, jogada: new_attributes}
+        expect(response).to be_success
+        new_attributes[:tempo_minutos] = 2
+        new_attributes[:tempo_segundos] = -1
+        put :update, params: {id: jogada.to_param, jogada: new_attributes}
+        expect(response).to be_success
+      end
+
+      it "atualizar com campos de tempo maiores do que deviam" do 
+        jogada = Jogada.create! valid_attributes
+        new_attributes[:tempo_minutos] = 60
+        put :update, params: {id: jogada.to_param, jogada: new_attributes}
+        expect(response).to be_success
+        new_attributes[:tempo_minutos] = 2
+        new_attributes[:tempo_segundos] = 60
+        put :update, params: {id: jogada.to_param, jogada: new_attributes}
+        expect(response).to be_success
+      end
+
+      it "atualizar com titulo e id do jogo invalido" do
+        jogada = Jogada.create! valid_attributes   
+        new_attributes[:jogo_id] = "QEJHOASDHLHAEWQWEJD"
+        put :update, params: {id: jogada.to_param, jogada: new_attributes}
+        expect(response).to be_success
+      end
+
+      it "atualizar com username e id do usuario invalido" do 
+        jogada = Jogada.create! valid_attributes
+        new_attributes[:usuario_id] = "QEJHOASDHLHAEWQWEJD"
+        put :update, params: {id: jogada.to_param, jogada: new_attributes}
+        expect(response).to be_success
+      end
+
+
     end
   end
 
@@ -175,5 +254,21 @@ RSpec.describe JogadasController, type: :controller do
       expect(response).to redirect_to(jogadas_url)
     end
   end
+
+  describe "adicionar pelo jogo" do 
+    it "parametros validos" do
+       expect {
+          post :add_pelo_jogo, params: {jogada: valid_attributes_nomes}
+        }.to change(Jogada, :count).by(1)
+    end
+
+    it "parametros invalidos" do
+      expect {
+          post :add_pelo_jogo, params: {jogada: invalid_attributes}
+        }.to change(Jogada, :count).by(0)
+    end
+  end
+
+
 
 end

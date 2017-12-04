@@ -26,7 +26,7 @@ class TorneiosController < ApplicationController
   def create
     @torneio = Torneio.new(torneio_params)
     respond_to do |format|
-      if @torneio.save
+      if @torneio.salvar(torneio_params)
         format.html { redirect_to @torneio, notice: 'Torneio was successfully created.' }
         format.json { render :show, status: :created, location: @torneio }
       else
@@ -39,10 +39,7 @@ class TorneiosController < ApplicationController
   # PATCH/PUT /torneios/1
   # PATCH/PUT /torneios/1.json
   def update
-    jogo = Jogo.find_by(titulo: torneio_params[:jogo_id])
-    if jogo
-      torneio_params[:jogo_id] = jogo.id
-    end
+
     respond_to do |format|
       if @torneio.atualizar(torneio_params)
         format.html { redirect_to @torneio, notice: 'Torneio was successfully updated.' }
@@ -66,12 +63,12 @@ class TorneiosController < ApplicationController
 
   #GET /jogada_torneio/
 
-  def jogada
-    if(!@torneio)
-      @torneio = set_torneio
-    end
-    @jogada = JogadaTorneio.new
-  end
+#  def jogada
+   # if(!@torneio)
+   #   @torneio = set_torneio
+   # end
+  #  @jogada = JogadaTorneio.new
+ # end
 
   #POST /torneioAddJogada
   def add_jogada
