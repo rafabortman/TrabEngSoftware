@@ -38,7 +38,7 @@
           <img  class="img-thumbnail " src="data:image/jpg;base64,<%= jogada.usuario.imagem_perfil %>">
         </td>
         <td><a href = "/jogos/<%= jogada.jogo.id%>"><img src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a></td>
-        <td><a href = "/hackroms/<%= jogada.hackrom_id%>"><%= jogada.hackrom_id %>"></a></td>
+        <td><a href = "/hackroms/<%= jogada.hackrom_id%>"><%= jogada.hackrom_id %></a></td>
 
         <td><%= link_to 'Mostrar', jogada , :class => "btn btn-outline-primary" %></td>
         <td><%= link_to 'Editar', edit_jogada_path(jogada) , :class => "btn btn-outline-primary" %></td>
