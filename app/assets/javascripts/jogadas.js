@@ -26,4 +26,25 @@ $( document ).ready(function() {
         $('#btn_share_facebook').click(function(){
                 window.open('http://www.facebook.com/share.php?u=' + location.href);
         });
+
+        $(function(){
+                $('.starsContainer').rating(function(vote, event){
+                        var path = window.location.pathname.toString().split("/");
+                        var jogadaId = path[path.length-1];
+                        $.ajax({
+                                type: "POST",
+                                url: "/pontos",
+                                data: {
+                                        jogada_id:jogadaId,
+                                        nota:vote
+                                },
+                                dataType: "json",
+                                complete: function (response) {
+                                        location.reload();
+                                }
+                                
+                        });    
+                });
+        });
+
 });

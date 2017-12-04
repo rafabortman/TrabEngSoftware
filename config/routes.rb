@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :torneios
+  resources :pontos
   resources :hackroms
   get 'password_resets/new'
   get 'password_resets/edit'
@@ -26,6 +28,9 @@ Rails.application.routes.draw do
   delete '/logout' =>  'sessions#destroy'
   post '/comentarios' => 'comentarios#create'
   post '/comentarios' => 'comentarios#destroy'
+  get '/jogadaTorneio/:id' => 'torneios#jogada', as: 'jogada_torneio'
+  post 'torneioAddJogada' => 'torneios#add_jogada', as:'jogada_torneio_add'
+  post '/pontos' => 'pontos#create'
   resources :password_resets,     only: [:new, :create, :edit, :update]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

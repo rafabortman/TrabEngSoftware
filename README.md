@@ -1,7 +1,7 @@
 
 CodeClimate : <a href="https://codeclimate.com/github/trabEngSoftware/TrabEngSoftware"><img src="https://codeclimate.com/github/trabEngSoftware/TrabEngSoftware/badges/gpa.svg" /></a><br>
-Travis CI : <a href="https://travis-ci.org/trabEngSoftware/TrabEngSoftware"><img src="https://travis-ci.org/trabEngSoftware/TrabEngSoftware.svg?branch=interacao5" /></a><br>
-Coveralls : <a href='https://coveralls.io/github/trabEngSoftware/TrabEngSoftware?branch=interacao5'><img src='https://coveralls.io/repos/github/trabEngSoftware/TrabEngSoftware/badge.svg?branch=interacao5' alt='Coverage Status' /></a><br>
+Travis CI : <a href="https://travis-ci.org/trabEngSoftware/TrabEngSoftware"><img src="https://travis-ci.org/trabEngSoftware/TrabEngSoftware.svg?branch=interacao7" /></a><br>
+Coveralls : <a href='https://coveralls.io/github/trabEngSoftware/TrabEngSoftware?branch=interacao7'><img src='https://coveralls.io/repos/github/trabEngSoftware/TrabEngSoftware/badge.svg?branch=interacao7' alt='Coverage Status' /></a><br>
 
 
 

@@ -51,7 +51,8 @@ RSpec.describe JogosController, type: :controller do
       username:"johnsnow",
       senha:"kingofthenorth",
       nacionalidade:"kingofthenorth",
-      confirmar_senha:"kingofthenorth"
+      confirmar_senha:"kingofthenorth",
+      imagem_perfil:"asdsd"
     }
   }
 
@@ -233,7 +234,7 @@ RSpec.describe JogosController, type: :controller do
       it "returns a success response (i.e. to display the 'edit' template)" do
         jogo = Jogo.create! valid_attributes
         put :update, params: {id: jogo.to_param, jogo: invalid_attributes}, session: valid_session
-        expect(response).not_to be_success
+        expect(response).not_to redirect_to(jogo)
       end
     end
   end

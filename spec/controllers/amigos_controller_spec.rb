@@ -10,7 +10,8 @@ RSpec.describe AmigosController, type: :controller do
       username:"j1qqwesnow",
       senha:"kingofthenorth",
       nacionalidade:"kingofthenorth",
-      confirmar_senha:"kingofthenorth"
+      confirmar_senha:"kingofthenorth",
+      imagem_perfil:"asdsd"
     });
 
    Usuario.create({
@@ -19,7 +20,8 @@ RSpec.describe AmigosController, type: :controller do
       username:"g23dhnsnow",
       senha:"kingofthenorth",
       nacionalidade:"kingofthenorth",
-      confirmar_senha:"kingofthenorth"
+      confirmar_senha:"kingofthenorth",
+      imagem_perfil:"asdsd"
     });
 
   let(:valid_attributes) {

@@ -15,6 +15,17 @@ class JogadasController < ApplicationController
   def show
     idJogada = @jogada.id
     @comentarios = Comentario.where(["jogada_id = ?", idJogada])
+    @pontos =  Ponto.where(["jogada_id = ?", idJogada])
+    
+    @media = 0
+    if (@pontos!=nil && @pontos.length>0)
+      sum = 0
+      @pontos.each do |p|
+        sum = sum + p.nota
+      end
+      @media = sum/@pontos.length
+    end
+
   end
 
   # GET /jogadas/new
@@ -85,22 +96,6 @@ class JogadasController < ApplicationController
   #GET /ranking
   def mostrarRanking
     @jogadas = Jogada.group(:categoria).order('tempo_horas,tempo_minutos,tempo_segundos')
-  end
-
-
-  # POST /jogadas/addComment
-  def addComment
-    @comentario = Jogada.new(jogada_params)
-
-    respond_to do |format|
-      if @jogada.save
-        format.html { redirect_to @jogada, notice: 'Jogada was successfully created.' }
-        format.json { render :show, status: :created, location: @jogada }
-      else
-        format.html { render :new }
-        format.json { render json: @jogada.errors, status: :unprocessable_entity }
-      end
-    end
   end
   
   #GET /shared

@@ -19,7 +19,7 @@
         <a class="nav-link" href="<%=jogadas_path%>">Jogadas</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<%=usuarios_path%>">Usuarios</a>
+        <a class="nav-link" href="<%=usuarios_path%>">Usuários</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="<%=generos_path%>">Gêneros</a>
@@ -27,13 +27,19 @@
      <li class="nav-item active">
         <a class="nav-link" href="<%=contatoindex_path%>">Contato</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="<%=hackroms_path%>">Hackrom</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="<%=torneios_path%>">Torneios</a>
+      </li>
 
       <li class="nav-item active">
         <a class="nav-link" href="/buscar">Buscar Usuarios</a>
       </li>
     </ul>
     <% if logged_in? %>
-      <td><%= link_to 'Logout', logout_path, method: :delete %></td>
+      <td><%= link_to 'Logout', logout_path, method: :delete , :class => "btn btn-outline-primary"%></td>
     <% else %>
       <a href="/login" class="btn btn-primary" role="button">Login</a>
     <% end %>

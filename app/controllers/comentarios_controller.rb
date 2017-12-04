@@ -5,9 +5,7 @@ class ComentariosController < ApplicationController
     if @comentario.save
       render json:{status:true}
     else
-      puts "<<<<<<<<<ERRO>>>>>>>>>"
       err = @comentario.errors.full_messages
-      puts err
       render json:{status:false}
     end
   end

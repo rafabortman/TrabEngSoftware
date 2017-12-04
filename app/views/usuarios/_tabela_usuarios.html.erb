@@ -1,0 +1,40 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Imagem Perfil</th>
+      <th>Nome</th>
+      <th>Nacionalidade</th>
+      <th>Email</th>
+      <th>Username</th>
+      <th>Número de jogadas</th>
+      <th colspan=<%= (logged_in?)?"4":"3" %>>Links</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><img  class="img-thumbnail " src="data:image/jpg;base64,<%= usuario.imagem_perfil %>"></td>
+        <td><%= usuario.nome %></td>
+        <td><%= usuario.nacionalidade %></td>
+        <td><%= usuario.email %></td>
+        <td><%= usuario.username %></td>
+        <td><%= usuario.jogadas.count %></td>
+        <td><%= link_to 'Mostrar', usuario , :class => "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Editar', edit_usuario_path(usuario) , :class => "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Destruir', usuario, method: :delete, data: { confirm: 'Voce tem certeza?' } , :class => "btn btn-outline-primary" %></td>
+  <% if logged_in? %>
+  <td>
+  <% if current_user.id != usuario.id %>
+    <% if !current_user.amigos.include?(usuario)%>
+      <%= link_to 'seguir', amigos_path(amigo: {usuario_id: current_user.id, amigo_id: usuario.id}) , :class => "btn btn-outline-primary", method: :post %>
+    <% else %>
+      <%= link_to 'parar de seguir', amigos_path(amigo: {usuario_id: current_user.id, amigo_id: usuario.id}) , :class => "btn btn-outline-primary", method: :delete %>
+    <% end %>
+  <% end %>
+  </td>
+  <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

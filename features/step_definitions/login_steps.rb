@@ -12,5 +12,18 @@ Given("estou logado como {string}") do |nome|
 end
 
 Then("devo estar logado") do
-	expect(page).to have_link("Logout")
+  expect(page).to have_content ("Usuario logado com sucesso")
+end
+
+
+Given("eu tenho um usuario chamado{string}") do |username|
+  Usuario.create!(
+	  nome:username,
+	  email:username+"@gmail.com",
+	  username:username,
+	  senha:"senha",
+	  nacionalidade:"soubr",
+	  confirmar_senha:"senha",
+      imagem_perfil:"qpeioasd"
+	)
 end

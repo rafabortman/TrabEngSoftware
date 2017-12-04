@@ -12,13 +12,6 @@ Given("I have jogos titled {string}") do |string|
   end
 end
 
-When("I click the link {string}") do |clickableLink|
-  click_link (clickableLink)
-end
-
-When("I fill in {string} with {string}") do |fieldName, fieldValue|
-  fill_in fieldName, with: fieldValue
-end
 
 When("I click the button {string}") do |button|
   click_button (button)

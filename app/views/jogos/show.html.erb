@@ -25,49 +25,36 @@
 
 <%= link_to 'Editar', edit_jogo_path(@jogo) , :class => "btn btn-outline-primary"%>
 <%= link_to 'Voltar', jogos_path , :class => "btn btn-outline-primary"%>
+<%= link_to 'Add Jogada', jogoAddJogada_path(@jogo) , :class => "btn btn-outline-primary"%>
 
 <h1>Ranking dos Jogadores</h1>
-<% @jogo.jogadas.order("milissegundos asc").each do |jogada| %>       
-<div class="home_runs  col-sm-6 col-md-12" >
- <div class="home_run col-sm-6 col-md-12 " >
-                    <div class="d-flex flex-row-reverse">
-                    <div class="d-flex flex-column  p-2 w-100  " >
-                    <div class="home_run_title p-2  ">
-                        <a href = "<%= jogada_path(jogada.id) %>"><h4><%=  maxLength(jogada.jogo.titulo,40) %></h4></a>
-                    </div>
-                    <div class="home_run_description p-2 ">
-                    <ul class="home_run_description_list  ">
-                    <li class="home_rdl_user home_rdl_item">
-                        <span class="fa fa-user"/> <%= maxLength(jogada.usuario.username,15) %> 
-                    </li>
-                    <% @hora = (jogada.milissegundos).to_i / 3600000 
-                    
-                    %>
-                    <li class="home_rdl_time home_rdl_item">
-                        <span class="fa fa-bolt" /> <%= getTempoJogada(jogada.milissegundos) %>
-                    </li>
-                    <li class="home_rdl_categoria home_rdl_item">
-                        <span class="fa fa-cogs" style="color:#9498a1"></span> <%=jogada.categoria%>    
-                    </li>
-                    <li class="home_rdl_plataforma home_rdl_item">
-                        <span class="fa fa-gamepad"/> <%=jogada.plataforma%> 
-                    </li>    
-                    <li>
-                        <%=jogada.data%> 
-                    </li> 
-                    <li class="home_rdl_link home_rdl_item">
-                      <a href="<%= jogada.link %>"target="_blank"><span class="fa fa-youtube-play" style="color:red;"/></a>
-                    </li>
-                    </ul>
-                    </div>
-                    <div class="home_run_post p-2 ">
-                        <%= jogada.texto_post %> 
-                        </div>
-                        </div>
-                    <div class="home_run_image p-2 d-inline-block  ">
-                <a href = "/jogos/<%= jogada.jogo.id%>"><img  class="img-thumbnail " src="data:image/jpg;base64,<%= jogada.jogo.imagem %>"></a>
-             </div>
-            </div>
-           </div>                                                            
-        </div>
-<% end %>
+   
+<table class="table table-bordered">
+<thead>
+    <tr>
+      <th>Posição</th>
+      <th>Usuário</th>
+      <th>Tempo</th>
+      <th>Plataforma</th>
+      <th>Categoria</th>
+      <th>Link</th>
+    </tr>
+  </thead>  
+    <tbody>
+      <%cont = 1%>
+      <% @jogo.jogadas.order("milissegundos asc").each do |jogada| %> 
+        <tr>
+          <td><h2><%=cont%>º</h2></td>
+          <td><img  class="img-thumbnail " src="data:image/jpg;base64,<%= jogada.usuario.imagem_perfil %>" width=50>
+            <%= link_to maxLength(jogada.usuario.username,13), usuario_path(jogada.usuario) %>
+           </td>
+          <td><%= getTempoJogada(jogada.milissegundos) %></td>
+          <td><%= jogada.plataforma %></td>
+          <td><%= jogada.categoria %></td>
+          <td><a href = "<%= jogada.link%>">Link</a></td>
+        </tr>
+      <%cont = cont+1%>
+      <% end %>
+    </tbody>
+</table>
+

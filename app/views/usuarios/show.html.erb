@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @usuario.username %></h1>
 <p>
+  <td><img  class="img-thumbnail " src="data:image/jpg;base64,<%= @usuario.imagem_perfil %>"></td>
+</p>
+<p>
   <strong>Nome:</strong>
   <%= @usuario.nome %>
 </p>
@@ -15,10 +18,14 @@
   <%= @usuario.email %>
 </p>
 
-<p>
-  <strong>Senha:</strong>
-  <%= @usuario.senha %>
-</p>
+<% if logged_in? %>
+  <% if current_user.id == @usuario.id %>
+    <p>
+     <strong>Senha:</strong>
+     <%= @usuario.senha %>
+    </p>
+   <%end%>
+<%end%>
 
 <p>
   <strong>Número de jogadas:</strong>
@@ -35,7 +42,7 @@
   <% end %>
 <% end %>
 <%= link_to 'Editar', edit_usuario_path(@usuario)  , :class => "btn btn-outline-primary"%> 
-<%= link_to 'Voltar', usuarios_path , :class => "btn btn-outline-primary" %>
+<%= link_to 'Voltar', usuarios_path , :class => "btn btn-outline-primary"%>
 
 <p>
 

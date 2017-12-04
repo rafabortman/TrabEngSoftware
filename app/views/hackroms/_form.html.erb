@@ -16,9 +16,9 @@
     <%= form.text_field :nomeRom, id: :hackrom_nomeRom %>
   </div>
 
-  <div class="field">
+  <div class="collection_select">
     <%= form.label :jogo_id %>
-    <%= form.text_field :jogo_id, id: :hackrom_jogo_id %>
+    <%= form.collection_select :jogo_id, Jogo.order(:titulo),:id,:titulo, include_blank: false %>
   </div>
 
   <div class="actions">

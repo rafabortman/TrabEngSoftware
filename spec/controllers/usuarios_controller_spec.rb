@@ -11,7 +11,8 @@ RSpec.describe UsuariosController, type: :controller do
       username:"brhue",
       senha:"olar123",
       nacionalidade:"soubr",
-      confirmar_senha:"olar123"
+      confirmar_senha:"olar123",
+      imagem_perfil:"dsasd"
     }
   }
 
@@ -68,7 +69,7 @@ RSpec.describe UsuariosController, type: :controller do
       post :create, params: {usuario:{nome:"Jonas", email:"jonasdeveloper@gmail.com", username:"johndev", senha:"fullstack", confirmar_senha:"fullstack",nacionalidade:"Brasileiro"}, session: valid_session}
       post :mostrarResultados, params:{username:"john"},:format => :json
       result = JSON.parse(response.body)
-      result.size.should eq(2)
+      result.size.should eq(1)
       response.should be_ok
     end
   end
@@ -86,7 +87,15 @@ RSpec.describe UsuariosController, type: :controller do
         post :create, params: {usuario: valid_attributes}, session: valid_session
         expect(response).to redirect_to(Usuario.last)
       end
+
+      it "sem enviar imagem de perfil" do 
+        valid_attributes[:imagem_perfil] = nil
+        post :create, params: {usuario: valid_attributes}, session: valid_session
+        expect(Usuario.find_by(username:valid_attributes[:username]).imagem_perfil).not_to eq(nil)
+      end
+
     end
+
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
@@ -99,14 +108,21 @@ RSpec.describe UsuariosController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          nome:"NomeNovo",
+          email:"olar123@gmail.com",
+          username:"brhue",
+          senha:"olar123",
+          nacionalidade:"soubr",
+          confirmar_senha:"olar123"
+        }
       }
 
       it "updates the requested usuario" do
         usuario = Usuario.create! valid_attributes
         put :update, params: {id: usuario.to_param, usuario: new_attributes}, session: valid_session
         usuario.reload
-        skip("Add assertions for updated state")
+        expect(Usuario.find_by(email:"olar123@gmail.com").nome).to eq("NomeNovo")
       end
 
       it "redirects to the usuario" do

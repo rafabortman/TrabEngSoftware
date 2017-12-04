@@ -5,6 +5,8 @@ class Jogo < ApplicationRecord
 	has_many :jogadas, dependent: :destroy
 	has_many :jogos_generos, dependent: :destroy
 	has_many :generos, through: :jogos_generos
+	has_many :hackroms,dependent: :destroy
+	has_many :torneios,dependent: :destroy
 	validates :titulo, presence: {message: "não pode estar vazio"}
 	validates :titulo, length: {maximum: 150, message: "não pode ultrapassar 150 caracteres"}
 	validates :titulo, uniqueness: {message: "já está sendo utilizado"}
@@ -12,12 +14,13 @@ class Jogo < ApplicationRecord
 	   ValidarImagem.new(jogo).validar
 	end
 
-	def salvar (generos)
-	   salvou = self.save
-	   if salvou == false
-	   	return false
-	   end
-	   if(generos)
+	def salvar (generos,imageUpload)
+		tratarImagem(imageUpload)
+	   	salvou = self.save
+	   	if salvou == false
+	   		return false
+	   	end
+	   	if(generos)
 	  	 generos.each do |genero|
 	    	    self.generos << Genero.find(genero)
 	   	 end
@@ -25,7 +28,8 @@ class Jogo < ApplicationRecord
 	   return true
 	end
 	
-	def atualizar (paramJogo, generos)
+	def atualizar (paramJogo, generos,imageUpload)
+	  tratarImagem(imageUpload)
 	  atualizou = self.update(paramJogo)
 	  if(atualizou == false)
 		return false
@@ -40,6 +44,15 @@ class Jogo < ApplicationRecord
 	  end
 	  return true
 	end
+
+	def tratarImagem(imageUpload)
+		if imageUpload
+      	   imageUploadPath = imageUpload.tempfile
+      	   self.imagem= Base64.encode64(File.open(imageUploadPath, "rb").read)
+		else self.imagem = nil
+		end
+	end
+
 end
 
 class ValidarImagem
@@ -67,7 +80,6 @@ class ValidarImagem
 	   	rescue
 		
 		  @jogo.errors[:imagem] <<"-> não foi possível carregar"
-		  puts @jogo.errors	
 	   	#return
 	   end
 	end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107231115) do
+ActiveRecord::Schema.define(version: 20171203212454) do
 
   create_table "amigos", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20171107231115) do
     t.index ["jogo_id"], name: "index_hackroms_on_jogo_id"
   end
 
+  create_table "jogada_torneios", force: :cascade do |t|
+    t.integer "usuario_id"
+    t.integer "torneio_id"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "jogadas", force: :cascade do |t|
     t.string "texto_post"
     t.string "plataforma"
@@ -87,6 +95,24 @@ ActiveRecord::Schema.define(version: 20171107231115) do
     t.index ["jogo_id"], name: "index_jogos_generos_on_jogo_id"
   end
 
+  create_table "pontos", force: :cascade do |t|
+    t.integer "jogada_id"
+    t.integer "nota"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jogada_id"], name: "index_pontos_on_jogada_id"
+  end
+
+  create_table "torneios", force: :cascade do |t|
+    t.string "titulo"
+    t.datetime "data_inicio"
+    t.datetime "data_fim"
+    t.string "regras"
+    t.integer "jogo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string "nome"
     t.string "email"
@@ -96,6 +122,8 @@ ActiveRecord::Schema.define(version: 20171107231115) do
     t.datetime "updated_at", null: false
     t.string "nacionalidade"
     t.string "confirmar_senha"
+    t.string "imagem_perfil"
+    t.index ["username"], name: "index_usuarios_on_username", unique: true
   end
 
 end
