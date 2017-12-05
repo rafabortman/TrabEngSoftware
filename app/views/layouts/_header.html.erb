@@ -40,9 +40,13 @@
     </ul>
     <% if logged_in? %>
       <td><%= link_to 'Logout', logout_path, method: :delete , :class => "btn btn-outline-primary"%></td>
+      <%= content_tag(:div,"",:class => "loggedId" , :id=>current_user.id) %>
     <% else %>
       <a href="/login" class="btn btn-primary" role="button">Login</a>
     <% end %>
+
+    
+
 
     
 

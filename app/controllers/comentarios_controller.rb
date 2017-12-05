@@ -10,10 +10,9 @@ class ComentariosController < ApplicationController
     end
   end
 
-  # DELETE /comentarios/1
-  # DELETE /comentarios/1.json
+  # DELETE /comentarios
   def destroy
-    Comentario.find(params[:id]).destroy
+    Comentario.find_by(id:params[:id]).delete
     render json:{status:true}
   end
 end

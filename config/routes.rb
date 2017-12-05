@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   post   '/login' => 'sessions#create'
   delete '/logout' =>  'sessions#destroy'
   post '/comentarios' => 'comentarios#create'
-  post '/comentarios' => 'comentarios#destroy'
+  post '/deleteComentarios' => 'comentarios#destroy'
   get '/jogadaTorneio/:id' => 'torneios#jogada', as: 'jogada_torneio'
   post 'torneioAddJogada' => 'torneios#add_jogada', as:'jogada_torneio_add'
   post '/pontos' => 'pontos#create'

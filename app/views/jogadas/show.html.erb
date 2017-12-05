@@ -65,7 +65,7 @@
 
 <div id="comments_section">
   <% @comentarios.each do |p| %>
-    <strong><%= p.comentario %></strong>
+    <strong><%= p.comentario %><%= content_tag(:button,"X",:class => "deleteBtn" , :id=>p.id) %>
     <br><strong>--------------------------------</strong><br>  
   <% end %>
 </div>
@@ -82,4 +82,6 @@
     Compartilhe esta jogada no facebook!
     <a id="btn_share_facebook" href="/shared">Compartilhar</button>
 </p>
+
+<%= content_tag(:div,"",:class => "stamp" , :id=>@jogada.usuario_id) %>
 
